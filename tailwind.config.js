@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Color Pallete - https://colorhunt.co/palette/222831393e4600adb5eeeeee
+      colors: {
+        'primary': '#884A39',
+        'secondary': '#C38154',
+        'tertiary': '#FFC26F',
+        'light': '#F9E0BB',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
