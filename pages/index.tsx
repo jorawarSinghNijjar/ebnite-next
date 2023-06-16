@@ -8,58 +8,49 @@ import SectionSubHeading from "@/components/SectionSubHeading/SectionSubHeading"
 import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import OutlinedButton from "@/components/Buttons/OutlinedButton";
 import Card2 from "@/components/Card/Card2";
+import Card3 from "@/components/Card/Card3";
+import { servicesCardList } from "@/data/servicesCard";
+import { talkToUsCardList } from "@/data/talkToUsCard";
+import { clientsLogoList } from "@/data/clientsLogo";
+import { newsList } from "@/data/news";
+import { useEffect } from "react";
+
+function resizeGridItem(item: any) {
+  let grid = document.querySelector("#masonry-grid")!;
+  const rowHeight = parseInt(
+    window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+  );
+  console.log("row Height", rowHeight);
+  const rowGap = parseInt(
+    window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+  );
+  console.log("row gap", rowGap);
+  const rowSpan = Math.ceil(
+    (item.querySelector(".card-content").getBoundingClientRect().height +
+      rowGap) /
+      (rowHeight + rowGap)
+  );
+  console.log("row span", rowSpan);
+  item.style.gridRowEnd = "span " + rowSpan;
+}
+
+function resizeAllGridItems() {
+  const allItems = document.getElementsByClassName("masonry-grid-item");
+  for (let x = 0; x < allItems.length; x++) {
+    resizeGridItem(allItems[x]);
+  }
+}
 
 export default function Home() {
-  const servicesCardList = [
-    {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
-      title: "Product Scope",
-      description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
-    },
-    {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
-      title: "Product Scope",
-      description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
-    },
-    {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
-      title: "Product Scope",
-      description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
-    },
-    {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
-      title: "Product Scope",
-      description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
-    },
-  ];
+  useEffect(() => {
+    window.addEventListener("load", resizeAllGridItems);
+    window.addEventListener("resize", resizeAllGridItems);
 
-  const talkToUsCardList = [
-    {
-      imageSrc: "https://picsum.photos/seed/picsum/340/300",
-      title: "Building MVP?",
-      description:
-        "Looking to build fast and reduce your time to market? Drop me a message. Together we can find the core set of features to gather user information and iteratively create the best possible product.",
-      buttonText: "Email Karl",
-    },
-    {
-      imageSrc: "https://picsum.photos/seed/picsum/340/300",
-      title: "A Simple Conversation?",
-      description:
-        "Looking to build fast and reduce your time to market? Drop me a message. Together we can find the core set of features to gather user information and iteratively create the best possible product.",
-      buttonText: "Email Karl",
-    },
-    {
-      imageSrc: "https://picsum.photos/seed/picsum/340/300",
-      title: "Non IT?",
-      description:
-        "Looking to build fast and reduce your time to market? Drop me a message. Together we can find the core set of features to gather user information and iteratively create the best possible product.",
-      buttonText: "Email Karl",
-    },
-  ];
+    return () => {
+      window.removeEventListener("resize", resizeAllGridItems);
+      window.removeEventListener("load", resizeAllGridItems);
+    };
+  }, []);
 
   return (
     <>
@@ -181,8 +172,54 @@ export default function Home() {
                 />
               )
             )}
-        
           </div>
+        </section>
+
+        {/* ---------------------------------------------Clients ----------------------------------*/}
+        <section className="relative pt-32 px-20">
+          <SectionHeading text="Clients" />
+          <SectionSubHeading text="Great Companies make us grow every day." />
+
+          <div className="max-w-full flex flex-row justify-between space-y-10 flex-wrap">
+            {clientsLogoList.map(({ imageSrc, title }, index) => (
+              <Image
+                key={index}
+                src={imageSrc}
+                alt={title}
+                width={250}
+                height={200}
+              ></Image>
+            ))}
+          </div>
+        </section>
+
+        {/* ---------------------------------------------News ----------------------------------*/}
+        <section className="relative pt-32 px-20">
+          <SectionHeading text="News" />
+          <SectionSubHeading text="Read the latest stories from our world." />
+
+          <div
+            className="grid grid-cols-[repeat(auto-fill,_minmax(320px,1fr))] gap-3 mb-16"
+            id="masonry-grid"
+          >
+            {newsList.map(({ description, title, href }, index) => (
+              <Card3
+                key={index}
+                title={title}
+                description={description}
+                href={href}
+              />
+            ))}
+          </div>
+
+          <div className="flex justify-center">
+            <OutlinedButton>See All News</OutlinedButton>
+          </div>
+        </section>
+
+        {/* ---------------------------------------------Contact Us ----------------------------------*/}
+        <section className="relative pt-32 px-20">
+          <SectionHeading text="Talk to us and get your project moving!" />
         </section>
       </main>
     </>
