@@ -14,6 +14,14 @@ import { talkToUsCardList } from "@/data/talkToUsCard";
 import { clientsLogoList } from "@/data/clientsLogo";
 import { newsList } from "@/data/news";
 import { useEffect } from "react";
+import YoutubeVideo from "@/components/YoutubeVideo/YoutubeVideo";
+
+import { AiFillPlayCircle } from "react-icons/ai";
+import {BsArrowReturnRight} from "react-icons/bs";
+import TextInput from "@/components/Input/TextInput";
+import TextArea from "@/components/Input/TextArea";
+import SelectInput from "@/components/Input/Select";
+import FilledButton from "@/components/Buttons/FilledButton";
 
 function resizeGridItem(item: any) {
   let grid = document.querySelector("#masonry-grid")!;
@@ -220,6 +228,47 @@ export default function Home() {
         {/* ---------------------------------------------Contact Us ----------------------------------*/}
         <section className="relative pt-32 px-20">
           <SectionHeading text="Talk to us and get your project moving!" />
+
+          <div className="flex justify-between mt-16">
+            <div className="w-1/2 font-medium text-black/[0.6] text-base leading-relaxed mb-8 ">
+              <p className="text-sm mb-8">
+                This is exactly what will happen after you submit your form:
+              </p>
+              <div className="relative overflow-hidden w-[500px] h-[300px] rounded-xl drop-shadow-2xl group mb-8">
+                <Image
+                  src="https://picsum.photos/seed/picsum/500/300"
+                  alt="testimonial"
+                  width={500}
+                  height={300}
+                  className="absolute transition ease-in-out duration-700 group-hover:scale-125"
+                ></Image>
+                <div className="absolute bg-tertiary w-full h-full opacity-25 cursor-pointer"></div>
+                <AiFillPlayCircle className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl text-primary cursor-pointer" />
+              </div> 
+
+              <ul>
+                <li className="mb-4 flex"><BsArrowReturnRight className="text-2xl mr-4"/>Qui laborum ex deserunt duis dolore</li>
+                <li className="mb-4 flex"><BsArrowReturnRight className="text-2xl mr-4"/>Qui laborum ex deserunt duis dolore</li>
+                <li className="mb-4 flex"><BsArrowReturnRight className="text-2xl mr-4"/>Qui laborum ex deserunt duis dolore</li>
+              </ul>
+            </div>
+            <div className="w-1/2 pl-8">
+            <form action="" className="w-full">
+              <TextInput type="text" placeholder="Name"/>
+              <TextInput type="text" placeholder="Email"/>
+              <TextArea placeholder="Project Description"/>
+              <SelectInput>
+                <option value="" disabled selected>Budget Size</option>
+                <option value="">Less than 5k</option>
+                <option value="">5k - 10k</option>
+                <option value="">10k - 20k</option>
+                <option value="">20k +</option>
+              </SelectInput>
+              <TextInput type="text" placeholder="How did you hear about us?"/>
+              <FilledButton size="medium">Book a call</FilledButton>
+            </form>
+            </div>
+          </div>
         </section>
       </main>
     </>

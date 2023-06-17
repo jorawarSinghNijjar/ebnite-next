@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from './navbar.module.css'
+import FilledButton from "../Buttons/FilledButton";
 
 function Navbar() {
   const navLinkArr = [
@@ -28,9 +29,9 @@ function Navbar() {
             </div>
           ))}
           <li className="mx-6">
-            <button className="bg-secondary px-4 py-2 rounded-3xl hover:scale-x-105 transition">
+            <FilledButton size="small">
               <Link href="/talk-to-us">Book a call</Link>
-            </button>
+            </FilledButton>
           </li>
         </ul>
       </div>

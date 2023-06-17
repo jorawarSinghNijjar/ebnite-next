@@ -13,6 +13,7 @@ module.exports = {
         'secondary': '#C38154',
         'tertiary': '#FFC26F',
         'light': '#F9E0BB',
+        'lighter': '#f8f1ec',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
