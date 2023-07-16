@@ -1,44 +1,45 @@
 import Card from "@/components/Card/Card";
 import Image from "next/image";
-import Link from "next/link";
 
-import styles from "./index.module.css";
-import SectionHeading from "@/components/SectionHeading/SectionHeading";
-import SectionSubHeading from "@/components/SectionSubHeading/SectionSubHeading";
-import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import OutlinedButton from "@/components/Buttons/OutlinedButton";
 import Card2 from "@/components/Card/Card2";
 import Card3 from "@/components/Card/Card3";
-import { servicesCardList } from "@/data/servicesCard";
-import { talkToUsCardList } from "@/data/talkToUsCard";
+import SectionHeading from "@/components/SectionHeading/SectionHeading";
+import SectionSubHeading from "@/components/SectionSubHeading/SectionSubHeading";
+import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { clientsLogoList } from "@/data/clientsLogo";
 import { newsList } from "@/data/news";
-import { useEffect } from "react";
-import YoutubeVideo from "@/components/YoutubeVideo/YoutubeVideo";
+import { servicesCardList } from "@/data/servicesCard";
+import { talkToUsCardList } from "@/data/talkToUsCard";
+import { ReactElement, useEffect } from "react";
+
+import FilledButton from "@/components/Buttons/FilledButton";
+import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
+import SelectInput from "@/components/Input/Select";
+import TextArea from "@/components/Input/TextArea";
+import TextInput from "@/components/Input/TextInput";
+import Footer from "@/components/Layout/Footer";
+import NavbarHome from "@/components/Layout/NavbarHome";
 
 import { AiFillPlayCircle } from "react-icons/ai";
-import {BsArrowReturnRight} from "react-icons/bs";
-import TextInput from "@/components/Input/TextInput";
-import TextArea from "@/components/Input/TextArea";
-import SelectInput from "@/components/Input/Select";
-import FilledButton from "@/components/Buttons/FilledButton";
+import { BsArrowReturnRight } from "react-icons/bs";
+import { NextPageWithLayout } from "./_app";
 
 function resizeGridItem(item: any) {
   let grid = document.querySelector("#masonry-grid")!;
   const rowHeight = parseInt(
     window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
   );
-  console.log("row Height", rowHeight);
+  // console.log("row Height", rowHeight);
   const rowGap = parseInt(
     window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
   );
-  console.log("row gap", rowGap);
+  // console.log("row gap", rowGap);
   const rowSpan = Math.ceil(
     (item.querySelector(".card-content").getBoundingClientRect().height +
       rowGap) /
       (rowHeight + rowGap)
   );
-  console.log("row span", rowSpan);
   item.style.gridRowEnd = "span " + rowSpan;
 }
 
@@ -49,7 +50,7 @@ function resizeAllGridItems() {
   }
 }
 
-export default function Home() {
+const Home: NextPageWithLayout = () => {
   useEffect(() => {
     window.addEventListener("load", resizeAllGridItems);
     window.addEventListener("resize", resizeAllGridItems);
@@ -84,15 +85,18 @@ export default function Home() {
           <h1 className="text-slate-100 text-7xl w-2/3 mb-10">
             Custom Product & Software Development Focused On Your Success
           </h1>
-          <button className="bg-secondary text-slate-100 px-6 py-3 rounded-3xl">
+          <FilledButton
+            size="medium"
+            className="bg-secondary text-slate-100 uppercase"
+          >
             Book a call
-          </button>
+          </FilledButton>
         </section>
 
         {/* ---------------------------------------------Services ----------------------------------*/}
 
         <section style={{ marginTop: "100vh" }}>
-          <SectionHeading text="Services" />
+          <SectionHeading>Services</SectionHeading>
 
           <SectionSubHeading
             text="We can help you bring your product to life - whether it&#39;s a
@@ -151,7 +155,7 @@ export default function Home() {
 
         {/* ---------------------------------------------Our Work ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <SectionHeading text="Our Work" />
+          <SectionHeading>Our Work</SectionHeading>
           <SectionSubHeading text="We are proud to work with truly innovative clients. Here are just a few of the companies we’ve had the privilege to work with." />
 
           <TwoColGrid
@@ -185,7 +189,7 @@ export default function Home() {
 
         {/* ---------------------------------------------Clients ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <SectionHeading text="Clients" />
+          <SectionHeading>Clients</SectionHeading>
           <SectionSubHeading text="Great Companies make us grow every day." />
 
           <div className="max-w-full flex flex-row justify-between space-y-10 flex-wrap">
@@ -203,7 +207,7 @@ export default function Home() {
 
         {/* ---------------------------------------------News ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <SectionHeading text="News" />
+          <SectionHeading>News</SectionHeading>
           <SectionSubHeading text="Read the latest stories from our world." />
 
           <div
@@ -226,8 +230,10 @@ export default function Home() {
         </section>
 
         {/* ---------------------------------------------Contact Us ----------------------------------*/}
-        <section className="relative pt-32 px-20">
-          <SectionHeading text="Talk to us and get your project moving!" />
+        <section className="relative py-32 px-20">
+          <SectionHeading>
+            Talk to us and get your project moving!
+          </SectionHeading>
 
           <div className="flex justify-between mt-16">
             <div className="w-1/2 font-medium text-black/[0.6] text-base leading-relaxed mb-8 ">
@@ -244,33 +250,67 @@ export default function Home() {
                 ></Image>
                 <div className="absolute bg-tertiary w-full h-full opacity-25 cursor-pointer"></div>
                 <AiFillPlayCircle className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl text-primary cursor-pointer" />
-              </div> 
+              </div>
 
               <ul>
-                <li className="mb-4 flex"><BsArrowReturnRight className="text-2xl mr-4"/>Qui laborum ex deserunt duis dolore</li>
-                <li className="mb-4 flex"><BsArrowReturnRight className="text-2xl mr-4"/>Qui laborum ex deserunt duis dolore</li>
-                <li className="mb-4 flex"><BsArrowReturnRight className="text-2xl mr-4"/>Qui laborum ex deserunt duis dolore</li>
+                <li className="mb-4 flex">
+                  <BsArrowReturnRight className="text-2xl mr-4" />
+                  Qui laborum ex deserunt duis dolore
+                </li>
+                <li className="mb-4 flex">
+                  <BsArrowReturnRight className="text-2xl mr-4" />
+                  Qui laborum ex deserunt duis dolore
+                </li>
+                <li className="mb-4 flex">
+                  <BsArrowReturnRight className="text-2xl mr-4" />
+                  Qui laborum ex deserunt duis dolore
+                </li>
               </ul>
             </div>
             <div className="w-1/2 pl-8">
-            <form action="" className="w-full">
-              <TextInput type="text" placeholder="Name"/>
-              <TextInput type="text" placeholder="Email"/>
-              <TextArea placeholder="Project Description"/>
-              <SelectInput>
-                <option value="" disabled selected>Budget Size</option>
-                <option value="">Less than 5k</option>
-                <option value="">5k - 10k</option>
-                <option value="">10k - 20k</option>
-                <option value="">20k +</option>
-              </SelectInput>
-              <TextInput type="text" placeholder="How did you hear about us?"/>
-              <FilledButton size="medium">Book a call</FilledButton>
-            </form>
+              <form action="" className="w-full">
+                <TextInput type="text" placeholder="Name" />
+                <TextInput type="text" placeholder="Email" />
+                <TextArea placeholder="Project Description" />
+                <SelectInput name="budget-size">
+                  <option value="" disabled defaultValue={1}>
+                    Budget Size
+                  </option>
+                  <option value="lt-5k">Less than 5k</option>
+                  <option value="5k-10k">5k - 10k</option>
+                  <option value="10k-20k">10k - 20k</option>
+                  <option value="20k+">20k +</option>
+                </SelectInput>
+                <TextInput
+                  type="text"
+                  placeholder="How did you hear about us?"
+                />
+                <FilledButton
+                  size="medium"
+                  className="bg-secondary text-slate-100 uppercase"
+                >
+                  Book a call
+                </FilledButton>
+              </form>
             </div>
           </div>
         </section>
+        <ChatbotV1 />
       </main>
     </>
   );
-}
+};
+
+export default Home;
+
+Home.getLayout = (page: ReactElement) => {
+  return (
+    <>
+      <div className="relative">
+        <NavbarHome />
+      </div>
+      <main>{page}</main>
+      <Footer />
+    </>
+  );
+};

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import FilledButton from "../Buttons/FilledButton";
 
 const navLinkArr = [
@@ -11,11 +12,34 @@ const navLinkArr = [
   { name: "Blog", href: "/blog" },
 ];
 
-const Navbar = () => {
+const NavbarHome = () => {
+  const [sticky, setSticky] = useState(false);
+
+  const changeNavbarColor = () => {
+    console.log("sticky", sticky);
+
+    if (window.scrollY > window.screen.height - 84) {
+      setSticky?.(true);
+    } else {
+      setSticky?.(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavbarColor);
+
+    return () => {
+      window.removeEventListener("scroll", changeNavbarColor);
+    };
+  }, []);
 
   return (
     <nav
-      className={`fixed top-0 drop-shadow-lg bg-white text-primary z-10 w-full py-5 px-20 flex flex-row justify-between`}
+      className={`${
+        sticky
+          ? "fixed top-0 drop-shadow-lg bg-white text-primary"
+          : "bg-transparent text-slate-200"
+      } z-10 w-full py-5 px-20 flex flex-row justify-between`}
     >
       <div className="float-left">
         <Link href="/">
@@ -45,4 +69,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarHome;

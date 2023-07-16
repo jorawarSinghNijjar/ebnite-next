@@ -11,7 +11,10 @@ module.exports = {
       colors: {
         'primary': '#884A39',
         'secondary': '#C38154',
+        'chatbot': '#402E32',
         'tertiary': '#FFC26F',
+        'dark': '#33261E',
+        'darker': '#211912',
         'light': '#F9E0BB',
         'lighter': '#f8f1ec',
       },
@@ -20,6 +23,22 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      // animation:{
+      //   ''
+      // },
+      keyframes: {
+        grow: {
+          '0%': { width: '0%', height: '0%' },
+          '100%': { width: '100%', height: '100%' },
+        }
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      }
+
     },
   },
   plugins: [],

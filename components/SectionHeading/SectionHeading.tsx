@@ -1,13 +1,13 @@
 
 interface SectionHeadingProps{
-    text: string
+    children: React.ReactNode
 }
-function SectionHeading({text}:SectionHeadingProps) {
+const SectionHeading = ({children}:SectionHeadingProps) => {
     return (
         <h2
         className="text-slate-950 text-6xl text-center font-semibold mb-8"
       >
-       {text}
+       {children}
       </h2>
     );
 }
