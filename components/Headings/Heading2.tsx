@@ -1,8 +1,8 @@
 
-interface SectionHeadingProps{
+interface Heading2Props{
     children: React.ReactNode
 }
-const SectionHeading = ({children}:SectionHeadingProps) => {
+const Heading2 = ({children}:Heading2Props) => {
     return (
         <h2
         className="text-slate-950 text-6xl text-center font-semibold mb-8"
@@ -12,4 +12,4 @@ const SectionHeading = ({children}:SectionHeadingProps) => {
     );
 }
 
-export default SectionHeading;
+export default Heading2;

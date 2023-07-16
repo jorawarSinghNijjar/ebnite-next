@@ -4,7 +4,7 @@ import Image from "next/image";
 import OutlinedButton from "@/components/Buttons/OutlinedButton";
 import Card2 from "@/components/Card/Card2";
 import Card3 from "@/components/Card/Card3";
-import SectionHeading from "@/components/SectionHeading/SectionHeading";
+import Heading2 from "@/components/Headings/Heading2";
 import SectionSubHeading from "@/components/SectionSubHeading/SectionSubHeading";
 import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { clientsLogoList } from "@/data/clientsLogo";
@@ -96,7 +96,7 @@ const Home: NextPageWithLayout = () => {
         {/* ---------------------------------------------Services ----------------------------------*/}
 
         <section style={{ marginTop: "100vh" }}>
-          <SectionHeading>Services</SectionHeading>
+          <Heading2>Services</Heading2>
 
           <SectionSubHeading
             text="We can help you bring your product to life - whether it&#39;s a
@@ -155,7 +155,7 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------Our Work ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <SectionHeading>Our Work</SectionHeading>
+          <Heading2>Our Work</Heading2>
           <SectionSubHeading text="We are proud to work with truly innovative clients. Here are just a few of the companies we’ve had the privilege to work with." />
 
           <TwoColGrid
@@ -189,7 +189,7 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------Clients ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <SectionHeading>Clients</SectionHeading>
+          <Heading2>Clients</Heading2>
           <SectionSubHeading text="Great Companies make us grow every day." />
 
           <div className="max-w-full flex flex-row justify-between space-y-10 flex-wrap">
@@ -207,7 +207,7 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------News ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <SectionHeading>News</SectionHeading>
+          <Heading2>News</Heading2>
           <SectionSubHeading text="Read the latest stories from our world." />
 
           <div
@@ -231,9 +231,9 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------Contact Us ----------------------------------*/}
         <section className="relative py-32 px-20">
-          <SectionHeading>
+          <Heading2>
             Talk to us and get your project moving!
-          </SectionHeading>
+          </Heading2>
 
           <div className="flex justify-between mt-16">
             <div className="w-1/2 font-medium text-black/[0.6] text-base leading-relaxed mb-8 ">

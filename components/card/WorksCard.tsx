@@ -21,7 +21,7 @@ function WorksCard({
   height
 }: WorksCardProps) {
   return (
-    <div className="relative h-full group">
+    <div className="relative h-[530px] group">
       <div className="flex flex-col justify-between pl-12 py-16 h-full opacity-0 scale-105 transition-all transition-300 group-hover:opacity-100 group-hover:backdrop-blur-2xl group-hover:scale-100">
         <div className="flex flex-col gap-4">
           <OutlinedButton>Platform</OutlinedButton>
