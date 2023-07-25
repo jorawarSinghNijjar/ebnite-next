@@ -15,7 +15,7 @@ import { ReactElement, useEffect } from "react";
 
 import FilledButton from "@/components/Buttons/FilledButton";
 import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
-import SelectInput from "@/components/Input/Select";
+import SelectInput from "@/components/Input/SelectInput";
 import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
 import Footer from "@/components/Layout/Footer";
@@ -285,10 +285,10 @@ const Home: NextPageWithLayout = () => {
             </div>
             <div className="w-1/2 pl-8">
               <form action="" className="w-full">
-                <TextInput type="text" placeholder="Name" />
-                <TextInput type="text" placeholder="Email" />
-                <TextArea placeholder="Project Description" />
-                <SelectInput name="budget-size">
+                <TextInput type="text" placeholder="Name" className="mb-8" />
+                <TextInput type="text" placeholder="Email" className="mb-8" />
+                <TextArea placeholder="Project Description" className="mb-8" />
+                <SelectInput name="budget-size" className="mb-8">
                   <option value="" disabled defaultValue={1}>
                     Budget Size
                   </option>
@@ -300,6 +300,7 @@ const Home: NextPageWithLayout = () => {
                 <TextInput
                   type="text"
                   placeholder="How did you hear about us?"
+                  className="mb-8"
                 />
                 <FilledButton
                   size="medium"

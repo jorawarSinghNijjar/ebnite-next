@@ -5,7 +5,7 @@ interface Heading1Props{
 const Heading1 = ({children}:Heading1Props) => {
     return (
         <h1
-        className="text-slate-950 text-4xl lg:text-7xl font-semibold mb-8"
+        className="text-4xl lg:text-7xl font-semibold mb-8"
       >
        {children}
       </h1>
