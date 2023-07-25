@@ -1,13 +1,13 @@
+import FilledButton from "@/components/Buttons/FilledButton";
 import WorksCard from "@/components/Card/WorksCard";
 import Chip from "@/components/Chip/Chip";
+import Heading2 from "@/components/Headings/Heading2";
+import Heading3 from "@/components/Headings/Heading3";
 import Footer from "@/components/Layout/Footer";
 import Navbar from "@/components/Layout/Navbar";
-import Heading2 from "@/components/Headings/Heading2";
+import SubHeading1 from "@/components/SubHeading/SubHeading1";
 import { ReactElement, useState } from "react";
 import { NextPageWithLayout } from "../_app";
-import SectionSubHeading from "@/components/SectionSubHeading/SectionSubHeading";
-import Heading3 from "@/components/Headings/Heading3";
-import FilledButton from "@/components/Buttons/FilledButton";
 
 const chips = [
   { id: "1", label: "All", selected: true },
@@ -31,8 +31,13 @@ const Work: NextPageWithLayout = () => {
   return (
     <>
       <section className="px-20 mb-16">
-        <Heading2>Explore Our Work</Heading2>
-        <SectionSubHeading text="Aliquip excepteur proident ullamco ex esse ad in culpa minim Lorem ipsum." />
+        <div className="w-3/4 mx-auto">
+          <Heading2>Explore Our Work</Heading2>
+          <SubHeading1>
+            Aliquip excepteur proident ullamco ex esse ad in culpa minim Lorem
+            ipsum.
+          </SubHeading1>
+        </div>
         <div className="flex gap-5">
           {chipGroup.map(({ id, label, selected }, index) => (
             <Chip

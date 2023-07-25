@@ -39,7 +39,7 @@ const NavbarHome = () => {
         sticky
           ? "fixed top-0 drop-shadow-lg bg-white text-primary"
           : "bg-transparent text-slate-200"
-      } z-10 w-full py-5 px-20 flex flex-row justify-between`}
+      } z-10 w-full py-3 px-20 flex flex-row justify-between`}
     >
       <div className="float-left">
         <Link href="/">

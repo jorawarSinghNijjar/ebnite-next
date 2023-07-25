@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 drop-shadow-lg bg-white text-primary z-10 w-full py-5 px-20 flex flex-row justify-between`}
+      className={`fixed top-0 drop-shadow-lg bg-white text-primary z-10 w-full py-3 px-20 flex flex-row justify-between`}
     >
       <div className="float-left">
         <Link href="/">

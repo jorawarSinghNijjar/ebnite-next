@@ -5,7 +5,7 @@ import OutlinedButton from "@/components/Buttons/OutlinedButton";
 import Card2 from "@/components/Card/Card2";
 import Card3 from "@/components/Card/Card3";
 import Heading2 from "@/components/Headings/Heading2";
-import SectionSubHeading from "@/components/SectionSubHeading/SectionSubHeading";
+import SubHeading1 from "@/components/SubHeading/SubHeading1";
 import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { clientsLogoList } from "@/data/clientsLogo";
 import { newsList } from "@/data/news";
@@ -96,13 +96,14 @@ const Home: NextPageWithLayout = () => {
         {/* ---------------------------------------------Services ----------------------------------*/}
 
         <section style={{ marginTop: "100vh" }}>
-          <Heading2>Services</Heading2>
-
-          <SectionSubHeading
-            text="We can help you bring your product to life - whether it&#39;s a
-            Minimum Viable Product, UX/UI Services or help to scale your
-            company."
-          />
+          <div className="w-3/4 mx-auto text-center">
+            <Heading2>Services</Heading2>
+            <SubHeading1>
+              We can help you bring your product to life - whether it&#39;s a
+              Minimum Viable Product, UX/UI Services or help to scale your
+              company.
+            </SubHeading1>
+          </div>
 
           <div className="grid gap-8 grid-cols-2 px-20">
             {servicesCardList.map(({ imageSrc, title, description }, index) => (
@@ -111,6 +112,9 @@ const Home: NextPageWithLayout = () => {
                 imageSrc={imageSrc}
                 title={title}
                 description={description}
+                className="items-center"
+                textAlign="center"
+                transition
               />
             ))}
           </div>
@@ -155,9 +159,14 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------Our Work ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <Heading2>Our Work</Heading2>
-          <SectionSubHeading text="We are proud to work with truly innovative clients. Here are just a few of the companies we’ve had the privilege to work with." />
-
+          <div className="w-3/4 mx-auto text-center">
+            <Heading2>Our Work</Heading2>
+            <SubHeading1>
+              We can help you bring your product to life - whether it&#39;s a
+              Minimum Viable Product, UX/UI Services or help to scale your
+              company.
+            </SubHeading1>
+          </div>
           <TwoColGrid
             category="Category"
             heading="Company Name"
@@ -189,8 +198,12 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------Clients ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <Heading2>Clients</Heading2>
-          <SectionSubHeading text="Great Companies make us grow every day." />
+          <div className="w-3/4 mx-auto text-center">
+            <Heading2>Clients</Heading2>
+            <SubHeading1>
+              Great Companies make us grow every day.
+            </SubHeading1>
+          </div>
 
           <div className="max-w-full flex flex-row justify-between space-y-10 flex-wrap">
             {clientsLogoList.map(({ imageSrc, title }, index) => (
@@ -207,9 +220,12 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------News ----------------------------------*/}
         <section className="relative pt-32 px-20">
-          <Heading2>News</Heading2>
-          <SectionSubHeading text="Read the latest stories from our world." />
-
+          <div className="w-3/4 mx-auto text-center">
+            <Heading2>News</Heading2>
+            <SubHeading1>
+              Read the latest stories from our world.
+            </SubHeading1>
+          </div>
           <div
             className="grid grid-cols-[repeat(auto-fill,_minmax(320px,1fr))] gap-3 mb-16"
             id="masonry-grid"
@@ -231,9 +247,9 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------Contact Us ----------------------------------*/}
         <section className="relative py-32 px-20">
-          <Heading2>
-            Talk to us and get your project moving!
-          </Heading2>
+          <div className="mx-auto text-center">
+            <Heading2>Talk to us and get your project moving!</Heading2>
+          </div>
 
           <div className="flex justify-between mt-16">
             <div className="w-1/2 font-medium text-black/[0.6] text-base leading-relaxed mb-8 ">
