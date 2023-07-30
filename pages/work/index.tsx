@@ -1,10 +1,12 @@
 import FilledButton from "@/components/Buttons/FilledButton";
-import WorksCard from "@/components/Card/WorksCard";
+import WorksCard from "@/components/card/WorksCard";
+
 import Chip from "@/components/Chip/Chip";
 import Heading2 from "@/components/Headings/Heading2";
 import Heading3 from "@/components/Headings/Heading3";
-import Footer from "@/components/Layout/Footer";
-import Navbar from "@/components/Layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+
 import SubHeading1 from "@/components/SubHeading/SubHeading1";
 import { ReactElement, useState } from "react";
 import { NextPageWithLayout } from "../_app";

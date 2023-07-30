@@ -1,16 +1,19 @@
 import SingleAccordion from "@/components/Accordions/SingleAccordion";
 import FilledButton from "@/components/Buttons/FilledButton";
-import Card from "@/components/Card/Card";
-import StatsCard from "@/components/Card/StatsCard";
-import TwoColCard from "@/components/Card/TwoColCard";
+import Card from "@/components/card/Card";
+import StatsCard from "@/components/card/StatsCard";
+import TwoColCard from "@/components/card/TwoColCard";
+
 import Heading2 from "@/components/Headings/Heading2";
 import Heading3 from "@/components/Headings/Heading3";
-import Footer from "@/components/Layout/Footer";
-import Navbar from "@/components/Layout/Navbar";
+
 import SubHeading1 from "@/components/SubHeading/SubHeading1";
 import SubHeading2 from "@/components/SubHeading/SubHeading2";
 import Image from "next/image";
 import { ReactElement } from "react";
+
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 function Services() {
   return (
@@ -58,6 +61,7 @@ function Services() {
         <div className="mb-10 grid gap-8 grid-cols-2">
           {[1, 2, 3, 4].map((elem, index) => (
             <Card
+            key={index}
               title="Product Design"
               description="Envision the product, and we will design it. Take your idea from your head to the monitor to the market in a matter of months."
               imageSrc="/static/images/test.jpg"

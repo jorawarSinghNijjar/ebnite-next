@@ -1,13 +1,15 @@
 import SharpFilledButton from "@/components/Buttons/SharpFilledButton";
-import ListCard from "@/components/Card/ListCard";
+import ListCard from "@/components/card/ListCard";
+
 import Heading3 from "@/components/Headings/Heading3";
 import Heading4 from "@/components/Headings/Heading4";
 import Heading5 from "@/components/Headings/Heading5";
 import Heading6 from "@/components/Headings/Heading6";
 import SelectInput from "@/components/Input/SelectInput";
 import TextInput from "@/components/Input/TextInput";
-import Footer from "@/components/Layout/Footer";
-import Navbar from "@/components/Layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+
 import SubHeading2 from "@/components/SubHeading/SubHeading2";
 import SubHeading3 from "@/components/SubHeading/SubHeading3";
 import Image from "next/image";

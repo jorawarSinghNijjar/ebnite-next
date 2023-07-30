@@ -1,9 +1,7 @@
-import Card from "@/components/Card/Card";
 import Image from "next/image";
 
 import OutlinedButton from "@/components/Buttons/OutlinedButton";
-import Card2 from "@/components/Card/Card2";
-import Card3 from "@/components/Card/Card3";
+
 import Heading2 from "@/components/Headings/Heading2";
 import SubHeading1 from "@/components/SubHeading/SubHeading1";
 import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
@@ -13,17 +11,20 @@ import { servicesCardList } from "@/data/servicesCard";
 import { talkToUsCardList } from "@/data/talkToUsCard";
 import { ReactElement, useEffect } from "react";
 
-import FilledButton from "@/components/Buttons/FilledButton";
 import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
 import SelectInput from "@/components/Input/SelectInput";
 import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
-import Footer from "@/components/Layout/Footer";
-import NavbarHome from "@/components/Layout/NavbarHome";
 
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { NextPageWithLayout } from "./_app";
+import FilledButton from "./../components/Buttons/FilledButton";
+import Card2 from "@/components/card/Card2";
+import Card3 from "@/components/card/Card3";
+import NavbarHome from "@/components/layout/NavbarHome";
+import Footer from "@/components/layout/Footer";
+import Card from "@/components/card/Card";
 
 function resizeGridItem(item: any) {
   let grid = document.querySelector("#masonry-grid")!;
@@ -99,7 +100,7 @@ const Home: NextPageWithLayout = () => {
           <div className="w-3/4 mx-auto text-center">
             <Heading2>Services</Heading2>
             <SubHeading1>
-              We can help you bring your product to life - whether it&#39;s a
+              We can help you bring your product to life - whether its a
               Minimum Viable Product, UX/UI Services or help to scale your
               company.
             </SubHeading1>
@@ -200,9 +201,7 @@ const Home: NextPageWithLayout = () => {
         <section className="relative pt-32 px-20">
           <div className="w-3/4 mx-auto text-center">
             <Heading2>Clients</Heading2>
-            <SubHeading1>
-              Great Companies make us grow every day.
-            </SubHeading1>
+            <SubHeading1>Great Companies make us grow every day.</SubHeading1>
           </div>
 
           <div className="max-w-full flex flex-row justify-between space-y-10 flex-wrap">
@@ -222,9 +221,7 @@ const Home: NextPageWithLayout = () => {
         <section className="relative pt-32 px-20">
           <div className="w-3/4 mx-auto text-center">
             <Heading2>News</Heading2>
-            <SubHeading1>
-              Read the latest stories from our world.
-            </SubHeading1>
+            <SubHeading1>Read the latest stories from our world.</SubHeading1>
           </div>
           <div
             className="grid grid-cols-[repeat(auto-fill,_minmax(320px,1fr))] gap-3 mb-16"

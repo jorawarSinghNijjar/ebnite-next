@@ -32,6 +32,15 @@ const FilledButton = ({ children, size, className }: FilledButtonProps) => {
           {children}
         </button>
       );
+
+    default:
+      return (
+        <button
+          className={`px-5 py-3 rounded-3xl hover:scale-x-105 transition text-sm font-medium ${className}`}
+        >
+          {children}
+        </button>
+      );
   }
 };
 

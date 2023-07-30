@@ -9,8 +9,9 @@ type ChipProps = {
 
 const Chip = ({ id, label, selected, selectChip }: ChipProps) => {
   const handleChipClick = (event: React.MouseEvent<HTMLElement>) => {
-    const id = event.target.id;
-    selectChip(id);
+    const target = event.target as HTMLElement; // Narrow the type to HTMLElement
+    const id = target.id;
+    selectChip?.(id); 
   };
 
   return (
