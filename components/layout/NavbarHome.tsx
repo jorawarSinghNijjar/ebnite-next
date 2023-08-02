@@ -5,11 +5,11 @@ import FilledButton from "../Buttons/FilledButton";
 const navLinkArr = [
   { name: "Work", href: "/work" },
   { name: "Services", href: "/services" },
-  { name: "Pricing", href: "/pricing" },
+  // { name: "Pricing", href: "/pricing" },
   { name: "Career", href: "/career" },
-  { name: "About Us", href: "/about-us" },
-  { name: "Tech", href: "/tech" },
-  { name: "Blog", href: "/blog" },
+  // { name: "About Us", href: "/about-us" },
+  // { name: "Tech", href: "/tech" },
+  // { name: "Blog", href: "/blog" },
 ];
 
 const NavbarHome = () => {
