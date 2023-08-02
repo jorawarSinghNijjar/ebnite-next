@@ -79,11 +79,11 @@ const Home: NextPageWithLayout = () => {
         <source src="/assets/videos/hero-video.mp4" type="video/mp4"></source>
       </video> */}
         {/* Video Overlay */}
-        <div className="absolute -z-20 right-0 top-0 h-screen w-screen bg-tertiary bg-opacity-40"></div>
+        <div className="absolute -z-20 right-0 top-0 lg:h-screen w-screen bg-tertiary bg-opacity-40"></div>
 
-        <section className="clear-both absolute max-w-full px-20 bg-gradient-to-r from-primary from-5% py-40 h-screen left-0 top-0 -z-10">
+        <section className="clear-both absolute max-w-full px-5 lg:px-20 bg-gradient-to-r from-primary from-5% py-20 lg:py-40 lg:h-screen left-0 top-0 -z-10">
           {/* Actual Content */}
-          <h1 className="text-slate-100 text-7xl w-2/3 mb-10">
+          <h1 className="text-slate-100 text-4xl lg:text-7xl w-full lg:w-2/3 mb-10">
             Custom Product & Software Development Focused On Your Success
           </h1>
           <FilledButton
@@ -96,7 +96,7 @@ const Home: NextPageWithLayout = () => {
 
         {/* ---------------------------------------------Services ----------------------------------*/}
 
-        <section style={{ marginTop: "100vh" }}>
+        <section>
           <div className="w-3/4 mx-auto text-center">
             <Heading2>Services</Heading2>
             <SubHeading1>
@@ -106,7 +106,7 @@ const Home: NextPageWithLayout = () => {
             </SubHeading1>
           </div>
 
-          <div className="grid gap-8 grid-cols-2 px-20">
+          <div className="grid gap-8 grid-cols-2 lg:px-20">
             {servicesCardList.map(({ imageSrc, title, description }, index) => (
               <Card
                 key={index}
@@ -122,7 +122,7 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------Testimonials ----------------------------------*/}
-        <section className="relative pt-32 px-20">
+        <section className="relative pt-32 lg:px-20">
           <div className="grid gap-8 grid-cols-2">
             <div className="flex items-center justify-center max-w-1/2">
               <Image
@@ -159,7 +159,7 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------Our Work ----------------------------------*/}
-        <section className="relative pt-32 px-20">
+        <section className="relative pt-32 lg:px-20">
           <div className="w-3/4 mx-auto text-center">
             <Heading2>Our Work</Heading2>
             <SubHeading1>
@@ -181,7 +181,7 @@ const Home: NextPageWithLayout = () => {
           />
         </section>
         {/* ---------------------------------------------Let's talk ----------------------------------*/}
-        <section className="relative pt-32 px-20">
+        <section className="relative pt-32 lg:px-20">
           <div className="w-full flex flex-row justify-between">
             {talkToUsCardList.map(
               ({ imageSrc, title, description, buttonText }, index) => (
@@ -198,7 +198,7 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------Clients ----------------------------------*/}
-        <section className="relative pt-32 px-20">
+        <section className="relative pt-32 lg:px-20">
           <div className="w-3/4 mx-auto text-center">
             <Heading2>Clients</Heading2>
             <SubHeading1>Great Companies make us grow every day.</SubHeading1>
@@ -218,7 +218,7 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------News ----------------------------------*/}
-        <section className="relative pt-32 px-20">
+        <section className="relative pt-32 lg:px-20">
           <div className="w-3/4 mx-auto text-center">
             <Heading2>News</Heading2>
             <SubHeading1>Read the latest stories from our world.</SubHeading1>
@@ -243,7 +243,7 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------Contact Us ----------------------------------*/}
-        <section className="relative py-32 px-20">
+        <section className="relative py-32 lg:px-20">
           <div className="mx-auto text-center">
             <Heading2>Talk to us and get your project moving!</Heading2>
           </div>
@@ -320,7 +320,7 @@ export default Home;
 Home.getLayout = (page: ReactElement) => {
   return (
     <>
-      <div className="relative">
+      <div className="relative min-h-[500px] lg:h-screen w-screen">
         <NavbarHome />
       </div>
       <main>{page}</main>
