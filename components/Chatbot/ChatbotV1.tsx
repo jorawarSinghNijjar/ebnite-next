@@ -2,19 +2,24 @@ import Image from "next/image";
 import { MdCancel } from "react-icons/md";
 import { BsFillChatRightDotsFill } from "react-icons/bs";
 import ChatBox from "./ChatBox";
+import { useState } from "react";
 
 const ChatbotV1 = () => {
+  const [showChatBox, setShowChatBox] = useState(false)
   return (
-    <div className="fixed bottom-10 right-10 w-[60px] h-[60px]">
+    <div className="fixed bottom-5 right-5 md:bottom-10 md:right-10 w-[60px] h-[60px]">
       <input
         type="checkbox"
-        className="fixed bottom-10 right-10 w-[60px] h-[60px] opacity-0 cursor-pointer peer/show z-10"
+        className="fixed bottom-5 right-5 md:bottom-10 md:right-10 w-[60px] h-[60px] opacity-0 cursor-pointer peer/show z-10"
+        checked={showChatBox}
+        onChange={(e) => setShowChatBox(!showChatBox)}
       />
       <div
-        className="bg-lighter w-[0px] h-[0px] collapse fixed bottom-28 right-28 rounded-t-2xl rounded-bl-2xl drop-shadow-xl 
-       peer-checked/show:w-[350px] peer-checked/show:h-[400px]  peer-checked/show:visible transition-all ease-in-out duration-500"
+        className="bg-lighter w-[0px] h-[0px] collapse fixed bottom-20 right-16 md:bottom-28 md:right-28 rounded-t-2xl rounded-bl-2xl drop-shadow-xl 
+        peer-checked/show:w-[290px] md:peer-checked/show:w-[350px] peer-checked/show:h-[400px] peer-checked/show:visible transition-all ease-in-out duration-300"
       >
-        <ChatBox />
+        {showChatBox && <ChatBox />}
+        
       </div>
       {/* <div className="block peer-checked/show:hidden">
         <Image

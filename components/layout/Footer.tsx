@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-full py-20 px-5 md:px-20 bg-darker flex flex-col md:flex-row justify-between">
+      <div className="w-full py-20 px-5 md:px-20 bg-darker flex flex-col md:flex-row justify-between gap-y-4">
         <div className="flex flex-col gap-y-1 [&>a]:text-light/[0.6] [&>a]:font-normal hover:[&>a]:text-light/[0.3]">
           <p className="text-base font-semibold uppercase text-lighter">
             Global
@@ -83,9 +83,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-full py-6 px-5 md:px-20 bg-dark flex flex-row justify-between text-lighter">
-        <div className="">© 2023 Ebnite.com all rights reserved.</div>
-        <div className="flex flex-row gap-6 justify-end">
+      <div className="w-full py-6 px-5 md:px-20 bg-dark flex flex-col gap-2 md:flex-row justify-between text-lighter">
+        <div className="order-2 md:order-1">© 2023 Ebnite.com all rights reserved.</div>
+        <div className="flex flex-row gap-6 md:justify-end">
           <Link href="/">Twitter</Link>
           <Link href="/">Facebook</Link>
           <Link href="/">Linkdin</Link>

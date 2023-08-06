@@ -26,41 +26,41 @@ import NavbarHome from "@/components/layout/NavbarHome";
 import Footer from "@/components/layout/Footer";
 import Card from "@/components/card/Card";
 
-function resizeGridItem(item: any) {
-  let grid = document.querySelector("#masonry-grid")!;
-  const rowHeight = parseInt(
-    window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
-  );
-  // console.log("row Height", rowHeight);
-  const rowGap = parseInt(
-    window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
-  );
-  // console.log("row gap", rowGap);
-  const rowSpan = Math.ceil(
-    (item.querySelector(".card-content").getBoundingClientRect().height +
-      rowGap) /
-      (rowHeight + rowGap)
-  );
-  item.style.gridRowEnd = "span " + rowSpan;
-}
+// function resizeGridItem(item: any) {
+//   let grid = document.querySelector("#masonry-grid")!;
+//   const rowHeight = parseInt(
+//     window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+//   );
+//   // console.log("row Height", rowHeight);
+//   const rowGap = parseInt(
+//     window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
+//   );
+//   // console.log("row gap", rowGap);
+//   const rowSpan = Math.ceil(
+//     (item.querySelector(".card-content").getBoundingClientRect().height +
+//       rowGap) /
+//       (rowHeight + rowGap)
+//   );
+//   item.style.gridRowEnd = "span " + rowSpan;
+// }
 
-function resizeAllGridItems() {
-  const allItems = document.getElementsByClassName("masonry-grid-item");
-  for (let x = 0; x < allItems.length; x++) {
-    resizeGridItem(allItems[x]);
-  }
-}
+// function resizeAllGridItems() {
+//   const allItems = document.getElementsByClassName("masonry-grid-item");
+//   for (let x = 0; x < allItems.length; x++) {
+//     resizeGridItem(allItems[x]);
+//   }
+// }
 
 const Home: NextPageWithLayout = () => {
-  useEffect(() => {
-    window.addEventListener("load", resizeAllGridItems);
-    window.addEventListener("resize", resizeAllGridItems);
+//   useEffect(() => {
+//     window.addEventListener("load", resizeAllGridItems);
+//     window.addEventListener("resize", resizeAllGridItems);
 
-    return () => {
-      window.removeEventListener("resize", resizeAllGridItems);
-      window.removeEventListener("load", resizeAllGridItems);
-    };
-  }, []);
+//     return () => {
+//       window.removeEventListener("resize", resizeAllGridItems);
+//       window.removeEventListener("load", resizeAllGridItems);
+//     };
+//   }, []);
 
   return (
     <>
@@ -81,32 +81,33 @@ const Home: NextPageWithLayout = () => {
         {/* Video Overlay */}
         <div className="absolute -z-20 right-0 top-0 lg:h-screen w-screen bg-tertiary bg-opacity-40"></div>
 
-        <section className="clear-both absolute max-w-full px-5 lg:px-20 bg-gradient-to-r from-primary from-5% py-20 lg:py-40 lg:h-screen left-0 top-0 -z-10">
+        <section className="clear-both absolute max-w-full px-5 py-20 lg:px-20 lg:py-40  h-full lg:h-screen left-0 top-0 -z-10 flex flex-col justify-center bg-gradient-to-r from-primary from-5%  ">
           {/* Actual Content */}
-          <h1 className="text-slate-100 text-4xl lg:text-7xl w-full lg:w-2/3 mb-10">
-            Custom Product & Software Development Focused On Your Success
-          </h1>
-          <FilledButton
-            size="medium"
-            className="bg-secondary text-slate-100 uppercase"
-          >
-            Book a call
-          </FilledButton>
+          <div>
+            <h1 className="text-slate-100 text-6xl lg:text-7xl w-full lg:w-2/3 mb-10">
+              Custom Product & Software Development Focused On Your Success
+            </h1>
+            <FilledButton
+              size="medium"
+              className="bg-secondary text-slate-100 uppercase"
+            >
+              Book a call
+            </FilledButton>
+          </div>
         </section>
 
         {/* ---------------------------------------------Services ----------------------------------*/}
 
-        <section>
-          <div className="w-3/4 mx-auto text-center">
+        <section className="my-10 px-6 pt-10 lg:pt-32 lg:px-20">
+          <div className="w-full lg:w-3/4 mx-auto text-center">
             <Heading2>Services</Heading2>
             <SubHeading1>
-              We can help you bring your product to life - whether its a
-              Minimum Viable Product, UX/UI Services or help to scale your
-              company.
+              We can help you bring your product to life - whether its a Minimum
+              Viable Product, UX/UI Services or help to scale your company.
             </SubHeading1>
           </div>
 
-          <div className="grid gap-8 grid-cols-2 lg:px-20">
+          <div className="grid gap-8 lg:grid-cols-2">
             {servicesCardList.map(({ imageSrc, title, description }, index) => (
               <Card
                 key={index}
@@ -122,18 +123,19 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------Testimonials ----------------------------------*/}
-        <section className="relative pt-32 lg:px-20">
-          <div className="grid gap-8 grid-cols-2">
+        <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+          <div className="grid gap-8 lg:grid-cols-2">
             <div className="flex items-center justify-center max-w-1/2">
               <Image
                 src="https://picsum.photos/seed/picsum/500/300"
                 alt="testimonial"
                 width={500}
                 height={300}
-                className="rounded-2xl min-w-[400px] drop-shadow-2xl"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="rounded-2xl min-w-[320px] drop-shadow-2xl"
               ></Image>
             </div>
-            <div className="p-5">
+            <div className="p-0">
               <Image
                 className="mb-8"
                 src="/static/images/quote-left.png"
@@ -159,8 +161,8 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------Our Work ----------------------------------*/}
-        <section className="relative pt-32 lg:px-20">
-          <div className="w-3/4 mx-auto text-center">
+        <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+          <div className="w-full lg:w-3/4 mx-auto text-center">
             <Heading2>Our Work</Heading2>
             <SubHeading1>
               We can help you bring your product to life - whether it&#39;s a
@@ -180,9 +182,11 @@ const Home: NextPageWithLayout = () => {
             swapSides
           />
         </section>
+
+
         {/* ---------------------------------------------Let's talk ----------------------------------*/}
-        <section className="relative pt-32 lg:px-20">
-          <div className="w-full flex flex-row justify-between">
+        <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+          <div className="w-full flex flex-col gap-12 lg:flex-row lg:justify-between">
             {talkToUsCardList.map(
               ({ imageSrc, title, description, buttonText }, index) => (
                 <Card2
@@ -198,13 +202,13 @@ const Home: NextPageWithLayout = () => {
         </section>
 
         {/* ---------------------------------------------Clients ----------------------------------*/}
-        <section className="relative pt-32 lg:px-20">
-          <div className="w-3/4 mx-auto text-center">
+        <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+          <div className="w-full mx-auto text-center lg:w-3/4 ">
             <Heading2>Clients</Heading2>
             <SubHeading1>Great Companies make us grow every day.</SubHeading1>
           </div>
 
-          <div className="max-w-full flex flex-row justify-between space-y-10 flex-wrap">
+          <div className="max-w-full flex flex-row justify-between items-center gap-4 lg:gap-8 flex-wrap">
             {clientsLogoList.map(({ imageSrc, title }, index) => (
               <Image
                 key={index}
@@ -212,19 +216,20 @@ const Home: NextPageWithLayout = () => {
                 alt={title}
                 width={250}
                 height={200}
+                className="mx-auto max-w-[100px] md:max-w-[200px] lg:max-w-[300px]"
               ></Image>
             ))}
           </div>
         </section>
 
         {/* ---------------------------------------------News ----------------------------------*/}
-        <section className="relative pt-32 lg:px-20">
-          <div className="w-3/4 mx-auto text-center">
+        <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+          <div className="w-full mx-auto text-center lg:w-3/4 ">
             <Heading2>News</Heading2>
             <SubHeading1>Read the latest stories from our world.</SubHeading1>
           </div>
           <div
-            className="grid grid-cols-[repeat(auto-fill,_minmax(320px,1fr))] gap-3 mb-16"
+            className="grid grid-cols-[repeat(auto-fill,_minmax(320px,1fr))] gap-8 mb-16"
             id="masonry-grid"
           >
             {newsList.map(({ description, title, href }, index) => (
@@ -238,27 +243,29 @@ const Home: NextPageWithLayout = () => {
           </div>
 
           <div className="flex justify-center">
-            <OutlinedButton>See All News</OutlinedButton>
+            <OutlinedButton size="medium">See All News</OutlinedButton>
           </div>
         </section>
 
         {/* ---------------------------------------------Contact Us ----------------------------------*/}
-        <section className="relative py-32 lg:px-20">
-          <div className="mx-auto text-center">
+        <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+          <div className="mx-auto text-left">
             <Heading2>Talk to us and get your project moving!</Heading2>
           </div>
 
-          <div className="flex justify-between mt-16">
-            <div className="w-1/2 font-medium text-black/[0.6] text-base leading-relaxed mb-8 ">
-              <p className="text-sm mb-8">
+          <div className="flex flex-col lg:flex-row justify-between mt-16">
+            <div className="w-full lg:w-1/2 font-medium text-black/[0.6] text-base leading-relaxed mb-8 ">
+              <p className="text-base mb-8">
                 This is exactly what will happen after you submit your form:
               </p>
-              <div className="relative overflow-hidden w-[500px] h-[300px] rounded-xl drop-shadow-2xl group mb-8">
+              <div className="relative overflow-hidden max-w-[300px] h-[200px] lg:max-w-[500px] lg:h-[300px] rounded-xl drop-shadow-2xl group mb-8">
                 <Image
                   src="https://picsum.photos/seed/picsum/500/300"
                   alt="testimonial"
-                  width={500}
-                  height={300}
+                  fill
+                  object-fit="cover"
+                  // width={500}
+                  // height={300}
                   className="absolute transition ease-in-out duration-700 group-hover:scale-125"
                 ></Image>
                 <div className="absolute bg-tertiary w-full h-full opacity-25 cursor-pointer"></div>
@@ -280,7 +287,7 @@ const Home: NextPageWithLayout = () => {
                 </li>
               </ul>
             </div>
-            <div className="w-1/2 pl-8">
+            <div className="w-full lg:w-1/2 lg:pl-8">
               <form action="" className="w-full">
                 <TextInput type="text" placeholder="Name" className="mb-8" />
                 <TextInput type="text" placeholder="Email" className="mb-8" />
@@ -320,7 +327,7 @@ export default Home;
 Home.getLayout = (page: ReactElement) => {
   return (
     <>
-      <div className="relative min-h-[500px] lg:h-screen w-screen">
+      <div className="relative min-h-screen lg:h-screen w-screen">
         <NavbarHome />
       </div>
       <main>{page}</main>
