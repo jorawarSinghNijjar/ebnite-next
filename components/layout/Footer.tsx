@@ -4,7 +4,7 @@ import FilledButton from "../Buttons/FilledButton";
 const Footer = () => {
   return (
     <footer className="relative bg-dark mt-32">
-      <div className="py-20 px-5 md:px-20 bg-dark">
+      <div className="py-20 px-5 md:px-20 bg-dark xl:max-w-[1460px] xl:mx-auto">
         <div className="flex flex-col md:flex-row ">
           <div className="w-full md:w-1/2 flex flex-col gap-y-10 mb-10">
             <div className="text-4xl font-extralight text-tertiary">EBNITE</div>
@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-full py-20 px-5 md:px-20 bg-darker flex flex-col md:flex-row justify-between gap-y-4">
+      <div className="w-full py-20 px-5 md:px-20 bg-darker flex flex-col md:flex-row justify-between gap-y-4 xl:max-w-[1460px] xl:mx-auto">
         <div className="flex flex-col gap-y-1 [&>a]:text-light/[0.6] [&>a]:font-normal hover:[&>a]:text-light/[0.3]">
           <p className="text-base font-semibold uppercase text-lighter">
             Global
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-full py-6 px-5 md:px-20 bg-dark flex flex-col gap-2 md:flex-row justify-between text-lighter">
+      <div className="w-full py-6 px-5 md:px-20 bg-dark flex flex-col gap-2 md:flex-row justify-between text-lighter xl:max-w-[1460px] xl:mx-auto">
         <div className="order-2 md:order-1">© 2023 Ebnite.com all rights reserved.</div>
         <div className="flex flex-row gap-6 md:justify-end">
           <Link href="/">Twitter</Link>

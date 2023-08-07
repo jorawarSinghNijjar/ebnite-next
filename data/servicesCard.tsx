@@ -1,26 +1,26 @@
 export const servicesCardList = [
     {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
+      imageSrc: "/static/images/services-icon/product.svg",
       title: "Product Scope",
       description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
+        "A Structured 7-day Process to align your product vision with your business goals",
     },
     {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
-      title: "Product Scope",
+      imageSrc: "/static/images/services-icon/ux.svg",
+      title: "UX/UI",
       description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
+        "Design an engaging product that is easy-to-use, attractive and functional",
     },
     {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
-      title: "Product Scope",
+      imageSrc: "/static/images/services-icon/launch.svg",
+      title: "MVP",
       description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
+        "Go to market quickly with a high-quality Minimum Viable Product",
     },
     {
-      imageSrc: "https://picsum.photos/seed/picsum/100/100",
-      title: "Product Scope",
+      imageSrc: "/static/images/services-icon/team.svg",
+      title: "Dedicated Teams",
       description:
-        " A Structured 7-day Process to align your product vision with your business goals.",
+        "Build your product with a dedicated team of developers",
     },
   ];

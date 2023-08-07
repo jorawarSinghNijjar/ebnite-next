@@ -10,9 +10,9 @@ interface props {
 
 function TwoColGrid({ category, heading, content, swapSides }: props) {
   return (
-    <div className="grid gap-8 lg:grid-cols-2 mb-10 lg:mb-56">
+    <div className="grid gap-8 lg:grid-cols-2 mb-10 lg:mb-32">
       <div
-        className={`flex items-center justify-center max-w-1/2 ${
+        className={`flex items-center md:justify-start lg:justify-center max-w-1/2 ${
           swapSides ? "lg:order-2" : "lg:order-1"
         }`}
       >
