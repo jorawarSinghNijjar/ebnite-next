@@ -83,10 +83,10 @@ const Home: NextPageWithLayout = () => {
       {/* Video Overlay */}
       <div className="absolute -z-20 right-0 top-0 lg:h-screen w-screen bg-tertiary bg-opacity-40"></div>
 
-      <section className="clear-both absolute max-w-full px-5 py-20 lg:px-20 lg:py-40  h-full lg:h-screen left-0 top-0 -z-10 flex flex-col justify-center bg-gradient-to-r from-primary lg:from-5% from-20% ">
+      <section className="clear-both absolute max-w-full px-5 py-20 lg:px-20 lg:py-40 h-full lg:h-screen left-0 top-0 -z-10 flex flex-col justify-center bg-gradient-to-r from-primary lg:from-5% from-20% ">
         {/* Actual Content */}
         <div>
-          <h1 className="text-slate-100 text-6xl lg:text-7xl w-full lg:w-2/3 mb-10">
+          <h1 className="text-slate-100 text-6xl lg:text-7xl xl:text-9xl w-full lg:w-2/3 mb-10">
             Custom Product & Software Development Focused On Your Success
           </h1>
           <FilledButton

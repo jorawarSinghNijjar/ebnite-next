@@ -18,7 +18,7 @@ const FilledButton = ({ children, size, className }: FilledButtonProps) => {
     case "medium":
       return (
         <button
-          className={`px-7 py-3 rounded-3xl hover:scale-x-105 transition text-base font-medium ${className}`}
+          className={`px-7 py-3 xl:px-10 xl:py-6 rounded-3xl xl:rounded-full hover:scale-x-105 transition text-base xl:text-lg font-medium ${className}`}
         >
           {children}
         </button>
