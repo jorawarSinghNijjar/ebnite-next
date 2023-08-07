@@ -28,7 +28,7 @@ function Career() {
             height={900}
             className="absolute w-full h-full -z-10"
           />
-          <div className="px-20 pt-60">
+          <div className="px-6 lg:px-20 pt-40 lg:pt-60">
             <Heading6 className="text-white">Careers</Heading6>
             <Heading4 className="text-white">JOIN OUR</Heading4>
             <Heading4 className="text-white -mt-5">Thriving Community</Heading4>
@@ -37,7 +37,7 @@ function Career() {
               personal growth.
             </SubHeading2>
 
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               <TextInput type="text" placeholder="Search Jobs"></TextInput>
               <SelectInput name="job-category">
                 <option value="" disabled>
@@ -56,8 +56,8 @@ function Career() {
                 <option value="toronto">Toronto</option>
                 <option value="winnipeg">Winnipeg</option>
               </SelectInput>
-              <button className="bg-secondary text-slate-100 uppercase min-w-[200px]">
-                <div className="flex flex-row justify-around items-center">
+              <button className="bg-secondary text-slate-100 uppercase min-w-[200px] py-3">
+                <div className="flex flex-row justify-center gap-4 items-center">
                   <span>Search Job</span>
                   <span>
                     <BsSearch />
@@ -68,19 +68,19 @@ function Career() {
           </div>
         </div>
       </section>
-      <section className="px-20 py-16 bg-lighter">
+      <section className="px-6 lg:px-20 py-16 bg-lighter">
         <Heading4 className="text-center">
           Experience a diverse work space with collaborative learning
           opportunities with us!
         </Heading4>
-        <div className="grid gap-8 grid-cols-2 pt-10">
-          <div className="flex items-center justify-center max-w-1/2">
+        <div className="grid gap-8 lg:grid-cols-2 pt-10">
+          <div className="flex items-center justify-center lg:max-w-1/2">
             <Image
               src="https://picsum.photos/seed/picsum/500/300"
               alt="testimonial"
               width={500}
               height={300}
-              className="rounded-2xl min-w-[400px] drop-shadow-2xl"
+              className="rounded-2xl max-w-full drop-shadow-2xl"
             ></Image>
           </div>
           <div className="">
@@ -110,7 +110,7 @@ function Career() {
           </div>
         </div>
       </section>
-      <section className="px-20 py-16 flex flex-row gap-12">
+      <section className="px-6 lg:px-20 py-16 flex flex-col lg:flex-row gap-12">
         <div className="">
           <Heading4 className="text-secondary">Benefits</Heading4>
           <Heading4 className="-mt-5 text-primary">and Perks</Heading4>
@@ -119,7 +119,7 @@ function Career() {
             benefits. Following is some of the perks:
           </p>
         </div>
-        <div className="max-w-[60%] max-h-screen overflow-scroll no-scrollbar">
+        <div className="max-w-full lg:max-w-[60%] max-h-screen overflow-scroll no-scrollbar">
           {[1, 2, 3, 4, 5,6,7,8].map((elem, index) => (
             <ListCard
               key={index}

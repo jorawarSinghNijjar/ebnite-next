@@ -18,9 +18,9 @@ import Navbar from "@/components/layout/Navbar";
 function Services() {
   return (
     <>
-      <section className="px-20 mb-44">
+      <section className="px-6 lg:px-20 mb-10 lg:mb-44">
         <div className="flex flex-col lg:flex-row">
-          <div className="pr-4">
+          <div className="pr-4 order-2 lg:order-1">
             <Heading2>Services from Ebnite Technologies</Heading2>
             <SubHeading1>
               With our full range of digital solutions and development services,
@@ -29,21 +29,22 @@ function Services() {
             </SubHeading1>
             <FilledButton
               size="medium"
-              className="bg-secondary text-slate-100 uppercase"
+              className="bg-secondary text-slate-100 uppercase hidden lg:block"
             >
               Contact Us
             </FilledButton>
           </div>
           <Image
-            src="/static/images/test.jpg"
+            src="/static/images/pages/services/hero.jpg"
             alt="services"
-            width={500}
-            height={400}
+            width={600}
+            height={500}
+            className="w-full object-cover order-1 lg:order-2 lg:max-w-[60%] md:relative md:left-0 lg:z-0 lg:h-full"
           />
         </div>
       </section>
-      <section className="px-20 mb-16">
-        <div className="w-1/2">
+      <section className="px-6 lg:px-20 mb-16">
+        <div className="w-full lg:w-1/2">
           <Heading3>Our core services</Heading3>
           <SubHeading2>
             Complex product design, comprehensive technology roadmaps,
@@ -58,7 +59,7 @@ function Services() {
           className="mb-10 bg-light"
         />
 
-        <div className="mb-10 grid gap-8 grid-cols-2">
+        <div className="mb-10 grid gap-8 lg:grid-cols-2">
           {[1, 2, 3, 4].map((elem, index) => (
             <Card
             key={index}
@@ -96,9 +97,9 @@ function Services() {
           className="mb-10 bg-lighter"
         />
       </section>
-      <section className="px-20 mb-16">
+      <section className="px-6 lg:px-20 mb-10 lg:mb-16">
         <Heading3>FAQs</Heading3>
-        <div className="grid gap-8 grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2">
           {[1, 2, 3, 4].map((elem, index) => (
             <SingleAccordion
               key={index}
@@ -108,9 +109,9 @@ function Services() {
           ))}
         </div>
       </section>
-      <section className="px-20 mb-16">
-        <div className="grid gap-8 grid-cols-2">
-          <div className="p-5">
+      <section className="px-6 lg:px-20 mb-10 lg:mb-16">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="lg:p-5">
             <Heading3>Who we are</Heading3>
             <SubHeading2>
               Ebnite Technologies is a full-cycle app & software development
@@ -130,13 +131,13 @@ function Services() {
               alt="testimonial"
               width={500}
               height={300}
-              className="min-w-[400px]"
+              className="lg:min-w-[400px]"
             ></Image>
           </div>
         </div>
       </section>
-      <section className="px-20 mb-32">
-        <div className="flex flex-row justify-between">
+      <section className="px-6 lg:px-20 mb-10 lg:mb-16">
+        <div className="flex flex-col gap-4 lg:flex-row justify-between">
           {[1, 2, 3, 4].map((elem, index) => (
             <StatsCard
               key={index}
@@ -146,9 +147,9 @@ function Services() {
           ))}
         </div>
       </section>
-      <section className="px-20 mb-16">
+      <section className="px-6 lg:px-20 mb-10 lg:mb-16">
       <Heading3>Why choose Ebnite Technologies</Heading3>
-        <div className="flex flex-row justify-between gap-10 mt-14">
+        <div className="flex flex-col lg:flex-row justify-between gap-10 mt-14">
           {[1, 2, 3].map((elem, index) => (
             <Card
               key={index}
@@ -172,7 +173,7 @@ Services.getLayout = (page: ReactElement) => {
       <div className="relative">
         <Navbar />
       </div>
-      <main className="mt-32">{page}</main>
+      <main className="mt-32 xl:max-w-[1460px] xl:mx-auto">{page}</main>
       <Footer />
     </>
   );

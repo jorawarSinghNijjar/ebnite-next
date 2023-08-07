@@ -32,8 +32,8 @@ const Work: NextPageWithLayout = () => {
 
   return (
     <>
-      <section className="px-20 mb-16">
-        <div className="w-3/4 mx-auto">
+      <section className="px-6 lg:px-20 mb-16">
+        <div className="w-full text-left lg:w-3/4">
           <Heading2>Explore Our Work</Heading2>
           <SubHeading1>
             Aliquip excepteur proident ullamco ex esse ad in culpa minim Lorem
@@ -120,7 +120,7 @@ Work.getLayout = (page: ReactElement) => {
       <div className="relative">
         <Navbar />
       </div>
-      <main className="mt-32">{page}</main>
+      <main className="mt-32 xl:max-w-[1460px] xl:mx-auto">{page}</main>
       <Footer />
     </>
   );
