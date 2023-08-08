@@ -1,0 +1,4 @@
+Using Tailwind CSS v3.3.2
+
+Text Color:
+text-white: text-slate-100
