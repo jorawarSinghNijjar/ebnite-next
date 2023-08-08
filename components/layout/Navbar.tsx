@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 drop-shadow-lg bg-white text-primary z-10 w-full px-6 lg:px-20 py-3 xl:py-5 flex flex-row justify-between`}
     >
-      <div className="float-left">
+      <div className="">
         <Link href="/">
           <p className="font-bold">
             <Image
@@ -38,7 +38,7 @@ const Navbar = () => {
           </p>
         </Link>
       </div>
-      <div className="float-right">
+      <div className="">
         <ul className="list-none hidden lg:flex h-full gap-x-5 items-center">
           {navLinkArr.map(({ name, href }, index) => (
             <div key={index} className="">

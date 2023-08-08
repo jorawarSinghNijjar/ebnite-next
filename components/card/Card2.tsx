@@ -10,9 +10,10 @@ interface props {
 
 function Card2({ imageSrc, title, description, buttonText }: props) {
   return (
-    <div className="max-w-[300px] lg:max-w-[340px] drop-shadow-2xl bg-white  flex flex-col items-start">
+    <div className="max-w-full md:max-w-[400px] drop-shadow-2xl bg-white  flex flex-col items-start">
       <Image src={imageSrc} alt={title} 
-      width={340} height={300}
+      width={400} height={400}
+      className="h-[400px] object-cover"
       ></Image>
       <div className="py-8 px-4">
         <h4 className="text-2xl font-medium text-slate-950 mb-4">{title}</h4>

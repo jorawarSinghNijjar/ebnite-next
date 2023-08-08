@@ -2,30 +2,30 @@ import Image from "next/image";
 import OutlinedButton from "../Buttons/OutlinedButton";
 
 interface props {
+  imageSrc: string;
   category: string;
   heading: string;
   content: string;
   swapSides?: boolean;
 }
 
-function TwoColGrid({ category, heading, content, swapSides }: props) {
+function TwoColGrid({ imageSrc,category, heading, content, swapSides }: props) {
   return (
-    <div className="grid gap-8 lg:grid-cols-2 mb-10 lg:mb-32">
+    <div className="grid gap-12 lg:grid-cols-2 mb-10 lg:mb-32">
       <div
-        className={`flex items-center md:justify-start lg:justify-center max-w-1/2 ${
+        className={`flex items-center md:justify-start lg:justify-center max-w-full lg:max-w-1/2 ${
           swapSides ? "lg:order-2" : "lg:order-1"
         }`}
       >
         <Image
-          src="https://picsum.photos/seed/picsum/400/500"
+          src={imageSrc}
           alt="testimonial"
-          width={400}
+          width={700}
           height={500}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="rounded-2xl min-w-[320px] drop-shadow-2xl"
+          className="rounded-2xl max-w-full max-h-[500px] object-cover shadow-2xl"
         ></Image>
       </div>
-      <div className={`p-5 ${swapSides ? "order-1" : "order-2"}`}>
+      <div className={`lg:p-5 ${swapSides ? "order-1" : "order-2"}`}>
         <article>
           <h4 className="text-xl uppercase mb-4">{category}</h4>
           <h3 className="text-2xl mb-4 font-semibold">{heading}</h3>

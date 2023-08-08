@@ -86,7 +86,7 @@ const Home: NextPageWithLayout = () => {
       <section className="clear-both absolute max-w-full px-5 py-20 lg:px-20 lg:py-40 h-full lg:h-screen left-0 top-0 -z-10 flex flex-col justify-center bg-gradient-to-r from-primary lg:from-5% from-20% ">
         {/* Actual Content */}
         <div>
-          <h1 className="text-slate-100 text-6xl lg:text-7xl xl:text-9xl w-full lg:w-2/3 mb-10">
+          <h1 className="text-slate-100 text-5xl lg:text-7xl xl:text-9xl w-full lg:w-2/3 mb-10">
             Custom Product & Software Development Focused On Your Success
           </h1>
           <FilledButton
@@ -127,14 +127,13 @@ const Home: NextPageWithLayout = () => {
       {/* ---------------------------------------------Testimonials ----------------------------------*/}
       <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
         <div className="grid gap-8 lg:grid-cols-2">
-          <div className="flex items-center justify-center max-w-1/2">
+          <div className="flex items-center justify-center max-w-full lg:max-w-1/2">
             <Image
               src="/static/images/client-testimonial.jpg"
               alt="testimonial"
-              width={500}
+              width={700}
               height={300}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="rounded-2xl min-w-[320px] drop-shadow-2xl"
+              className="rounded-2xl max-w-full drop-shadow-2xl"
             ></Image>
           </div>
           <div className="p-0">
@@ -154,7 +153,8 @@ const Home: NextPageWithLayout = () => {
               we are eager to strengthen our collaboration in the future.
             </p>
             <p className="text-xl text-secondary mb-8">
-              <span className="font-semibold">Carmine Tullio</span> – Univeris, CEO
+              <span className="font-semibold">Carmine Tullio</span> – Univeris,
+              CEO
             </p>
             {/* <p className="text-5xl font-thin">COMPANY LOGO</p> */}
           </div>
@@ -172,11 +172,13 @@ const Home: NextPageWithLayout = () => {
           </SubHeading1>
         </div>
         <TwoColGrid
+          imageSrc="/static/images/pages/home/works-4.png"
           category="Category"
           heading="Company Name"
           content="ABCD, developed in collaboration with AlixPartners, aims to assess the fair forward-looking value of real estate developments and the fair credit value of real estate developers – and to suggest underwriting overrides when lending to these counterparts."
         />
         <TwoColGrid
+          imageSrc="/static/images/pages/home/works-2.jpg"
           category="Category"
           heading="Company Name"
           content="ABCD, developed in collaboration with AlixPartners, aims to assess the fair forward-looking value of real estate developments and the fair credit value of real estate developers – and to suggest underwriting overrides when lending to these counterparts."
@@ -202,7 +204,7 @@ const Home: NextPageWithLayout = () => {
       </section>
 
       {/* ---------------------------------------------Clients ----------------------------------*/}
-      <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+      {/* <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
         <div className="w-full mx-auto text-center lg:w-3/4 ">
           <Heading2>Clients</Heading2>
           <SubHeading1>Great Companies make us grow every day.</SubHeading1>
@@ -220,10 +222,10 @@ const Home: NextPageWithLayout = () => {
             ></Image>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ---------------------------------------------News ----------------------------------*/}
-      <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+      {/* <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
         <div className="w-full mx-auto text-center lg:w-3/4 ">
           <Heading2>News</Heading2>
           <SubHeading1>Read the latest stories from our world.</SubHeading1>
@@ -245,7 +247,7 @@ const Home: NextPageWithLayout = () => {
         <div className="flex justify-center">
           <OutlinedButton size="medium">See All News</OutlinedButton>
         </div>
-      </section>
+      </section> */}
 
       {/* ---------------------------------------------Contact Us ----------------------------------*/}
       <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
@@ -260,7 +262,7 @@ const Home: NextPageWithLayout = () => {
             </p>
             <div className="relative overflow-hidden max-w-[300px] h-[200px] lg:max-w-[500px] lg:h-[300px] rounded-xl drop-shadow-2xl group mb-8">
               <Image
-                src="https://picsum.photos/seed/picsum/500/300"
+                src="/static/images/pages/home/process.jpg"
                 alt="testimonial"
                 fill
                 object-fit="cover"
@@ -275,15 +277,15 @@ const Home: NextPageWithLayout = () => {
             <ul>
               <li className="mb-4 flex">
                 <BsArrowReturnRight className="text-2xl mr-4" />
-                Qui laborum ex deserunt duis dolore
+                In Discovery Phase, we research, create, and meet weekly.
               </li>
               <li className="mb-4 flex">
                 <BsArrowReturnRight className="text-2xl mr-4" />
-                Qui laborum ex deserunt duis dolore
+                Coding begins, encompassing front-end, back-end, and CMS.
               </li>
               <li className="mb-4 flex">
                 <BsArrowReturnRight className="text-2xl mr-4" />
-                Qui laborum ex deserunt duis dolore
+                Launch day ensures final fixes, delivering a fully functional, stunning website.
               </li>
             </ul>
           </div>
