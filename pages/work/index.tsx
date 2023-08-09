@@ -36,8 +36,7 @@ const Work: NextPageWithLayout = () => {
         <div className="w-full text-left lg:w-3/4">
           <Heading2>Explore Our Work</Heading2>
           <SubHeading1>
-            Aliquip excepteur proident ullamco ex esse ad in culpa minim Lorem
-            ipsum.
+            We are providing exceptional work meet your business requirement.
           </SubHeading1>
         </div>
         <div className="flex gap-5">
