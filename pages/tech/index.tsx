@@ -1,7 +1,7 @@
 function Tech() {
     return (
         <div>
-            Tech
+            Tech company
         </div>
     );
 }
