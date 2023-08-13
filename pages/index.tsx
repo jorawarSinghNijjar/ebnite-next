@@ -25,6 +25,7 @@ import Card3 from "@/components/card/Card3";
 import NavbarHome from "@/components/layout/NavbarHome";
 import Footer from "@/components/layout/Footer";
 import Card from "@/components/card/Card";
+import Head from "next/head";
 
 // function resizeGridItem(item: any) {
 //   let grid = document.querySelector("#masonry-grid")!;
@@ -285,7 +286,8 @@ const Home: NextPageWithLayout = () => {
               </li>
               <li className="mb-4 flex">
                 <BsArrowReturnRight className="text-2xl mr-4" />
-                Launch day ensures final fixes, delivering a fully functional, stunning website.
+                Launch day ensures final fixes, delivering a fully functional,
+                stunning website.
               </li>
             </ul>
           </div>
@@ -328,6 +330,16 @@ export default Home;
 Home.getLayout = (page: ReactElement) => {
   return (
     <>
+      <Head>
+        <title>
+          Ebnite - Empowering Businesses through Cutting-Edge Software
+          Solutions!
+        </title>
+        <meta
+          name="home"
+          content="At Ebnite, we specialize in crafting cutting-edge Software-as-a-Service (SaaS) solutions that drive digital transformation and empower businesses to thrive in the modern digital landscape."
+        />
+      </Head>
       <div className="relative min-h-screen lg:h-screen w-screen">
         <NavbarHome />
       </div>
