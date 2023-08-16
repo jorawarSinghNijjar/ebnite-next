@@ -7,13 +7,15 @@ import TwoColCard from "@/components/card/TwoColCard";
 import Heading2 from "@/components/Headings/Heading2";
 import Heading3 from "@/components/Headings/Heading3";
 
-import SubHeading1 from "@/components/SubHeading/SubHeading1";
-import SubHeading2 from "@/components/SubHeading/SubHeading2";
+import SubHeading1 from "@/components/SubHeading/SubHeading2";
+import SubHeading2 from "@/components/SubHeading/SubHeading3";
 import Image from "next/image";
 import { ReactElement } from "react";
 
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import TwoColCardV2 from "@/components/card/TwoColCardV2";
+import { servicesCard2List } from './../../data/servicesCard2';
 
 function Services() {
   return (
@@ -51,28 +53,28 @@ function Services() {
             end-to-end engineering, and scalable solutions.
           </SubHeading2>
         </div>
-        <TwoColCard
+        <TwoColCardV2
           title="Software engineering"
           description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
           buttonText="Learn More"
-          imageSrc="/static/images/test.jpg"
+          imageSrc="/static/images/pages/services/two-col-card-1.png"
           className="mb-10 bg-light"
         />
 
         <div className="mb-10 grid gap-8 lg:grid-cols-2">
-          {[1, 2, 3, 4].map((elem, index) => (
+          {servicesCard2List.map(({title, imageSrc, description}, index) => (
             <Card
             key={index}
-              title="Product Design"
-              description="Envision the product, and we will design it. Take your idea from your head to the monitor to the market in a matter of months."
-              imageSrc="/static/images/test.jpg"
+              title={title}
+              description={description}
+              imageSrc={imageSrc}
               buttonText="Learn more"
               className="items-start"
             ></Card>
           ))}
         </div>
 
-        <TwoColCard
+        <TwoColCardV2
           title="Software engineering"
           description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
           buttonText="Learn More"
@@ -80,7 +82,7 @@ function Services() {
           className="mb-10 bg-lighter"
         />
 
-        <TwoColCard
+        <TwoColCardV2
           title="Software engineering"
           description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
           buttonText="Learn More"
@@ -89,7 +91,7 @@ function Services() {
           reverse
         />
 
-        <TwoColCard
+        <TwoColCardV2
           title="Software engineering"
           description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
           buttonText="Learn More"

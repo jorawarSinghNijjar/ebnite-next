@@ -10,8 +10,8 @@ import TextInput from "@/components/Input/TextInput";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 
-import SubHeading2 from "@/components/SubHeading/SubHeading2";
-import SubHeading3 from "@/components/SubHeading/SubHeading3";
+import SubHeading2 from "@/components/SubHeading/SubHeading3";
+import SubHeading3 from "@/components/SubHeading/SubHeading4";
 import Image from "next/image";
 import { ReactElement } from "react";
 import { BsSearch } from "react-icons/bs";

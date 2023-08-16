@@ -7,7 +7,7 @@ import Heading3 from "@/components/Headings/Heading3";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 
-import SubHeading1 from "@/components/SubHeading/SubHeading1";
+import SubHeading1 from "@/components/SubHeading/SubHeading2";
 import { ReactElement, useState } from "react";
 import { NextPageWithLayout } from "../_app";
 

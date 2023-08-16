@@ -2,9 +2,11 @@ import Image from "next/image";
 import React from "react";
 import Heading4 from "../Headings/Heading4";
 import NormalText from "../Text/NormalText";
-import SubHeading2 from "../SubHeading/SubHeading3";
+
 import TextButton from "../Buttons/TextButton";
 import Link from "next/link";
+import Heading3 from "../Headings/Heading3";
+import SubHeading2 from "../SubHeading/SubHeading2";
 
 interface props {
   imageSrc: string;
@@ -15,7 +17,7 @@ interface props {
   reverse?: boolean;
 }
 
-const TwoColCard = ({
+const TwoColCardV2 = ({
   imageSrc,
   title,
   description,
@@ -42,11 +44,11 @@ const TwoColCard = ({
       </div>
 
       <div
-        className={`max-w-full lg:max-w-[50%] flex flex-col justify-end ${
+        className={`max-w-full lg:max-w-[50%] flex flex-col justify-center ${
           reverse && "lg:order-1"
         }`}
       >
-        <Heading4 className="text-slate-800">{title}</Heading4>
+        <Heading3 className="text-slate-800">{title}</Heading3>
         <SubHeading2>{description}</SubHeading2>
         <Link href="/services" className="text-primary text-lg font-medium">
           {buttonText}
@@ -56,4 +58,4 @@ const TwoColCard = ({
   );
 };
 
-export default TwoColCard;
+export default TwoColCardV2;

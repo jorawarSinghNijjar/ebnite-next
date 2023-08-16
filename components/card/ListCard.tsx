@@ -1,6 +1,6 @@
 import React from "react";
 import Heading5 from "../Headings/Heading5";
-import SubHeading3 from "../SubHeading/SubHeading3";
+import SubHeading3 from "../SubHeading/SubHeading4";
 
 interface props {
   title: string;

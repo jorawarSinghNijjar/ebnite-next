@@ -3,7 +3,7 @@ import Image from "next/image";
 import OutlinedButton from "@/components/Buttons/OutlinedButton";
 
 import Heading2 from "@/components/Headings/Heading2";
-import SubHeading1 from "@/components/SubHeading/SubHeading1";
+import SubHeading1 from "@/components/SubHeading/SubHeading2";
 import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { clientsLogoList } from "@/data/clientsLogo";
 import { newsList } from "@/data/news";
