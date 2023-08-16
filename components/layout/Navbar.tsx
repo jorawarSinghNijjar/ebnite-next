@@ -7,6 +7,7 @@ import FilledButton from "../Buttons/FilledButton";
 // import { useMediaQuery } from "react-responsive";
 
 const navLinkArr = [
+  // {name: "Home", href:"/"},
   { name: "Work", href: "/work" },
   { name: "Services", href: "/services" },
   // { name: "Pricing", href: "/pricing" },
@@ -22,9 +23,9 @@ const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <nav
-      className={`fixed top-0 drop-shadow-lg bg-white text-primary z-10 w-full px-20 py-3 flex flex-row justify-between`}
+      className={`fixed top-0 drop-shadow-lg bg-white text-primary z-10 w-full px-6 lg:px-20 py-3 xl:py-5 flex flex-row justify-between`}
     >
-      <div className="float-left">
+      <div className="">
         <Link href="/">
           <p className="font-bold">
             <Image
@@ -37,11 +38,11 @@ const Navbar = () => {
           </p>
         </Link>
       </div>
-      <div className="float-right">
+      <div className="">
         <ul className="list-none hidden lg:flex h-full gap-x-5 items-center">
           {navLinkArr.map(({ name, href }, index) => (
             <div key={index} className="">
-              <li className="relative py-2 font-medium before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-1 before:bg-slate-200 before:transition-width before:ease-in-out before:duration-500 hover:before:w-full">
+              <li className="relative py-2 font-medium xl:text-2xl before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-1 before:bg-slate-200 before:transition-width before:ease-in-out before:duration-500 hover:before:w-full">
                 <Link href={href}>{name}</Link>
               </li>
             </div>
@@ -76,7 +77,7 @@ const Navbar = () => {
               {navLinkArr.map(({ name, href }, index) => (
                 <div key={index} className="">
                   <li className="relative max-w-max mx-auto py-2 text-xl font-medium before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-1 before:bg-light before:transition-width before:ease-in-out before:duration-500 hover:before:w-full">
-                    <Link href={href}>{name}</Link>
+                    <Link href={href} onClick={() => setDrawerOpen(!drawerOpen)}>{name}</Link>
                   </li>
                 </div>
               ))}

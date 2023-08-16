@@ -1,5 +1,6 @@
 import Image from "next/image";
 import OutlinedButton from "../Buttons/OutlinedButton";
+import FilledButton from './../Buttons/FilledButton';
 
 interface WorksCardProps {
   imageSrc: string;
@@ -22,25 +23,25 @@ function WorksCard({
 }: WorksCardProps) {
   return (
     <div className="relative h-[530px] group">
-      <div className="flex flex-col justify-between pl-12 py-16 h-full opacity-0 scale-105 transition-all transition-300 group-hover:opacity-100 group-hover:backdrop-blur-2xl group-hover:scale-100">
+      <div className="flex flex-col justify-between pl-12 py-16 h-full lg:opacity-0 lg:scale-105 transition-all transition-300 lg:group-hover:opacity-100 backdrop-blur-sm lg:group-hover:backdrop-blur-2xl lg:group-hover:bg-black/60 group-hover:scale-100">
         <div className="flex flex-col gap-4">
-          <OutlinedButton>Platform</OutlinedButton>
+          <OutlinedButton>{category}</OutlinedButton>
           <h3 className="text-4xl mb-4 font-extrabold text-slate-100">
-            My App
+            {title}
           </h3>
           <h5 className="text-slate-300 text-xl font-light">
-            Ad pariatur aute adipisicing ex minim aute.
+           {description}
           </h5>
         </div>
 
-        <OutlinedButton size="medium">View Case</OutlinedButton>
+        <FilledButton size="medium" className="uppercase w-max bg-tertiary text-dark">View Case</FilledButton>
       </div>
       <Image
-        src="/static/images/test.jpg"
+        src={imageSrc}
         alt="testimonial"
         width={width}
         height={height}
-        className="absolute top-0 left-0 w-full -z-10 object-cover h-full"
+        className="absolute top-0 left-0 w-full -z-10 object-contain h-full"
       />
     </div>
   );

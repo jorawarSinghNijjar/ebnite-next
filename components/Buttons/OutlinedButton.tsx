@@ -29,7 +29,7 @@ function OutlinedButton({ size,children }: props) {
     );
     default: return (
       <button
-        className={`border border-secondary py-2 px-4 rounded-full uppercase text-xs text-secondary font-medium hover:bg-secondary hover:text-slate-100 transition ease-in w-max`}
+        className={`border-2 border-secondary py-2 px-4 rounded-full uppercase text-xs text-secondary font-medium hover:bg-secondary hover:text-slate-100 transition ease-in w-max`}
       >
         {children}
       </button>

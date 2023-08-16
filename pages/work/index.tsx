@@ -32,8 +32,8 @@ const Work: NextPageWithLayout = () => {
 
   return (
     <>
-      <section className="px-20 mb-16">
-        <div className="w-3/4 mx-auto">
+      <section className="px-6 lg:px-20 mb-16">
+        <div className="w-full text-left lg:w-3/4">
           <Heading2>Explore Our Work</Heading2>
           <SubHeading1>
             We are providing exceptional work meet your business requirement.
@@ -56,44 +56,44 @@ const Work: NextPageWithLayout = () => {
             <WorksCard
               width={580}
               height={530}
-              title="My App"
-              description="Awesome app for health"
-              category="Health"
+              title="Animalife"
+              description="Awesome app for a wildlife broadcasting company."
+              category="Website"
               href="/"
-              imageSrc="/"
+              imageSrc="/static/images/pages/home/works-3.png"
             />
           </div>
           <div className="col-span-3 lg:col-span-2">
             <WorksCard
               width={580}
               height={530}
-              title="My App"
-              description="Awesome app for health"
-              category="Health"
+              title="Account Management System"
+              description="A system to keep track of the withdrawal, deposits done by the client and much more"
+              category="CRM"
               href="/"
-              imageSrc="/"
+              imageSrc="/static/images/pages/home/works-1.png"
             />
           </div>
           <div className="col-span-3 lg:col-span-2">
             <WorksCard
               width={580}
               height={530}
-              title="My App"
-              description="Awesome app for health"
-              category="Health"
+              title="Immobiliaria"
+              description="Application curated for real estate branding."
+              category="Website"
               href="/"
-              imageSrc="/"
+              imageSrc="/static/images/pages/home/works-2.jpg"
             />
           </div>
           <div className="col-span-3 lg:col-span-1">
             <WorksCard
               width={580}
               height={530}
-              title="My App"
-              description="Awesome app for health"
-              category="Health"
+              title="Admin Dashboard"
+              description="Empower and manage with precision."
+              category="CRM"
               href="/"
-              imageSrc="/"
+              imageSrc="/static/images/pages/home/works-4.png"
             />
           </div>
         </div>
@@ -119,7 +119,7 @@ Work.getLayout = (page: ReactElement) => {
       <div className="relative">
         <Navbar />
       </div>
-      <main className="mt-32">{page}</main>
+      <main className="mt-32 xl:max-w-[1460px] xl:mx-auto">{page}</main>
       <Footer />
     </>
   );

@@ -43,25 +43,25 @@ const NavbarHome = () => {
         sticky
           ? "fixed drop-shadow-lg bg-white text-primary"
           : "absolute bg-transparent text-slate-200"
-      } top-0 z-10 w-full py-3 px-5 lg:px-20 flex flex-row justify-between`}
+      } top-0 z-10 w-full py-3 px-5 min-h-[70px] lg:px-20 flex flex-row justify-between items-center`}
     >
-      <div className="float-left">
+      <div className="">
         {/* <Link href="/">
           <p className="py-2 font-bold">Ebnite</p>
         </Link> */}
         <Link href="/">
           <p className="font-bold">
             <Image
-              src="/static/images/logo/logo-white.svg"
+              src={`${sticky ? "/static/images/logo/logo-no-background.svg": "/static/images/logo/logo-white.svg"}`}
               alt="Ebnite"
               width={150}
               height={70}
-              className="max-h-[50px] lg:max-h-[70px] object-cover"
+              className="max-w-[100px] max-h-[50px] lg:max-h-[70px] object-cover"
             ></Image>
           </p>
         </Link>
       </div>
-      <div className="float-right">
+      <div className="">
         {/* <ul className="list-none flex gap-x-5">
           {navLinkArr.map(({ name, href }, index) => (
             <div key={index} className="">
@@ -83,7 +83,7 @@ const NavbarHome = () => {
           {navLinkArr.map(({ name, href }, index) => (
             <div key={index} className="">
               <li className="relative py-2 font-medium xl:text-2xl before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-1 before:bg-slate-200 before:transition-width before:ease-in-out before:duration-500 hover:before:w-full">
-                <Link href={href}>{name}</Link>
+                <Link href={href} onClick={() => setDrawerOpen(!drawerOpen)} >{name}</Link>
               </li>
             </div>
           ))}
