@@ -15,7 +15,10 @@ import { ReactElement } from "react";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import TwoColCardV2 from "@/components/card/TwoColCardV2";
-import { servicesCard2List } from './../../data/servicesCard2';
+import { servicesCard2List } from "./../../data/servicesCard2";
+import { faqServicesList } from "./../../data/faqServices";
+import { statsCardServicesList } from "./../../data/statsCardServices";
+import { whyChooseUsCardList } from "@/data/whyChoseUsCard";
 
 function Services() {
   return (
@@ -55,16 +58,16 @@ function Services() {
         </div>
         <TwoColCardV2
           title="Software engineering"
-          description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
+          description="Over 8 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
           buttonText="Learn More"
           imageSrc="/static/images/pages/services/two-col-card-1.png"
-          className="mb-10 bg-light"
+          className="mb-10 bg-lighter"
         />
 
         <div className="mb-10 grid gap-8 lg:grid-cols-2">
-          {servicesCard2List.map(({title, imageSrc, description}, index) => (
+          {servicesCard2List.map(({ title, imageSrc, description }, index) => (
             <Card
-            key={index}
+              key={index}
               title={title}
               description={description}
               imageSrc={imageSrc}
@@ -75,38 +78,38 @@ function Services() {
         </div>
 
         <TwoColCardV2
-          title="Software engineering"
-          description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
+          title="Project management"
+          description="Effective coordination of the project is the foundation of its success. We provide services of well-equipped, highly proficient project managers."
           buttonText="Learn More"
-          imageSrc="/static/images/test.jpg"
+          imageSrc="/static/images/pages/services/project-management.png"
           className="mb-10 bg-lighter"
         />
 
         <TwoColCardV2
-          title="Software engineering"
-          description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
+          title="Growth marketing"
+          description="Make your product visible in the European & US markets! We offer the services of the Growth department for clients who would like assistance in their projects’ roll-out."
           buttonText="Learn More"
-          imageSrc="/static/images/test.jpg"
+          imageSrc="/static/images/pages/services/growth.png"
           className="mb-10 bg-lighter"
           reverse
         />
 
         <TwoColCardV2
-          title="Software engineering"
-          description="Over 11 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
+          title="Sales Management"
+          description="Elevate your sales strategy with our Sales Management Software. Streamline processes, track performance, and drive growth, all in one intuitive platform. Make informed decisions backed by real-time insights. Try it today for sales success tomorrow."
           buttonText="Learn More"
-          imageSrc="/static/images/test.jpg"
+          imageSrc="/static/images/pages/services/sales-management.png"
           className="mb-10 bg-lighter"
         />
       </section>
       <section className="px-6 lg:px-20 mb-10 lg:mb-16">
         <Heading3>FAQs</Heading3>
         <div className="grid gap-8 lg:grid-cols-2">
-          {[1, 2, 3, 4].map((elem, index) => (
+          {faqServicesList.map(({ title, description }, index) => (
             <SingleAccordion
               key={index}
-              title="How to reduce software development services cost?"
-              description="Irure non laborum ullamco aliquip nostrud consectetur. Fugiat ea esse elit exercitation officia ex. Excepteur proident dolore labore culpa deserunt eiusmod et qui cupidatat ipsum cillum id id. Mollit ut dolor in culpa reprehenderit culpa enim minim."
+              title={title}
+              description={description}
             />
           ))}
         </div>
@@ -140,27 +143,25 @@ function Services() {
       </section>
       <section className="px-6 lg:px-20 mb-10 lg:mb-16">
         <div className="flex flex-col gap-4 lg:flex-row justify-between">
-          {[1, 2, 3, 4].map((elem, index) => (
-            <StatsCard
-              key={index}
-              numberData="200+"
-              desc="projects completed"
-            />
+          {statsCardServicesList.map(({ numberData, desc }, index) => (
+            <StatsCard key={index} numberData={numberData} desc={desc} />
           ))}
         </div>
       </section>
       <section className="px-6 lg:px-20 mb-10 lg:mb-16">
-      <Heading3>Why choose Ebnite Technologies</Heading3>
+        <Heading3>Why choose Ebnite Technologies</Heading3>
         <div className="flex flex-col lg:flex-row justify-between gap-10 mt-14">
-          {[1, 2, 3].map((elem, index) => (
-            <Card
-              key={index}
-              title="Eiusmod ex"
-              description="Ut cillum occaecat nostrud est sint magna aliqua labore excepteur."
-              imageSrc="/static/images/test.jpg"
-              className="items-start"
-            ></Card>  
-          ))}
+          {whyChooseUsCardList.map(
+            ({ imageSrc, title, description }, index) => (
+              <Card
+                key={index}
+                title={title}
+                description={description}
+                imageSrc={imageSrc}
+                className="items-start"
+              ></Card>
+            )
+          )}
         </div>
       </section>
     </>

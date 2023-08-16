@@ -39,7 +39,7 @@ const TwoColCardV2 = ({
           alt="software engineering"
           width={600}
           height={400}
-          className=""
+          className="max-h-[400px] object-contain"
         />
       </div>
 
