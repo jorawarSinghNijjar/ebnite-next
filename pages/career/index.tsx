@@ -28,7 +28,7 @@ function Career() {
             alt="services"
             width={2560}
             height={750}
-            className="absolute -z-20 w-screen h-screen md:max-h-[750px] object-cover"
+            className="absolute -z-20 w-screen h-screen md:max-h-[750px] object-cover object-top"
           />
 
           <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 pt-40 lg:pt-60 relative z-10">
