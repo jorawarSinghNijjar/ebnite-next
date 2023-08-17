@@ -10,7 +10,7 @@ interface props {
 const ListCard = ({ title, desc }: props) => {
   return (
     <div className="border-b border-gray-200 mb-4">
-      <Heading5 className="text-dark">{title}</Heading5>
+      <Heading5 className="text-primary">{title}</Heading5>
       <SubHeading3>{desc}</SubHeading3>
     </div>
   );

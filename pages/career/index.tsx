@@ -12,6 +12,7 @@ import Navbar from "@/components/layout/Navbar";
 
 import SubHeading2 from "@/components/SubHeading/SubHeading3";
 import SubHeading3 from "@/components/SubHeading/SubHeading4";
+import { benefitsList } from "@/data/benefitsList";
 import Image from "next/image";
 import { ReactElement } from "react";
 import { BsSearch } from "react-icons/bs";
@@ -20,15 +21,17 @@ function Career() {
   return (
     <>
       <section className="w-full">
-        <div className="relative w-full h-screen">
+        <div className="w-full h-screen md:max-h-[750px] relative">
+          <div className="absolute -z-10 right-0 top-0 h-screen md:h-[750px] w-screen bg-black bg-opacity-50"></div>
           <Image
-            src="/static/images/test.jpg"
+            src="/static/images/pages/careers/hero.jpg"
             alt="services"
-            width={1440}
-            height={900}
-            className="absolute w-full h-full -z-10"
+            width={2560}
+            height={750}
+            className="absolute -z-20 w-screen h-screen md:max-h-[750px] object-cover"
           />
-          <div className="px-6 lg:px-20 pt-40 lg:pt-60">
+
+          <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 pt-40 lg:pt-60 relative z-10">
             <Heading6 className="text-white">Careers</Heading6>
             <Heading4 className="text-white">JOIN OUR</Heading4>
             <Heading4 className="text-white -mt-5">Thriving Community</Heading4>
@@ -68,49 +71,55 @@ function Career() {
           </div>
         </div>
       </section>
+
       <section className="px-6 lg:px-20 py-16 bg-lighter">
-        <Heading4 className="text-center">
-          Experience a diverse work space with collaborative learning
-          opportunities with us!
-        </Heading4>
-        <div className="grid gap-8 lg:grid-cols-2 pt-10">
-          <div className="flex items-center justify-center lg:max-w-1/2">
-            <Image
-              src="https://picsum.photos/seed/picsum/500/300"
-              alt="testimonial"
-              width={500}
-              height={300}
-              className="rounded-2xl max-w-full drop-shadow-2xl"
-            ></Image>
-          </div>
-          <div className="">
-            <p className="font-normal text-lg leading-relaxed mb-4 ">
-              Our motto is to keep pushing our limits to work with the latest
-              developing technologies, and we take pride in our thriving culture
-              of learning together.
-            </p>
-            <p className="font-normal text-lg leading-relaxed mb-4 ">
-              At Techverx, we try to provide a work environment which is full of
-              new experiences and opportunities to do your best. To build an
-              enabling atmosphere for the employees, we foster an interactive,
-              broad, and dynamic work environment that values success via
-              accomplishments.
-            </p>
-            <p className="font-normal text-lg leading-relaxed mb-4 ">
-              We practice integrity, diversity and generosity as a part of our
-              culture to instill these core values in our employees. Observing
-              how their efforts directly contribute to the prosperity of our
-              clients and the business inspires our workforce.
-            </p>
-            <p className="font-normal text-lg leading-relaxed mb-4 ">
-              Our motto is to keep pushing our limits to work with the latest
-              developing technologies, and we take pride in our thriving culture
-              of learning together.
-            </p>
+        <div className="xl:max-w-[1460px] xl:mx-auto">
+          <Heading4 className="text-center">
+            Experience a diverse work space with collaborative learning
+            opportunities with us!
+          </Heading4>
+          <div className="grid gap-8 lg:grid-cols-2 pt-10">
+            <div className="flex items-center justify-center lg:max-w-1/2">
+              <Image
+                src="/static/images/pages/careers/feature-1.jpg"
+                alt="testimonial"
+                width={500}
+                height={300}
+                className="rounded-2xl max-w-full drop-shadow-2xl"
+              ></Image>
+            </div>
+            <div className="">
+              <p className="font-normal text-lg leading-relaxed mb-4 ">
+                Our mission is to continually embrace cutting-edge technologies,
+                and we take immense pride in fostering a vibrant culture of
+                collaborative learning.
+              </p>
+              <p className="font-normal text-lg leading-relaxed mb-4 ">
+                At Ebnite, we strive to offer a work environment brimming with
+                fresh experiences and opportunities for individuals to excel. To
+                cultivate an empowering atmosphere for our team, we nurture an
+                interactive, inclusive, and dynamic workspace that places great
+                value on accomplishments.
+              </p>
+              <p className="font-normal text-lg leading-relaxed mb-4 ">
+                We uphold values of integrity, diversity, and generosity as
+                integral aspects of our culture, aiming to instill these
+                principles within our dedicated staff. Witnessing how their
+                contributions directly enrich the success of our clients and the
+                overall business serves as a constant source of motivation for
+                our workforce.
+              </p>
+              <p className="font-normal text-lg leading-relaxed mb-4 ">
+                Our objective remains to consistently push boundaries by
+                collaborating with the latest advancements in technology. We
+                take pride in nurturing a thriving culture of shared learning
+                and growth.
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <section className="px-6 lg:px-20 py-16 flex flex-col lg:flex-row gap-12">
+      <section className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 py-16 flex flex-col lg:flex-row gap-12">
         <div className="">
           <Heading4 className="text-secondary">Benefits</Heading4>
           <Heading4 className="-mt-5 text-primary">and Perks</Heading4>
@@ -119,12 +128,12 @@ function Career() {
             benefits. Following is some of the perks:
           </p>
         </div>
-        <div className="max-w-full lg:max-w-[60%] max-h-screen overflow-scroll no-scrollbar">
-          {[1, 2, 3, 4, 5,6,7,8].map((elem, index) => (
+        <div className="max-w-full lg:max-w-[60%] max-h-[600px] overflow-scroll no-scrollbar">
+          {benefitsList.map(({title,desc}, index) => (
             <ListCard
               key={index}
-              title="Health Coverage"
-              desc="The new Medical Hospitalization policy with improved health coverage for all the employees and their immediate family members with more than 315 hospitals on the panel"
+              title={title}
+              desc={desc}
             />
           ))}
         </div>
@@ -141,7 +150,7 @@ Career.getLayout = (page: ReactElement) => {
       <div className="relative">
         <Navbar />
       </div>
-      <main>{page}</main>
+      <main className="">{page}</main>
       <Footer />
     </>
   );

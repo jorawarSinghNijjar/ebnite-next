@@ -1,11 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import FilledButton from "../Buttons/FilledButton";
+import Location from "../Location/Location";
 
 const Footer = () => {
   return (
     <footer className="relative bg-dark mt-32">
       <div className="py-20 px-5 md:px-20 bg-dark xl:max-w-[1460px] xl:mx-auto">
-        <div className="flex flex-col md:flex-row ">
+        <div className="flex flex-col items-start lg:flex-row lg:justify-between ">
           <div className="w-full md:w-1/2 flex flex-col gap-y-10 mb-10">
             <div className="text-4xl font-extralight text-tertiary">EBNITE</div>
             <h6 className=" text-5xl md:text-6xl font-bold text-light">
@@ -18,25 +20,14 @@ const Footer = () => {
               Let&apos;s schedule a call
             </FilledButton>
           </div>
-          <div className="w-full md:w-1/2 flex flex-col gap-y-10 sm:items-start md:items-end">
-            <div className="max-w-[300px] border-light border-l-4 pl-8">
-              <h6 className="text-4xl font-thin text-light uppercase mb-8">
-                Toronto
-              </h6>
-              <address className="text-light not-italic [&>*]:mb-2">
-                <p>
-                  <strong>Address:</strong> Rua Adriano Correia de Oliveira 4A,
-                  1600-312
-                </p>
-
-                <p>
-                  <strong> Phone:</strong> +1 963630105
-                </p>
-
-                <p>
-                  <strong>Email:</strong> toronto@ebnite.com
-                </p>
-              </address>
+          <div className="flex flex-col gap-y-10 items-start lg:items-end">
+            <div className="w-full md:w-3/4 flex flex-col gap-y-10 items-start lg:items-end">
+              <Location
+                address="8 Cumbrian Court, Brampton, ON L6X 2J8"
+                phone="+1 438-979-4762"
+                email="infoToronto@ebnite.com"
+                imageSrc="/static/images/pages/footer/toronto.png"
+              />
             </div>
           </div>
         </div>
@@ -84,7 +75,9 @@ const Footer = () => {
       </div>
 
       <div className="w-full py-6 px-5 md:px-20 bg-dark flex flex-col gap-2 md:flex-row justify-between text-lighter xl:max-w-[1460px] xl:mx-auto">
-        <div className="order-2 md:order-1">© 2023 Ebnite.com all rights reserved.</div>
+        <div className="order-2 md:order-1">
+          © 2023 Ebnite.com all rights reserved.
+        </div>
         <div className="flex flex-row gap-6 md:justify-end">
           <Link href="/">Twitter</Link>
           <Link href="/">Facebook</Link>
