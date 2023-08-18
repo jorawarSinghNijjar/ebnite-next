@@ -1,68 +1,31 @@
 import Image from "next/image";
-
-import OutlinedButton from "@/components/Buttons/OutlinedButton";
-
+import { useState } from "react";
 import Heading2 from "@/components/Headings/Heading2";
 import SubHeading1 from "@/components/SubHeading/SubHeading2";
 import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
-import { clientsLogoList } from "@/data/clientsLogo";
-import { newsList } from "@/data/news";
 import { servicesCardList } from "@/data/servicesCard";
 import { talkToUsCardList } from "@/data/talkToUsCard";
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 
 import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
 import SelectInput from "@/components/Input/SelectInput";
 import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
 
+import Modal from "@/components/Modal/Modal";
+import Card from "@/components/card/Card";
+import Card2 from "@/components/card/Card2";
+import Footer from "@/components/layout/Footer";
+import NavbarHome from "@/components/layout/NavbarHome";
+import Head from "next/head";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
-import { NextPageWithLayout } from "./_app";
 import FilledButton from "./../components/Buttons/FilledButton";
-import Card2 from "@/components/card/Card2";
-import Card3 from "@/components/card/Card3";
-import NavbarHome from "@/components/layout/NavbarHome";
-import Footer from "@/components/layout/Footer";
-import Card from "@/components/card/Card";
-import Head from "next/head";
-
-// function resizeGridItem(item: any) {
-//   let grid = document.querySelector("#masonry-grid")!;
-//   const rowHeight = parseInt(
-//     window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
-//   );
-//   // console.log("row Height", rowHeight);
-//   const rowGap = parseInt(
-//     window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
-//   );
-//   // console.log("row gap", rowGap);
-//   const rowSpan = Math.ceil(
-//     (item.querySelector(".card-content").getBoundingClientRect().height +
-//       rowGap) /
-//       (rowHeight + rowGap)
-//   );
-//   item.style.gridRowEnd = "span " + rowSpan;
-// }
-
-// function resizeAllGridItems() {
-//   const allItems = document.getElementsByClassName("masonry-grid-item");
-//   for (let x = 0; x < allItems.length; x++) {
-//     resizeGridItem(allItems[x]);
-//   }
-// }
+import { NextPageWithLayout } from "./_app";
+import Portal from "@/components/Portal/Portal";
 
 const Home: NextPageWithLayout = () => {
-  //   useEffect(() => {
-  //     window.addEventListener("load", resizeAllGridItems);
-  //     window.addEventListener("resize", resizeAllGridItems);
-
-  //     return () => {
-  //       window.removeEventListener("resize", resizeAllGridItems);
-  //       window.removeEventListener("load", resizeAllGridItems);
-  //     };
-  //   }, []);
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       {/* Navigation */}
@@ -174,15 +137,15 @@ const Home: NextPageWithLayout = () => {
         </div>
         <TwoColGrid
           imageSrc="/static/images/pages/home/works-4.png"
-          category="Category"
-          heading="Company Name"
-          content="ABCD, developed in collaboration with AlixPartners, aims to assess the fair forward-looking value of real estate developments and the fair credit value of real estate developers – and to suggest underwriting overrides when lending to these counterparts."
+          category="DASHBOARD"
+          heading="FitTrack Pro"
+          content="Ebnite proudly presents its latest creation: a Responsive Fitness Dashboard App developed for a valued client. Designed with precision, this app effortlessly adapts to diverse devices, offering a consistent and user-friendly experience. Users can seamlessly monitor fitness progress, access personalized workouts, and gain health insights, all while ensuring data security through advanced encryption. Ebnite's innovation shines through in this dynamic solution, reflecting our commitment to excellence and client satisfaction."
         />
         <TwoColGrid
           imageSrc="/static/images/pages/home/works-2.jpg"
-          category="Category"
-          heading="Company Name"
-          content="ABCD, developed in collaboration with AlixPartners, aims to assess the fair forward-looking value of real estate developments and the fair credit value of real estate developers – and to suggest underwriting overrides when lending to these counterparts."
+          category="WEBSITE"
+          heading="Immobiliaria"
+          content="Developed by our team, this innovative Property Management App revolutionizes Immobiliaria's operations. Seamlessly monitor properties, tenant communication, and financial tasks across devices. Robust encryption ensures data security. Our dedication to excellence is evident in this app, streamlining real estate management for heightened efficiency and client satisfaction."
           swapSides
         />
       </section>
@@ -261,7 +224,10 @@ const Home: NextPageWithLayout = () => {
             <p className="text-base mb-8">
               This is exactly what will happen after you submit your form:
             </p>
-            <div className="relative overflow-hidden max-w-[300px] h-[200px] lg:max-w-[500px] lg:h-[300px] rounded-xl drop-shadow-2xl group mb-8">
+            <div
+              className="relative overflow-hidden max-w-[300px] h-[200px] lg:max-w-[500px] lg:h-[300px] rounded-xl drop-shadow-2xl group mb-8"
+              onClick={() => setShowModal(true)}
+            >
               <Image
                 src="/static/images/pages/home/process.jpg"
                 alt="testimonial"
@@ -271,6 +237,30 @@ const Home: NextPageWithLayout = () => {
                 // height={300}
                 className="absolute transition ease-in-out duration-700 group-hover:scale-125"
               ></Image>
+              {showModal && (
+                <Portal>
+                  <Modal
+                    show={showModal}
+                    onClose={() => setShowModal(false)}
+                    width="50%"
+                  >
+                    <video
+                      controls
+                      id="submit-form-video"
+                      className="w-full h-full"
+                    >
+                      <source
+                        src="/static/videos/after-submit-form.mp4"
+                        type="video/mp4"
+                      ></source>
+                    </video>
+                    {/* <iframe width="320" height="500" src="https://biteable.com/watch/embed/3988067/eecdb400a275260e5747c2e9f8ee49df?autoplay=true" allowFullScreen allow="autoplay"
+                    className="w-full min-h-[500px] overflow-hidden border-none"
+                    ></iframe> */}
+                  </Modal>
+                </Portal>
+              )}
+
               <div className="absolute bg-tertiary w-full h-full opacity-25 cursor-pointer"></div>
               <AiFillPlayCircle className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl text-primary cursor-pointer" />
             </div>
