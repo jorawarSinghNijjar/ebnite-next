@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FilledButton from "../Buttons/FilledButton";
 import Location from "../Location/Location";
+import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -38,11 +39,11 @@ const Footer = () => {
           <p className="text-base font-semibold uppercase text-lighter">
             Global
           </p>
-          <Link href="/">Work</Link>
-          <Link href="/">About Us</Link>
-          <Link href="/">Blog</Link>
-          <Link href="/">News</Link>
-          <Link href="/">Careers</Link>
+          <Link href="/work">Work</Link>
+          {/* <Link href="/about-us">About Us</Link>
+          <Link href="/blog">Blog</Link>
+          <Link href="/news">News</Link> */}
+          <Link href="/career">Careers</Link>
         </div>
 
         <div className="flex flex-col gap-y-1 [&>a]:text-light/[0.6] [&>a]:font-normal hover:[&>a]:text-light/[0.3]">
@@ -75,13 +76,14 @@ const Footer = () => {
       </div>
 
       <div className="w-full py-6 px-5 md:px-20 bg-dark flex flex-col gap-2 md:flex-row justify-between text-lighter xl:max-w-[1460px] xl:mx-auto">
-        <div className="order-2 md:order-1">
+        <p className="order-2 md:order-1 text-light font-medium">
           © 2023 Ebnite.com all rights reserved.
-        </div>
+        </p>
         <div className="flex flex-row gap-6 md:justify-end">
-          <Link href="/">Twitter</Link>
-          <Link href="/">Facebook</Link>
-          <Link href="/">Linkdin</Link>
+          <Link href="/"><BsTwitter className="text-light text-xl" target="_blank"/></Link>
+          <Link href="/"><BsFacebook className="text-light text-xl" target="_blank"/></Link>
+          <Link href="https://www.linkedin.com/company/ebnite/" target="_blank"><BsLinkedin className="text-light text-xl"/></Link>
+          <Link href="/"><BsInstagram className="text-light text-xl" target="_blank"/></Link>
         </div>
       </div>
     </footer>
