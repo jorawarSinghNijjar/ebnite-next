@@ -132,7 +132,7 @@ function Services() {
           </div>
           <div className="flex items-center justify-center max-w-1/2">
             <Image
-              src="https://picsum.photos/seed/picsum/500/300"
+              src="/static/images/pages/services/who-we-are.png"
               alt="testimonial"
               width={500}
               height={300}
