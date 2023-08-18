@@ -245,6 +245,7 @@ const Home: NextPageWithLayout = () => {
                     width="50%"
                   >
                     <video
+                      autoPlay
                       controls
                       id="submit-form-video"
                       className="w-full h-full"
