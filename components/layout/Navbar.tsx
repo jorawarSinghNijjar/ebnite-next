@@ -23,7 +23,7 @@ const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <nav
-      className={`fixed top-0 drop-shadow-lg bg-white text-primary z-30 w-full px-6 lg:px-20 py-3 xl:py-5 flex flex-row justify-between`}
+      className={`fixed top-0 drop-shadow-lg bg-white text-primary z-40 w-full px-6 lg:px-20 py-3 xl:py-5 flex flex-row justify-between`}
     >
       <div className="">
         <Link href="/">

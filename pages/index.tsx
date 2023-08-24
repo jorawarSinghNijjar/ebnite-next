@@ -1,11 +1,10 @@
-import Image from "next/image";
-import { useState } from "react";
 import Heading2 from "@/components/Headings/Heading2";
 import SubHeading1 from "@/components/SubHeading/SubHeading2";
 import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { servicesCardList } from "@/data/servicesCard";
 import { talkToUsCardList } from "@/data/talkToUsCard";
-import { ReactElement } from "react";
+import Image from "next/image";
+import { ReactElement, useState } from "react";
 
 import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
 import SelectInput from "@/components/Input/SelectInput";
@@ -13,6 +12,8 @@ import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
 
 import Modal from "@/components/Modal/Modal";
+import Portal from "@/components/Portal/Portal";
+import TalkToUsModal from "@/components/TalkToUsModal";
 import Card from "@/components/card/Card";
 import Card2 from "@/components/card/Card2";
 import Footer from "@/components/layout/Footer";
@@ -22,10 +23,10 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
-import Portal from "@/components/Portal/Portal";
 
 const Home: NextPageWithLayout = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
+  const [showBookCallModal, setShowBookCallModal] = useState(false);
   return (
     <>
       {/* Navigation */}
@@ -47,7 +48,7 @@ const Home: NextPageWithLayout = () => {
       {/* Video Overlay */}
       <div className="absolute -z-20 right-0 top-0 lg:h-screen w-screen bg-tertiary bg-opacity-40"></div>
 
-      <section className="clear-both absolute max-w-full px-5 py-20 lg:px-20 lg:py-40 h-full lg:h-screen left-0 top-0 -z-10 flex flex-col justify-center bg-gradient-to-r from-primary lg:from-5% from-20% ">
+      <section className="clear-both absolute z-10 max-w-full px-5 py-20 lg:px-20 lg:py-40 h-full lg:h-screen left-0 top-0 flex flex-col justify-center bg-gradient-to-r from-primary lg:from-5% from-20% ">
         {/* Actual Content */}
         <div>
           <h1 className="text-slate-100 text-5xl lg:text-7xl xl:text-8xl w-full lg:w-2/3 mb-10">
@@ -56,9 +57,23 @@ const Home: NextPageWithLayout = () => {
           <FilledButton
             size="medium"
             className="bg-secondary text-slate-100 uppercase"
+            onClick={() => setShowBookCallModal(true)}
           >
             Book a call
           </FilledButton>
+
+          {showBookCallModal && (
+            <Portal>
+              <Modal
+                show={showBookCallModal}
+                onClose={() => setShowBookCallModal(false)}
+                width="45%"
+                cancelInside
+              >
+                <TalkToUsModal />
+              </Modal>
+            </Portal>
+          )}
         </div>
       </section>
 
@@ -226,7 +241,7 @@ const Home: NextPageWithLayout = () => {
             </p>
             <div
               className="relative overflow-hidden max-w-[300px] h-[200px] lg:max-w-[500px] lg:h-[300px] rounded-xl drop-shadow-2xl group mb-8"
-              onClick={() => setShowModal(true)}
+              onClick={() => setShowStepsVideoModal(true)}
             >
               <Image
                 src="/static/images/pages/home/process.jpg"
@@ -237,11 +252,11 @@ const Home: NextPageWithLayout = () => {
                 // height={300}
                 className="absolute transition ease-in-out duration-700 group-hover:scale-125"
               ></Image>
-              {showModal && (
+              {showStepsVideoModal && (
                 <Portal>
                   <Modal
-                    show={showModal}
-                    onClose={() => setShowModal(false)}
+                    show={showStepsVideoModal}
+                    onClose={() => setShowStepsVideoModal(false)}
                     width="50%"
                   >
                     <video
