@@ -26,7 +26,7 @@ const AvailablePositions: React.FC<props> = ({ show, availablePositions }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="xl:max-w-[1460px]">
+      <div className="xl:max-w-[1460px] mx-auto">
         <div className="mb-10 text-center">
           <Heading3>Available Positions</Heading3>
         </div>
