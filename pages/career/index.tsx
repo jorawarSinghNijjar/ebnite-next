@@ -1,9 +1,7 @@
-import SharpFilledButton from "@/components/Buttons/SharpFilledButton";
+import AvailablePositions from "@/components/AvailablePositions";
 import ListCard from "@/components/card/ListCard";
 
-import Heading3 from "@/components/Headings/Heading3";
 import Heading4 from "@/components/Headings/Heading4";
-import Heading5 from "@/components/Headings/Heading5";
 import Heading6 from "@/components/Headings/Heading6";
 import SelectInput from "@/components/Input/SelectInput";
 import TextInput from "@/components/Input/TextInput";
@@ -11,13 +9,56 @@ import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 
 import SubHeading2 from "@/components/SubHeading/SubHeading3";
-import SubHeading3 from "@/components/SubHeading/SubHeading4";
 import { benefitsList } from "@/data/benefitsList";
+import { jobsList } from "@/data/jobsList";
 import Image from "next/image";
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 
 function Career() {
+  const [showAvailablePositions, setShowAvailablePositions] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [jobCategory, setJobCategory] = useState("");
+  const [location, setLocation] = useState("");
+  const [availablePositions, setAvailablePositions] = useState(jobsList);
+
+  const handleCategoryChange = (value: string) => {
+    setJobCategory(value);
+  };
+
+  const handleLocationChange = (value: string) => {
+    setLocation(value);
+  };
+
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    filterList(searchTerm, location, jobCategory);
+    setShowAvailablePositions(true);
+  };
+
+  const filterList = (
+    searchTerm: string,
+    searchLocation: string,
+    searchJobCategory: string
+  ) => {
+    const filteredItems = jobsList.filter(
+      ({ jobTitle, location, department }, index) => {
+        console.log(location.includes(searchLocation))
+        return jobTitle.toLowerCase().includes(searchTerm.toLowerCase()) &&
+          (searchLocation.toLowerCase() === "all"
+            ? true
+            : location.toLowerCase().includes(searchLocation.toLowerCase())) &&
+          (searchJobCategory.toLowerCase() === "all"
+            ? true
+            : department.toLowerCase().includes(searchJobCategory.toLowerCase()));
+      }
+    );
+
+    // console.log(filteredItems);
+    setAvailablePositions(filteredItems);
+  };
+
   return (
     <>
       <section className="w-full">
@@ -40,10 +81,24 @@ function Career() {
               personal growth.
             </SubHeading2>
 
-            <div className="flex flex-col lg:flex-row gap-4">
-              <TextInput type="text" placeholder="Search Jobs"></TextInput>
-              <SelectInput name="job-category">
-                <option value="" disabled>
+            <form
+              className="flex flex-col lg:flex-row gap-4"
+              onSubmit={handleSearchSubmit}
+            >
+              <TextInput
+                type="text"
+                placeholder="Search Jobs"
+                value={searchTerm}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setSearchTerm(e.target.value)
+                }
+              ></TextInput>
+              <SelectInput
+                name="job-category"
+                onSelectedChange={handleCategoryChange}
+                selectedValue={jobCategory}
+              >
+                <option value="" disabled selected>
                   Select Job Category
                 </option>
                 <option value="All">All</option>
@@ -51,8 +106,12 @@ function Career() {
                 <option value="marketing">Marketing</option>
                 <option value="IT Support">IT Support</option>
               </SelectInput>
-              <SelectInput name="location">
-                <option value="" disabled>
+              <SelectInput
+                name="location"
+                onSelectedChange={handleLocationChange}
+                selectedValue={location}
+              >
+                <option value="" disabled selected>
                   Select Location
                 </option>
                 <option value="All">All</option>
@@ -67,11 +126,14 @@ function Career() {
                   </span>
                 </div>
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </section>
-
+      <AvailablePositions
+        show={showAvailablePositions}
+        availablePositions={availablePositions}
+      ></AvailablePositions>
       <section className="px-6 lg:px-20 py-16 bg-lighter">
         <div className="xl:max-w-[1460px] xl:mx-auto">
           <Heading4 className="text-center">
@@ -129,12 +191,8 @@ function Career() {
           </p>
         </div>
         <div className="max-w-full lg:max-w-[60%] max-h-[600px] overflow-scroll no-scrollbar">
-          {benefitsList.map(({title,desc}, index) => (
-            <ListCard
-              key={index}
-              title={title}
-              desc={desc}
-            />
+          {benefitsList.map(({ title, desc }, index) => (
+            <ListCard key={index} title={title} desc={desc} />
           ))}
         </div>
       </section>
