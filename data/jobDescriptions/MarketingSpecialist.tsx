@@ -14,7 +14,7 @@ const MarketingSpecialist = () => {
             <li>
               <strong>Marketing Strategy</strong>
               <ul>
-                <li>Develop and execute comprehensive marketing strategies to promote Ebnite's software products and services.</li>
+                <li>Develop and execute comprehensive marketing strategies to promote Ebnite&apos;s software products and services.</li>
                 <li>Identify target audiences and create targeted marketing campaigns.</li>
                 <li>Analyze market trends and competitors to inform marketing strategies.</li>
               </ul>
@@ -47,7 +47,7 @@ const MarketingSpecialist = () => {
           <h2>Qualifications</h2>
           <ul>
             <li>
-              Bachelor's degree in Marketing, Business, or a related field (or equivalent work experience).
+              Bachelor&apos;s degree in Marketing, Business, or a related field (or equivalent work experience).
             </li>
             <li>
               Proven experience in marketing, with a focus on digital marketing and content creation.

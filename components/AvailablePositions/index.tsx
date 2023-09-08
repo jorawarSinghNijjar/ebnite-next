@@ -57,7 +57,7 @@ const AvailablePositions: React.FC<props> = ({ show, availablePositions }) => {
               Regrettably, there are currently no job positions that match your
               query. Please consider broadening your search criteria or
               exploring alternative opportunities. If you have any other
-              inquiries or need assistance with anything else, please don't
+              inquiries or need assistance with anything else, please don&apos;t
               hesitate to reach out.
             </p>
           ) : (

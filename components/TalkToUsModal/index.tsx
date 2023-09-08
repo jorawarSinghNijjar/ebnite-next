@@ -16,6 +16,7 @@ interface Props {}
 
 const TalkToUsModal: React.FC<Props> = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
+
   return (
     <section className="bg-white py-10 px-12 rounded-xl" >
       <div className="mx-auto text-center">

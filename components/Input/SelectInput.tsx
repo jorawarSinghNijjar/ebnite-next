@@ -7,15 +7,15 @@ type SelectProps = {
   children: React.ReactNode;
   name: string;
   className?:string;
-  selectedValue:string;
-  onSelectedChange:(value:string) => void;
+  selectedValue?:string;
+  onSelectedChange?:(value:string) => void;
 };
 
 const SelectInput = ({ children, name,className,onSelectedChange,selectedValue } : SelectProps) => {
 
   const handleChange = (event:React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = event.target.value;
-    onSelectedChange(newValue);
+    onSelectedChange && onSelectedChange(newValue);
   }
 
   return (
