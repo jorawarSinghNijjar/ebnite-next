@@ -4,7 +4,7 @@ const MarketingSpecialist = () => {
         <section>
           <h2>Position Overview</h2>
           <p>
-            We are looking for a talented and results-driven Marketing Specialist to join our team at Ebnite, a leading software development company. As a Marketing Specialist, you will be responsible for developing and executing marketing strategies to promote our software products, services, and solutions. This role offers an exciting opportunity to shape our brand's presence and contribute to our continued growth and success.
+            We are looking for a talented and results-driven Marketing Specialist to join our team at Ebnite, a leading software development company. As a Marketing Specialist, you will be responsible for developing and executing marketing strategies to promote our software products, services, and solutions. This role offers an exciting opportunity to shape our brand&apos;s presence and contribute to our continued growth and success.
           </p>
         </section>
   
@@ -69,7 +69,7 @@ const MarketingSpecialist = () => {
         </section>
   
         <p>
-          Join our dynamic team at Ebnite and be part of our mission to deliver exceptional software solutions. If you are a creative and data-driven Marketing Specialist looking for an exciting opportunity to shape our brand's success, we want to hear from you.
+          Join our dynamic team at Ebnite and be part of our mission to deliver exceptional software solutions. If you are a creative and data-driven Marketing Specialist looking for an exciting opportunity to shape our brand&apos;s success, we want to hear from you.
         </p>
       </article>
     );
