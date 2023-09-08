@@ -3,7 +3,7 @@ import Image from "next/image";
 interface props {
     imageSrc: string;
     address: string;
-    phone: string;
+    phone?: string;
     email: string;
  
   }

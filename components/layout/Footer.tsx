@@ -25,10 +25,10 @@ const Footer = () => {
             <div className="w-full md:w-3/4 flex flex-col gap-y-10 items-start lg:items-end">
               <Location
                 address="8 Cumbrian Court, Brampton, ON L6X 2J8"
-                phone="+1 438-979-4762"
-                email="infoToronto@ebnite.com"
+                // phone="+1 438-979-4762"
+                email="info.ebnite@gmail.com"
                 imageSrc="/static/images/pages/footer/toronto.png"
-              />
+              />  
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ const Footer = () => {
           <Link href="/"><BsTwitter className="text-light text-xl" target="_blank"/></Link>
           <Link href="/"><BsFacebook className="text-light text-xl" target="_blank"/></Link>
           <Link href="https://www.linkedin.com/company/ebnite/" target="_blank"><BsLinkedin className="text-light text-xl"/></Link>
-          <Link href="/"><BsInstagram className="text-light text-xl" target="_blank"/></Link>
+          <Link href="https://www.instagram.com/ebnite/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"><BsInstagram className="text-light text-xl" target="_blank"/></Link>
         </div>
       </div>
     </footer>
