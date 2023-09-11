@@ -1,5 +1,6 @@
 import Image from "next/image";
 import OutlinedButton from "../Buttons/OutlinedButton";
+import Link from "next/link";
 
 interface props {
   imageSrc: string;
@@ -9,7 +10,13 @@ interface props {
   swapSides?: boolean;
 }
 
-function TwoColGrid({ imageSrc,category, heading, content, swapSides }: props) {
+function TwoColGrid({
+  imageSrc,
+  category,
+  heading,
+  content,
+  swapSides,
+}: props) {
   return (
     <div className="grid gap-12 lg:grid-cols-2 mb-10 lg:mb-32">
       <div
@@ -32,7 +39,9 @@ function TwoColGrid({ imageSrc,category, heading, content, swapSides }: props) {
           <p className="font-normal text-black/[0.5] text-xl leading-relaxed mb-8 ">
             {content}
           </p>
-          <OutlinedButton size="medium">See case study</OutlinedButton>
+          <Link href="/case-study/23">
+            <OutlinedButton size="medium">See case study</OutlinedButton>
+          </Link>
         </article>
       </div>
     </div>
