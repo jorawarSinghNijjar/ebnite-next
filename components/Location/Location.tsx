@@ -26,9 +26,9 @@ interface props {
               <strong>Address:</strong> {address}
             </p>
 
-            <p>
+            {/* <p>
               <strong> Phone:</strong> {phone}
-            </p>
+            </p> */}
 
             <p>
               <strong>Email:</strong> {email}
