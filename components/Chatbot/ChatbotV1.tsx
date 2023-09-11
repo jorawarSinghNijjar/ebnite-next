@@ -7,7 +7,7 @@ import { useState } from "react";
 const ChatbotV1 = () => {
   const [showChatBox, setShowChatBox] = useState(false)
   return (
-    <div className="fixed bottom-5 right-5 md:bottom-10 md:right-10 w-[60px] h-[60px]">
+    <div className="fixed bottom-5 right-5 md:bottom-10 md:right-10 w-[60px] h-[60px] z-10">
       <input
         type="checkbox"
         className="fixed bottom-5 right-5 md:bottom-10 md:right-10 w-[60px] h-[60px] opacity-0 cursor-pointer peer/show z-10"

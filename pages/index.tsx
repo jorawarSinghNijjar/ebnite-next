@@ -326,7 +326,8 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
       </section>
-      <ChatbotV1 />
+      {/* To Do */}
+      {/* <ChatbotV1 /> */}
     </>
   );
 };
