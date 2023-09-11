@@ -4,7 +4,7 @@ import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { servicesCardList } from "@/data/servicesCard";
 import { talkToUsCardList } from "@/data/talkToUsCard";
 import Image from "next/image";
-import { ReactElement, useState } from "react";
+import { ReactElement, useContext, useState } from "react";
 
 import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
 import SelectInput from "@/components/Input/SelectInput";
@@ -23,10 +23,12 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
+import AppContext, { useAppContext } from "@/context/AppContext";
 
 const Home: NextPageWithLayout = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
-  const [showBookCallModal, setShowBookCallModal] = useState(false);
+  // const [showBookCallModal, setShowBookCallModal] = useState(false);
+  const {showBookCallModal, setShowBookCallModal} = useAppContext();
   return (
     <>
       {/* Navigation */}

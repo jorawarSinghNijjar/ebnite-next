@@ -3,8 +3,10 @@ import Link from "next/link";
 import FilledButton from "../Buttons/FilledButton";
 import Location from "../Location/Location";
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { useAppContext } from "@/context/AppContext";
 
 const Footer = () => {
+  const {setShowBookCallModal} = useAppContext();
   return (
     <footer className="relative bg-dark mt-32">
       <div className="py-20 px-5 md:px-20 bg-dark xl:max-w-[1460px] xl:mx-auto">
@@ -17,6 +19,7 @@ const Footer = () => {
             <FilledButton
               size="small"
               className="uppercase w-max bg-tertiary text-dark"
+              onClick={() => setShowBookCallModal(true)}
             >
               Let&apos;s schedule a call
             </FilledButton>
