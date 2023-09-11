@@ -33,7 +33,7 @@ const TalkToUsModal: React.FC<Props> = () => {
           <TextArea placeholder="Project Description" className="mb-8" />
           <div className="flex gap-4">
             <SelectInput name="budget-size" className="mb-8">
-              <option value="" disabled defaultValue={1}>
+              <option value="" disabled selected>
                 Budget Size
               </option>
               <option value="lt-5k">Less than 5k</option>
