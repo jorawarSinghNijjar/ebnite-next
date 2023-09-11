@@ -8,6 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch', // add required value here
+          }
+        }
+      },
       // Color Pallete - https://colorhunt.co/palette/222831393e4600adb5eeeeee
       colors: {
         primary: "#884A39",
@@ -23,6 +30,7 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "avatar-client": "url('/static/images/pages/case-study/client-avatar.jpg')",
       },
       // animation:{
       //   ''
