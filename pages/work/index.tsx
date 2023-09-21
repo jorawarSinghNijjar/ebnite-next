@@ -13,8 +13,8 @@ import { NextPageWithLayout } from "../_app";
 
 const chips = [
   { id: "1", label: "All", selected: true },
-  { id: "2", label: "Mobile", selected: false },
-  { id: "3", label: "Web", selected: false },
+  { id: "2", label: "Website", selected: false },
+  { id: "3", label: "CRM", selected: false },
 ];
 
 const Work: NextPageWithLayout = () => {
@@ -39,7 +39,8 @@ const Work: NextPageWithLayout = () => {
             We are providing exceptional work meet your business requirement.
           </SubHeading1>
         </div>
-        <div className="flex gap-5">
+        {/* Hide Category chip for now, later display it when we have many projects */}
+        {/* <div className="flex gap-5">
           {chipGroup.map(({ id, label, selected }, index) => (
             <Chip
               id={id}
@@ -49,7 +50,7 @@ const Work: NextPageWithLayout = () => {
               selected={selected}
             />
           ))}
-        </div>
+        </div> */}
         {/* grid-rows-[repeat(2,_530px)] */}
         <div className="grid auto-rows-auto grid-cols-[1fr_80px_1fr] gap-8 pt-10">
           <div className="col-span-3 lg:col-span-1">
