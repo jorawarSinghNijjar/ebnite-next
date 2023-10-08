@@ -24,7 +24,7 @@ import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
 import AppContext, { useAppContext } from "@/context/AppContext";
-
+require("dotenv").config();
 const Home: NextPageWithLayout = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
   // const [showBookCallModal, setShowBookCallModal] = useState(false);
@@ -51,11 +51,23 @@ const Home: NextPageWithLayout = () => {
   };
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const serviceId = "service_yj5m6nz";
-    const templateId = "template_r9jimte";
-    const userId = "AyPdvvYT7W5ld_SNo";
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID ?? "";
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID ?? "";
+    const userId = process.env.REACT_APP_EMAILJS_USER_ID ?? "";
     console.log("Form submitted");
     console.log("Form data:", formData);
+    //console.log("serviceId:", serviceId);
+    //console.log("templateId:", templateId);
+    //console.log("userId:", userId);
+    console.log("EMAILJS_USER_ID:", process.env.REACT_APP_EMAILJS_USER_ID);
+    console.log(
+      "EMAILJS_SERVICE_ID:",
+      process.env.REACT_APP_EMAILJS_SERVICE_ID
+    );
+    console.log(
+      "EMAILJS_TEMPLATE_ID:",
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+    );
     try {
       if (
         formData.name.trim() === "" ||
