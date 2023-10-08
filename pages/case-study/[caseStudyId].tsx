@@ -24,34 +24,34 @@ const CaseStudy: NextPageWithLayout = () => {
     <>
       <section className="w-full">
         <div
-          className="w-full h-screen md:max-h-[650px] relative"
+          className="w-full max-h-[500px] md:max-h-[650px] relative"
           style={{
             backgroundImage:
               "linear-gradient(to right bottom, #412728, #583432, #70423a, #875240, #9d6346, #af734a, #c0854e, #cf9852, #deae57, #eac65d, #f3de66, #f9f871)",
           }}
         >
-          <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 xl:px-20 pt-40 lg:pt-60 relative z-10">
-            <div className="flex justify-between">
-              <div className="max-w-[40%]">
-                <div className="flex gap-2 flex-wrap mb-8 max-w-[300px]">
+          <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 xl:px-20 relative z-10">
+            <div className="flex md:justify-between flex-col items-center md:items-start gap-2 md:flex-row">
+              <div className="w-[40%]">
+                <div className="flex gap-2 flex-wrap mb-4 lg:mb-8 max-w-[300px]">
                   <Tag label="Dashboard" />
                   <Tag label="Fitness" />
                   <Tag label="Cloud Storage" />
                 </div>
 
                 <Heading3 className="text-white">FitTrack Pro</Heading3>
-                <SubHeading2 className="text-white">
+                <SubHeading2 className="text-white mb-2">
                   A welcoming and diverse environment that fosters opportunities
                   for personal growth.
                 </SubHeading2>
               </div>
-              <div className="max-w-[50%]">
+              <div className="w-[50%]">
                 <Image
                   src="/static/images/pages/case-study/product-1.png"
                   alt="testimonial"
                   width={1000}
                   height={700}
-                  className="max-w-full max-h-[700px] object-cover -scale-x-100 -translate-y-20 -translate-x-32"
+                  className="max-w-full h-full lg:object-cover -scale-x-100"
                 ></Image>
               </div>
             </div>
@@ -145,14 +145,14 @@ const CaseStudy: NextPageWithLayout = () => {
       </section>
 
       <div
-        className="relative w-full h-screen md:max-h-[250px]"
+        className="relative w-full h-[350px] md:h-[250px]"
       >
          <Image
             src="/static/images/pages/case-study/hero.jpg"
             alt="services"
             width={2560}
             height={250}
-            className="absolute -z-20 w-screen h-screen md:max-h-[250px] object-cover"
+            className="absolute -z-20 w-screen h-[350px] md:h-[250px] object-cover"
           />
 
         <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 h-full flex justify-start items-center">
@@ -231,7 +231,7 @@ const CaseStudy: NextPageWithLayout = () => {
         className="w-full relative"
       >
         <div className="flex flex-col justify-center items-center gap-6 py-32">
-          <Heading3 className="text-tertiary">Want a project that matches these criteria?</Heading3>
+          <Heading3 className="text-tertiary text-center">Want a project that matches these criteria?</Heading3>
           <FilledButton
             size="medium"
             className="bg-secondary text-slate-100 uppercase"
