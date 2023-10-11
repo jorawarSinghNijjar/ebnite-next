@@ -4,13 +4,13 @@ import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { servicesCardList } from "@/data/servicesCard";
 import { talkToUsCardList } from "@/data/talkToUsCard";
 import Image from "next/image";
-import { ReactElement, useContext, useState } from "react";
+import { ReactElement, useContext, useState } from "react"; //home page form
 
 import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
 import SelectInput from "@/components/Input/SelectInput";
 import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
-
+import emailjs from "emailjs-com";
 import Modal from "@/components/Modal/Modal";
 import Portal from "@/components/Portal/Portal";
 import TalkToUsModal from "@/components/TalkToUsModal";
@@ -24,11 +24,82 @@ import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
 import AppContext, { useAppContext } from "@/context/AppContext";
-
+require("dotenv").config();
 const Home: NextPageWithLayout = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
   // const [showBookCallModal, setShowBookCallModal] = useState(false);
-  const {showBookCallModal, setShowBookCallModal} = useAppContext();
+  const { showBookCallModal, setShowBookCallModal } = useAppContext();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    budget: "",
+    source: "",
+  });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    console.log(`Field changed: ${name}, New value: ${value}`);
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({ ...formData, budget: e.target.value });
+  };
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID ?? "";
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID ?? "";
+    const userId = process.env.REACT_APP_EMAILJS_USER_ID ?? "";
+    console.log("Form submitted");
+    console.log("Form data:", formData);
+    //console.log("serviceId:", serviceId);
+    //console.log("templateId:", templateId);
+    //console.log("userId:", userId);
+    console.log("EMAILJS_USER_ID:", process.env.REACT_APP_EMAILJS_USER_ID);
+    console.log(
+      "EMAILJS_SERVICE_ID:",
+      process.env.REACT_APP_EMAILJS_SERVICE_ID
+    );
+    console.log(
+      "EMAILJS_TEMPLATE_ID:",
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+    );
+    try {
+      if (
+        formData.name.trim() === "" ||
+        formData.email.trim() === "" ||
+        formData.message.trim() === "" ||
+        formData.budget.trim() === "" ||
+        formData.source.trim() === ""
+      ) {
+        alert("Please fill out all the fields before submitting the form.");
+        return;
+      }
+
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        formData,
+        userId
+      );
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        budget: "",
+        source: "",
+      });
+      console.log("Email sent successfully:", response);
+      alert("Email sent successfully!");
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Error sending email. Please try again later.");
+    }
+  };
   return (
     <>
       {/* Navigation */}
@@ -300,11 +371,36 @@ const Home: NextPageWithLayout = () => {
             </ul>
           </div>
           <div className="w-full lg:w-1/2 lg:pl-8">
-            <form action="" className="w-full">
-              <TextInput type="text" placeholder="Name" className="mb-8" />
-              <TextInput type="text" placeholder="Email" className="mb-8" />
-              <TextArea placeholder="Project Description" className="mb-8" />
-              <SelectInput name="budget-size" className="mb-8">
+            <form onSubmit={handleFormSubmit} className="w-full">
+              <TextInput
+                type="text"
+                placeholder="Name"
+                className="mb-8"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <TextInput
+                type="text"
+                placeholder="Email"
+                className="mb-8"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <TextArea
+                placeholder=" What kind of project"
+                className="mb-8"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+              />
+              <SelectInput
+                name="budget-size"
+                className="mb-8"
+                value={formData.budget} // Add the 'value' attribute here
+                onChange={handleSelectChange}
+              >
                 <option value="" disabled selected>
                   Budget Size
                 </option>
@@ -317,6 +413,9 @@ const Home: NextPageWithLayout = () => {
                 type="text"
                 placeholder="How did you hear about us?"
                 className="mb-8"
+                name="source"
+                value={formData.source}
+                onChange={handleChange}
               />
               <FilledButton
                 size="medium"
