@@ -24,7 +24,7 @@ const CaseStudy: NextPageWithLayout = () => {
     <>
       <section className="w-full">
         <div
-          className="w-full h-screen md:max-h-[650px] relative"
+          className="w-full h-screen max-h-max md:max-h-[650px] relative"
           style={{
             backgroundImage:
               "linear-gradient(to right bottom, #412728, #583432, #70423a, #875240, #9d6346, #af734a, #c0854e, #cf9852, #deae57, #eac65d, #f3de66, #f9f871)",
