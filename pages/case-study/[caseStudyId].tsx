@@ -31,8 +31,8 @@ const CaseStudy: NextPageWithLayout = () => {
           }}
         >
           <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 xl:px-20 pt-40 lg:pt-60 relative z-10">
-            <div className="flex justify-between">
-              <div className="max-w-[40%]">
+            <div className="flex justify-between flex-col md:flex-row">
+              <div className="max-w-full md:max-w-[40%]">
                 <div className="flex gap-2 flex-wrap mb-8 max-w-[300px]">
                   <Tag label="Dashboard" />
                   <Tag label="Fitness" />
@@ -45,13 +45,13 @@ const CaseStudy: NextPageWithLayout = () => {
                   for personal growth.
                 </SubHeading2>
               </div>
-              <div className="max-w-[50%]">
+              <div className="max-w-full md:max-w-[50%]">
                 <Image
                   src="/static/images/pages/case-study/product-1.png"
                   alt="testimonial"
                   width={1000}
                   height={700}
-                  className="max-w-full max-h-[700px] object-cover -scale-x-100 -translate-y-20 -translate-x-32"
+                  className="max-w-full max-h-[700px] object-cover -scale-x-100 lg:-translate-y-20 lg:-translate-x-32"
                 ></Image>
               </div>
             </div>
@@ -231,7 +231,7 @@ const CaseStudy: NextPageWithLayout = () => {
         className="w-full relative"
       >
         <div className="flex flex-col justify-center items-center gap-6 py-32">
-          <Heading3 className="text-tertiary">Want a project that matches these criteria?</Heading3>
+          <Heading3 className="text-tertiary text-center">Want a project that matches these criteria?</Heading3>
           <FilledButton
             size="medium"
             className="bg-secondary text-slate-100 uppercase"
