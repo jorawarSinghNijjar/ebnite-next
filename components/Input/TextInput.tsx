@@ -1,16 +1,18 @@
 import { HTMLInputTypeAttribute } from "react";
 
 type TextInputProps = {
+  type: string;
   placeholder: string;
-  type: HTMLInputTypeAttribute | undefined;
-  className?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string; // Add the 'name' prop
+  className: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const TextInput = ({
-  placeholder,
   type,
+  placeholder,
+  name,
   className,
   value,
   onChange,
@@ -19,6 +21,7 @@ const TextInput = ({
     <input
       type={type}
       placeholder={placeholder}
+      name={name}
       value={value}
       onChange={onChange}
       className={`px-3 py-4 w-full outline-secondary bg-lighter text-primary font-medium ${className}`}

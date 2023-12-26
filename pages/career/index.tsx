@@ -44,14 +44,18 @@ function Career() {
   ) => {
     const filteredItems = jobsList.filter(
       ({ jobTitle, location, department }, index) => {
-        console.log(location.includes(searchLocation))
-        return jobTitle.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        console.log(location.includes(searchLocation));
+        return (
+          jobTitle.toLowerCase().includes(searchTerm.toLowerCase()) &&
           (searchLocation.toLowerCase() === "all"
             ? true
             : location.toLowerCase().includes(searchLocation.toLowerCase())) &&
           (searchJobCategory.toLowerCase() === "all"
             ? true
-            : department.toLowerCase().includes(searchJobCategory.toLowerCase()));
+            : department
+                .toLowerCase()
+                .includes(searchJobCategory.toLowerCase()))
+        );
       }
     );
 
@@ -88,6 +92,8 @@ function Career() {
               <TextInput
                 type="text"
                 placeholder="Search Jobs"
+                name="search" // Add the 'name' property
+                className="your-custom-class" // Add the 'className' property
                 value={searchTerm}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setSearchTerm(e.target.value)
