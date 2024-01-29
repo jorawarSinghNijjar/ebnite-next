@@ -8,6 +8,7 @@ interface props {
   heading: string;
   content: string;
   swapSides?: boolean;
+  caseStudyId?:string;
 }
 
 function TwoColGrid({
@@ -16,6 +17,7 @@ function TwoColGrid({
   heading,
   content,
   swapSides,
+  caseStudyId
 }: props) {
   return (
     <div className="grid gap-12 lg:grid-cols-2 mb-10 lg:mb-32">
@@ -39,7 +41,7 @@ function TwoColGrid({
           <p className="font-normal text-black/[0.5] text-xl leading-relaxed mb-8 ">
             {content}
           </p>
-          <Link href="/case-study/23">
+          <Link href={`/case-study/${caseStudyId}`}>
             <OutlinedButton size="medium">See case study</OutlinedButton>
           </Link>
         </article>
