@@ -96,7 +96,7 @@ const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeo
                   alt="testimonial"
                   width={1000}
                   height={700}
-                  className="max-w-full h-full lg:object-cover -scale-x-100"
+                  className="max-w-full max-h-[700px] object-cover  lg:-translate-y-20 lg:-translate-x-32"
                 ></Image>
               </div>
             </div>

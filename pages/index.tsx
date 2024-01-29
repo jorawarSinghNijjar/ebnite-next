@@ -225,12 +225,14 @@ const Home: NextPageWithLayout = () => {
           </SubHeading1>
         </div>
         <TwoColGrid
+          caseStudyId="1"
           imageSrc="/static/images/pages/home/works-4.png"
           category="DASHBOARD"
           heading="FitTrack Pro"
           content="Ebnite proudly presents its latest creation: a Responsive Fitness Dashboard App developed for a valued client. Designed with precision, this app effortlessly adapts to diverse devices, offering a consistent and user-friendly experience. Users can seamlessly monitor fitness progress, access personalized workouts, and gain health insights, all while ensuring data security through advanced encryption. Ebnite's innovation shines through in this dynamic solution, reflecting our commitment to excellence and client satisfaction."
         />
         <TwoColGrid
+          caseStudyId="2"
           imageSrc="/static/images/pages/home/works-2.jpg"
           category="WEBSITE"
           heading="Immobiliaria"
