@@ -1,5 +1,5 @@
 
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Avatar from "@/components/Avatar";
 import FilledButton from "@/components/Buttons/FilledButton";
 import Heading3 from "@/components/Headings/Heading3";
@@ -16,29 +16,58 @@ import Portal from '@/components/Portal/Portal';
 import Modal from '@/components/Modal/Modal';
 import TalkToUsModal from '@/components/TalkToUsModal';
 import Article from '@/components/Article/Article';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { ParsedUrlQuery } from "querystring";
 
-const CaseStudy: NextPageWithLayout = () => {
-  const defaultPageData = {
-    labels:[
-      "Dashboard",
-      "Fitness",
-      "Cloud Storage"
-    ],
-    heading: "FitTrack Pro",
-    subHeading: "A welcoming and diverse environment that fosters opportunities for personal growth",
-    productImage: "/static/images/pages/case-study/product-1.png",
-    article1: "fitTrackPro1",
-    article2: "fitTrackPro2",
-    testimonial:"Ebnite's FitTrack Pro transformed my fitness business, driving success and innovation.",
-    avatar: "/static/images/pages/case-study/client-avatar.jpg",
-    reviewer: "Ryan Reynolds, Managing Director of FitTrack Pro",
+interface Params extends ParsedUrlQuery {
+  slug: string;
+}
 
-  };
+interface PageData  {
+  caseStudyId: string,
+  labels:string[],
+  heading: string,
+  subHeading: string,
+  productImage: string,
+  article1:string,
+  article2: string,
+  testimonial:string,
+  avatar:string,
+  reviewer: string,
+};
+
+const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // const defaultPageData = {
+  //   labels:[
+  //     "Dashboard",
+  //     "Fitness",
+  //     "Cloud Storage"
+  //   ],
+  //   heading: "FitTrack Pro",
+  //   subHeading: "A welcoming and diverse environment that fosters opportunities for personal growth",
+  //   productImage: "/static/images/pages/case-study/product-1.png",
+  //   article1: "fitTrackPro1",
+  //   article2: "fitTrackPro2",
+  //   testimonial:"Ebnite's FitTrack Pro transformed my fitness business, driving success and innovation.",
+  //   avatar: "/static/images/pages/case-study/client-avatar.jpg",
+  //   reviewer: "Ryan Reynolds, Managing Director of FitTrack Pro",
+  // };
 
   const [showBookCallModal,setShowBookCallModal] = useState(false);
-  const [pageData,setPageData] = useState(defaultPageData);
+  // const [pageData,setPageData] = useState(defaultPageData);
   const router = useRouter();
   const { caseStudyId } = router.query;
+
+  useEffect(() => {
+    // Check if pageData is an empty array or has no elements
+    if (!pageData || pageData.length === 0) {
+      // Redirect to the home page on the client side
+      router.push("/");
+    }
+  }, [pageData]);
+
+  if(!pageData || pageData.length === 0) return null;
+  
   return (
     <>
       <section className="w-full">
@@ -53,7 +82,7 @@ const CaseStudy: NextPageWithLayout = () => {
             <div className="flex justify-between flex-col md:flex-row">
               <div className="max-w-full md:max-w-[40%]">
                 <div className="flex gap-2 flex-wrap mb-8 max-w-[300px]">
-                  {pageData.labels.map((label) =>  <Tag label={label} key={label} />)}
+                  {pageData.labels.map((label:string) =>  <Tag label={label} key={label} />)}
                 </div>
 
                 <Heading3 className="text-white">{pageData.heading}</Heading3>
@@ -143,6 +172,38 @@ const CaseStudy: NextPageWithLayout = () => {
 };
 
 export default CaseStudy;
+
+export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+
+  return {
+      paths: [], //indicates that no page needs be created at build time
+      fallback: 'blocking' //indicates the type of fallback
+  }
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const {caseStudyId} = context.params as Params;
+  console.log("context: ",caseStudyId)
+
+  let pageData: PageData[] | null = null;
+  
+  // Api call to fetch case study data by caseStudyId
+  try {
+    const res = await fetch(`http://localhost:8080/api/case-studies/${caseStudyId}`)
+    // const pageData: PageData[] = await res.json()
+    pageData = await res.json();
+    console.log("Hello------backend data - ",pageData)
+    // const pageData = 1;
+  } catch (error) {
+    console.error(error)
+  }
+  
+  return {
+    props: {
+      pageData,
+    },
+  }
+}
 
 CaseStudy.getLayout = (page: ReactElement) => {
   return (
