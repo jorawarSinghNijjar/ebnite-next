@@ -4,9 +4,8 @@ import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { servicesCardList } from "@/data/servicesCard";
 import { talkToUsCardList } from "@/data/talkToUsCard";
 import Image from "next/image";
-import { ReactElement, useContext, useState } from "react";
+import { ReactElement, useState } from "react";
 
-import ChatbotV1 from "@/components/Chatbot/ChatbotV1";
 import SelectInput from "@/components/Input/SelectInput";
 import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
@@ -18,17 +17,17 @@ import Card from "@/components/card/Card";
 import Card2 from "@/components/card/Card2";
 import Footer from "@/components/layout/Footer";
 import NavbarHome from "@/components/layout/NavbarHome";
+import { useAppContext } from "@/context/AppContext";
 import Head from "next/head";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
-import AppContext, { useAppContext } from "@/context/AppContext";
 
 const Home: NextPageWithLayout = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
   // const [showBookCallModal, setShowBookCallModal] = useState(false);
-  const {showBookCallModal, setShowBookCallModal} = useAppContext();
+  const { showBookCallModal, setShowBookCallModal } = useAppContext();
   return (
     <>
       {/* Navigation */}
@@ -50,10 +49,10 @@ const Home: NextPageWithLayout = () => {
       {/* Video Overlay */}
       <div className="absolute -z-20 right-0 top-0 lg:h-screen w-screen bg-tertiary bg-opacity-40"></div>
 
-      <section className="clear-both absolute z-10 max-w-full px-5 py-20 lg:px-20 lg:py-40 h-full lg:h-screen left-0 top-0 flex flex-col justify-center bg-gradient-to-r from-primary lg:from-5% from-20% ">
+      <section className="clear-both absolute z-10 max-w-full px-6 py-20 lg:px-20 lg:py-44 xl:py-48 h-full lg:h-screen left-0 top-0 flex flex-col justify-center bg-gradient-to-r from-primary lg:from-5% from-20% ">
         {/* Actual Content */}
         <div>
-          <h1 className="text-slate-100 text-5xl lg:text-7xl xl:text-8xl w-full lg:w-2/3 mb-10">
+          <h1 className="text-slate-100 text-5xl lg:text-6xl 2xl:text-7xl w-full lg:w-2/3 mb-10">
             Custom Product & Software Development Focused On Your Success
           </h1>
           <FilledButton
