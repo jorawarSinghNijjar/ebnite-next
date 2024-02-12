@@ -2,6 +2,7 @@ import AppContextProvider from "@/context/AppContextProvider";
 import "@/styles/globals.css";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { ReactElement, ReactNode } from "react";
 
 // export default function App({ Component, pageProps }: AppProps) {
@@ -30,7 +31,17 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <AppContextProvider>
-      {getLayout(<Component {...pageProps} />)}
+      {getLayout(
+        <>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+          </Head>
+          <Component {...pageProps} />
+        </>
+      )}
     </AppContextProvider>
   );
 }
