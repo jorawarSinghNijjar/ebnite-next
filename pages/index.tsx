@@ -25,6 +25,7 @@ import Card from "@/components/Card/Card";
 import Card2 from "@/components/Card/Card2";
 import NavbarHome from "@/components/Layout/NavbarHome";
 import Footer from "@/components/Layout/Footer";
+require("dotenv").config();
 
 const Home: NextPageWithLayout = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
