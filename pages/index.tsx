@@ -154,7 +154,7 @@ const Home: NextPageWithLayout = () => {
       {/* ---------------------------------------------Services ----------------------------------*/}
 
       <section className="my-10 px-6 pt-10 lg:pt-36 lg:px-20">
-        <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16">
+        <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16 2xl:mb-32">
           <Heading2>Services</Heading2>
           <SubHeading1>
             We can help you bring your product to life - whether its a Minimum
@@ -216,7 +216,7 @@ const Home: NextPageWithLayout = () => {
 
       {/* ---------------------------------------------Our Work ----------------------------------*/}
       <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
-        <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-32">
+        <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16 2xl:mb-32">
           <Heading2>Our Work</Heading2>
           <SubHeading1>
             We can help you bring your product to life - whether it&#39;s a
