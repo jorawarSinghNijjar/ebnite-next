@@ -9,7 +9,6 @@ import { ReactElement, useState } from "react";
 import SelectInput from "@/components/Input/SelectInput";
 import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
-import emailjs from "emailjs-com";
 import Modal from "@/components/Modal/Modal";
 import Portal from "@/components/Portal/Portal";
 import TalkToUsModal from "@/components/TalkToUsModal";
@@ -23,7 +22,6 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
-import AppContext, { useAppContext } from "@/context/AppContext";
 
 const Home: NextPageWithLayout = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
