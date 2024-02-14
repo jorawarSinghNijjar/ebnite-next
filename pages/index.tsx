@@ -153,8 +153,8 @@ const Home: NextPageWithLayout = () => {
 
       {/* ---------------------------------------------Services ----------------------------------*/}
 
-      <section className="my-10 px-6 pt-10 lg:pt-32 lg:px-20">
-        <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-32">
+      <section className="my-10 px-6 pt-10 lg:pt-36 lg:px-20">
+        <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16">
           <Heading2>Services</Heading2>
           <SubHeading1>
             We can help you bring your product to life - whether its a Minimum
