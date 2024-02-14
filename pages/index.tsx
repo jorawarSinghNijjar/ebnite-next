@@ -12,10 +12,7 @@ import TextInput from "@/components/Input/TextInput";
 import Modal from "@/components/Modal/Modal";
 import Portal from "@/components/Portal/Portal";
 import TalkToUsModal from "@/components/TalkToUsModal";
-import Card from "@/components/card/Card";
-import Card2 from "@/components/card/Card2";
-import Footer from "@/components/layout/Footer";
-import NavbarHome from "@/components/layout/NavbarHome";
+
 import { useAppContext } from "@/context/AppContext";
 import Head from "next/head";
 import { AiFillPlayCircle } from "react-icons/ai";
@@ -23,10 +20,86 @@ import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
 
+import emailjs from "emailjs-com";
+import Card from "@/components/Card/Card";
+import Card2 from "@/components/Card/Card2";
+import NavbarHome from "@/components/Layout/NavbarHome";
+import Footer from "@/components/Layout/Footer";
+
 const Home: NextPageWithLayout = () => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
-  // const [showBookCallModal, setShowBookCallModal] = useState(false);
-  const {showBookCallModal, setShowBookCallModal} = useAppContext();
+  const { showBookCallModal, setShowBookCallModal } = useAppContext();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    budget: "",
+    source: "",
+  });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    console.log(`Field changed: ${name}, New value: ${value}`);
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({ ...formData, budget: e.target.value });
+  };
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID ?? "";
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID ?? "";
+    const userId = process.env.REACT_APP_EMAILJS_USER_ID ?? "";
+    console.log("Form submitted");
+    console.log("Form data:", formData);
+    //console.log("serviceId:", serviceId);
+    //console.log("templateId:", templateId);
+    //console.log("userId:", userId);
+    console.log("EMAILJS_USER_ID:", process.env.REACT_APP_EMAILJS_USER_ID);
+    console.log(
+      "EMAILJS_SERVICE_ID:",
+      process.env.REACT_APP_EMAILJS_SERVICE_ID
+    );
+    console.log(
+      "EMAILJS_TEMPLATE_ID:",
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+    );
+    try {
+      if (
+        formData.name.trim() === "" ||
+        formData.email.trim() === "" ||
+        formData.message.trim() === "" ||
+        formData.budget.trim() === "" ||
+        formData.source.trim() === ""
+      ) {
+        alert("Please fill out all the fields before submitting the form.");
+        return;
+      }
+
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        formData,
+        userId
+      );
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        budget: "",
+        source: "",
+      });
+      console.log("Email sent successfully:", response);
+      alert("Email sent successfully!");
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Error sending email. Please try again later.");
+    }
+  };
   return (
     <>
       {/* Navigation */}
