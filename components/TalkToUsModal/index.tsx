@@ -91,64 +91,72 @@ const TalkToUsModal: React.FC<Props> = () => {
     }
   };
   return (
-    <section className="bg-white py-10 px-12 rounded-xl">
+    <section className="bg-white py-8 px-6 md:py-10 md:px-12 rounded-xl max-w-sm md:max-w-2xl max-h-[500px] 2xl:max-h-[600px]">
       <div className="mx-auto text-center">
         <Heading4>Talk to us and get your project moving!</Heading4>
       </div>
 
       <div className="w-full">
-        <form onSubmit={handleFormSubmit} className="w-full">
-          <TextInput
-            type="text"
-            placeholder="Name"
-            className="mb-8"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-          <TextInput
-            type="text"
-            placeholder="Email"
-            className="mb-8"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <TextArea
-            placeholder=" What kind of project"
-            className="mb-8"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-          />
-          <SelectInput
-            name="budget-size"
-            className="mb-8"
-            value={formData.budget} // Add the 'value' attribute here
-            onChange={handleSelectChange}
-          >
-            <option value="" disabled selected>
-              Budget Size
-            </option>
-            <option value="lt-5k">Less than 5k</option>
-            <option value="5k-10k">5k - 10k</option>
-            <option value="10k-20k">10k - 20k</option>
-            <option value="20k+">20k +</option>
-          </SelectInput>
-          <TextInput
-            type="text"
-            placeholder="How did you hear about us?"
-            className="mb-8"
-            name="source"
-            value={formData.source}
-            onChange={handleChange}
-          />
-          <FilledButton
-            size="medium"
-            className="bg-secondary text-slate-100 uppercase"
-          >
-            Book a call
-          </FilledButton>
+        <form
+          onSubmit={handleFormSubmit}
+          className="w-full flex flex-col md:flex-row md:gap-6"
+        >
+          <div>
+            <TextInput
+              type="text"
+              placeholder="Name"
+              className="mb-4 md:mb-8"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <TextInput
+              type="text"
+              placeholder="Email"
+              className="mb-4 md:mb-8"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <TextArea
+              rows={3}
+              placeholder=" What kind of project"
+              className="mb-4 md:mb-8"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="text-center">
+            <SelectInput
+              name="budget-size"
+              className="mb-4 md:mb-8"
+              value={formData.budget} // Add the 'value' attribute here
+              onChange={handleSelectChange}
+            >
+              <option value="" disabled selected>
+                Budget Size
+              </option>
+              <option value="lt-5k">Less than 5k</option>
+              <option value="5k-10k">5k - 10k</option>
+              <option value="10k-20k">10k - 20k</option>
+              <option value="20k+">20k +</option>
+            </SelectInput>
+            <TextInput
+              type="text"
+              placeholder="How did you hear about us?"
+              className="mb-4 md:mb-8"
+              name="source"
+              value={formData.source}
+              onChange={handleChange}
+            />
+            <FilledButton
+              size="medium"
+              className="bg-secondary text-slate-100 uppercase"
+            >
+              Book a call
+            </FilledButton>
+          </div>
         </form>
       </div>
     </section>

@@ -7,7 +7,7 @@ interface props {
   children?: React.ReactElement;
   show: boolean;
   onClose: () => void;
-  width: string;
+  width?: string;
   cancelInside?: boolean
 }
 
@@ -38,15 +38,15 @@ function Modal({ children, show, onClose, width, cancelInside }: props) {
         animate={{ opacity: 1, y: 0, scale:1 }}
         exit={{ opacity: 0, y: 0, scale:0 }}
         transition={{ duration: 0.4, ease: "linear", }}
-        className="relative min-w-[320px] max-w-full"
+        className="relative min-w-[320px] max-w-full max-h-full"
         onClick={(e) => e.stopPropagation()}
-        // style={{ width: width }}
+        style={{ width: width ? width : "auto"}}
       >
         <div className={`absolute ${cancelInside ? "top-5 right-5": "-top-5 -right-5"}`}>
           <ImCross onClick={onClose} className={`${cancelInside ? "text-black" :"text-white"} cursor-pointer`} />
         </div>
         <div className="modal-header"></div>
-        <div className="min-h-[500px]">{children}</div>
+        <div className="min-h-[300px]">{children}</div>
         <div className="modal-footer"></div>
       </motion.div>
     </div>

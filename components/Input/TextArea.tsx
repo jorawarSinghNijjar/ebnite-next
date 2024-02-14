@@ -4,6 +4,7 @@ type TextAreaProps = {
   name: string; // Add the 'name' prop
   value: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  rows?:number;
 };
 
 const TextArea = ({
@@ -12,12 +13,13 @@ const TextArea = ({
   name,
   value,
   onChange,
+  rows
 }: TextAreaProps) => {
   return (
     <textarea
-      rows={6}
+      rows={rows? rows : 6}
       placeholder={placeholder}
-      className={`px-3 py-4 w-full outline-secondary bg-lighter text-primary font-medium ${className}`}
+      className={`px-3 py-4 w-full text-sm md:text-base outline-secondary bg-lighter text-primary font-medium ${className}`}
       name={name}
       value={value}
       onChange={onChange}

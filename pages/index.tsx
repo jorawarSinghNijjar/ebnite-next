@@ -141,7 +141,7 @@ const Home: NextPageWithLayout = () => {
               <Modal
                 show={showBookCallModal}
                 onClose={() => setShowBookCallModal(false)}
-                width="45%"
+                // width="80%"
                 cancelInside
               >
                 <TalkToUsModal />

@@ -24,7 +24,7 @@ const TextInput = ({
       name={name}
       value={value}
       onChange={onChange}
-      className={`px-3 py-4 w-full outline-secondary bg-lighter text-primary font-medium ${className}`}
+      className={`p-2 md:px-3 md:py-4 w-full text-sm md:text-base outline-secondary bg-lighter text-primary font-medium ${className}`}
     />
   );
 };

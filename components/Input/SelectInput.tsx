@@ -31,7 +31,7 @@ const SelectInput = ({
   return (
     <select
       name={name}
-      className={`px-3 py-4 w-full outline-secondary bg-lighter text-primary font-medium ${className}`}
+      className={`p-1 md:px-3 md:py-4 w-full text-sm md:text-base outline-secondary bg-lighter text-primary font-medium ${className}`}
       value={selectedValue || value}
       onChange={handleChange}
     >
