@@ -23,8 +23,8 @@ function SignUpPage() {
         router.push("/admin/signin");
       }
     }
-    catch(e){
-      console.log(e);
+    catch(error){
+      console.log(error);
       alert("Sign up failed ");
     }
       

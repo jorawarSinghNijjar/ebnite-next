@@ -1,10 +1,38 @@
 import FilledButton from "@/components/Buttons/FilledButton";
 import Heading2 from "@/components/Headings/Heading2";
 import TextInput from "@/components/Input/TextInput";
-import { useState } from "react";
+import api from "@/lib/api";
+import { FormEvent, useState } from "react";
+
+interface SignInRequest {
+  username: string;
+  password: string;
+}
 
 function SignInPage() {
-  const handleFormSubmit = () => {};
+  const signIn = async (signInRequest: SignInRequest) => {
+    try {
+      const res = await api.post("auth/signin", signInRequest);
+      console.log(res);
+      if (res.data) {
+        const { token } = res.data;
+        localStorage.setItem("token", token);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleFormSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    
+    const signInRequest: SignInRequest = {
+      username: username,
+      password: password,
+    };
+
+    signIn(signInRequest);
+  };
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
