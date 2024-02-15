@@ -10,9 +10,9 @@ function SignInPage() {
   const [password, setPassword] = useState("");
 
   return (
-    <section className="w-full lg:w-1/2 my-10 px-6 pt-10 lg:pt-32 lg:px-10 mx-auto">
-      <div className="shadow-xl py-10 px-10">
-        <div className="mx-auto text-center lg:mb-32">
+    <section className="w-screen h-screen px-6 pt-4 lg:pt-16 lg:px-10 bg-lighter">
+      <div className="lg:w-1/2 mx-auto bg-white rounded-xl shadow-xl py-10 px-10">
+        <div className="mx-auto text-center xl:mb-16">
           <Heading2>Sign In</Heading2>
         </div>
         <div className="mx-auto text-center">

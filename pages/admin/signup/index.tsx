@@ -1,27 +1,68 @@
 import FilledButton from "@/components/Buttons/FilledButton";
 import Heading2 from "@/components/Headings/Heading2";
-import SelectInput from "@/components/Input/SelectInput";
-import TextArea from "@/components/Input/TextArea";
 import TextInput from "@/components/Input/TextInput";
-import SubHeading1 from "@/components/SubHeading/SubHeading1";
-import Card from "@/components/card/Card";
 import { useState } from "react";
+import api from "@/lib/api";
+import { useRouter } from "next/router";
+
+interface SignupRequest{
+  name:string;
+  email:string;
+  password:string;
+}
 
 function SignUpPage() {
-  const handleFormSubmit = () => {};
 
+  const router = useRouter();
+
+  const signup = async (signupRequest: SignupRequest) => {
+    try{
+      const res = await api.post("auth/signup", signupRequest);
+      console.log(res);
+      if(res.data){
+        router.push("/admin/signin");
+      }
+    }
+    catch(e){
+      console.log(e);
+      alert("Sign up failed ");
+    }
+      
+  }
+
+  const handleFormSubmit = (e:React.FormEvent) => {
+    e.preventDefault();
+    const signupRequest:SignupRequest = {
+      name: name,
+      email: username,
+      password: password
+    }
+    console.log(signupRequest)
+
+    signup(signupRequest);
+  };
+
+  const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
-    <section className="w-full lg:w-1/2 my-10 px-6 pt-10 lg:pt-32 lg:px-10 mx-auto">
-      <div className="shadow-xl py-10 px-10">
-        <div className="mx-auto text-center lg:mb-32">
+    <section className="w-screen h-screen px-6 pt-4 lg:pt-16 lg:px-10 bg-lighter">
+      <div className="lg:w-1/2 mx-auto bg-white rounded-xl shadow-xl py-10 px-10">
+        <div className="mx-auto text-center xl:mb-16">
           <Heading2>Sign Up</Heading2>
         </div>
         <div className="mx-auto text-center">
           <form onSubmit={handleFormSubmit} className="w-full">
+            <TextInput
+              type="text"
+              placeholder="Name"
+              className="mb-8"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <TextInput
               type="text"
               placeholder="Username or Email"
