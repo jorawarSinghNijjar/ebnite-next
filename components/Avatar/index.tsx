@@ -1,16 +1,17 @@
 import { url } from "inspector";
 import Image from "next/image";
+import { ReactElement } from "react";
 
 interface Props {
-  imageSrc: string;
+  children: ReactElement;
 }
 
-const Avatar: React.FC<Props> = ({ imageSrc }) => {
+const Avatar: React.FC<Props> = ({ children }) => {
   return (
     <div
-      className={`w-[120px] h-[120px] rounded-full`}
+      className={`w-full h-full rounded-full`}
     >
-      <Image src={imageSrc} alt="client-pic" width={120} height={120} className="w-full h-full object-cover rounded-full"/>
+      {children}
     </div>
   );
 };

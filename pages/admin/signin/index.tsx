@@ -2,6 +2,7 @@ import FilledButton from "@/components/Buttons/FilledButton";
 import Heading2 from "@/components/Headings/Heading2";
 import TextInput from "@/components/Input/TextInput";
 import api from "@/lib/api";
+import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 
 interface SignInRequest {
@@ -10,6 +11,8 @@ interface SignInRequest {
 }
 
 function SignInPage() {
+  const router = useRouter();
+
   const signIn = async (signInRequest: SignInRequest) => {
     try {
       const res = await api.post("auth/signin", signInRequest);
@@ -17,6 +20,7 @@ function SignInPage() {
       if (res.data) {
         const { token } = res.data;
         localStorage.setItem("token", token);
+        router.push("/admin/dashboard");
       }
     } catch (error) {
       console.log(error);
@@ -25,7 +29,7 @@ function SignInPage() {
 
   const handleFormSubmit = (event: FormEvent) => {
     event.preventDefault();
-    
+
     const signInRequest: SignInRequest = {
       username: username,
       password: password,

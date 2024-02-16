@@ -1,5 +1,4 @@
-
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from "react";
 import Avatar from "@/components/Avatar";
 import FilledButton from "@/components/Buttons/FilledButton";
 import Heading3 from "@/components/Headings/Heading3";
@@ -12,31 +11,34 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
 import { NextPageWithLayout } from "../_app";
-import Portal from '@/components/Portal/Portal';
-import Modal from '@/components/Modal/Modal';
-import TalkToUsModal from '@/components/TalkToUsModal';
-import Article from '@/components/Article/Article';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import Portal from "@/components/Portal/Portal";
+import Modal from "@/components/Modal/Modal";
+import TalkToUsModal from "@/components/TalkToUsModal";
+import Article from "@/components/Article/Article";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
+import api from "@/lib/api";
 
 interface Params extends ParsedUrlQuery {
   slug: string;
 }
 
-interface PageData  {
-  caseStudyId: string,
-  labels:string[],
-  heading: string,
-  subHeading: string,
-  productImage: string,
-  article1:string,
-  article2: string,
-  testimonial:string,
-  avatar:string,
-  reviewer: string,
-};
+interface PageData {
+  caseStudyId: string;
+  labels: string[];
+  heading: string;
+  subHeading: string;
+  productImage: string;
+  article1: string;
+  article2: string;
+  testimonial: string;
+  avatar: string;
+  reviewer: string;
+}
 
-const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const CaseStudy: NextPageWithLayout = ({
+  pageData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   // const defaultPageData = {
   //   labels:[
   //     "Dashboard",
@@ -53,7 +55,7 @@ const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeo
   //   reviewer: "Ryan Reynolds, Managing Director of FitTrack Pro",
   // };
 
-  const [showBookCallModal,setShowBookCallModal] = useState(false);
+  const [showBookCallModal, setShowBookCallModal] = useState(false);
   // const [pageData,setPageData] = useState(defaultPageData);
   const router = useRouter();
   const { caseStudyId } = router.query;
@@ -66,8 +68,8 @@ const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeo
     }
   }, [pageData]);
 
-  if(!pageData || pageData.length === 0) return null;
-  
+  if (!pageData || pageData.length === 0) return null;
+
   return (
     <>
       <section className="w-full">
@@ -82,12 +84,14 @@ const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeo
             <div className="flex justify-between flex-col md:flex-row">
               <div className="max-w-full md:max-w-[40%]">
                 <div className="flex gap-2 flex-wrap mb-8 max-w-[300px]">
-                  {pageData.labels.map((label:string) =>  <Tag label={label} key={label} />)}
+                  {pageData.labels.map((label: string) => (
+                    <Tag label={label} key={label} />
+                  ))}
                 </div>
 
                 <Heading3 className="text-white">{pageData.heading}</Heading3>
                 <SubHeading2 className="text-white mb-2">
-                 {pageData.subHeading}
+                  {pageData.subHeading}
                 </SubHeading2>
               </div>
               <div className="w-[50%]">
@@ -109,44 +113,48 @@ const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeo
         </div>
       </section>
 
-      <div
-        className="relative w-full h-[350px] md:h-[250px]"
-      >
-         <Image
-            src="/static/images/pages/case-study/hero.jpg"
-            alt="services"
-            width={2560}
-            height={250}
-            className="absolute -z-20 w-screen h-[350px] md:h-[250px] object-cover"
-          />
+      <div className="relative w-full h-[350px] md:h-[250px]">
+        <Image
+          src="/static/images/pages/case-study/hero.jpg"
+          alt="services"
+          width={2560}
+          height={250}
+          className="absolute -z-20 w-screen h-[350px] md:h-[250px] object-cover"
+        />
 
         <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 h-full flex justify-start items-center">
-          <Heading5 className="text-white">
-            {pageData.testimonial}
-          </Heading5>
+          <Heading5 className="text-white">{pageData.testimonial}</Heading5>
         </div>
       </div>
       <div className="flex justify-center -translate-y-12 ">
         <div className="flex flex-col items-center">
           <div className="mb-8">
-            <Avatar imageSrc={pageData.avatar}></Avatar>
+            <div>
+              <Image
+                src={pageData.avatar}
+                alt="client-pic"
+                width={120}
+                height={120}
+                className="align-middle h-[120px] w-[120px] rounded-full"
+              />
+            </div>
           </div>
-          <p className="text-primary italic">
-            {pageData.reviewer}
-          </p>
+          <p className="text-primary italic">{pageData.reviewer}</p>
         </div>
       </div>
       <section className="px-6 lg:px-20 py-16 ">
         <div className="xl:max-w-[1460px] xl:mx-auto">
-        <Article articleId={pageData.article2} />
+          <Article articleId={pageData.article2} />
         </div>
       </section>
-      <div
-        className="w-full relative"
-      >
+      <div className="w-full relative">
         <div className="flex flex-col justify-center items-center gap-6 py-32">
-          <Heading3 className="text-tertiary text-center">Want a project that matches these criteria?</Heading3>
-          <Heading3 className="text-tertiary text-center">Want a project that matches these criteria?</Heading3>
+          <Heading3 className="text-tertiary text-center">
+            Want a project that matches these criteria?
+          </Heading3>
+          <Heading3 className="text-tertiary text-center">
+            Want a project that matches these criteria?
+          </Heading3>
           <FilledButton
             size="medium"
             className="bg-secondary text-slate-100 uppercase"
@@ -175,36 +183,38 @@ const CaseStudy: NextPageWithLayout = ({pageData}: InferGetStaticPropsType<typeo
 export default CaseStudy;
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-
   return {
-      paths: [], //indicates that no page needs be created at build time
-      fallback: 'blocking' //indicates the type of fallback
-  }
-}
+    paths: [], //indicates that no page needs be created at build time
+    fallback: "blocking", //indicates the type of fallback
+  };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const {caseStudyId} = context.params as Params;
-  console.log("context: ",caseStudyId)
+  const { caseStudyId } = context.params as Params;
+  console.log("context: ", caseStudyId);
 
   let pageData: PageData[] | null = null;
-  
+
   // Api call to fetch case study data by caseStudyId
   try {
-    const res = await fetch(`http://localhost:8080/api/case-studies/${caseStudyId}`)
+    const res = await api.get(
+      `http://localhost:8080/api/case-studies/${caseStudyId}`
+    );
     // const pageData: PageData[] = await res.json()
-    pageData = await res.json();
-    console.log("Hello------backend data - ",pageData)
+    console.log(res.data);
+    pageData = res.data;
+    console.log("Hello------backend data - ", pageData);
     // const pageData = 1;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-  
+
   return {
     props: {
       pageData,
     },
-  }
-}
+  };
+};
 
 CaseStudy.getLayout = (page: ReactElement) => {
   return (
