@@ -7,13 +7,15 @@ interface LinkButtonIconProps {
   icon: ReactElement;
   href: string;
   className: string;
+  onClick?: () => {};
 }
 
-function LinkButtonIcon({ text, icon, href, className }: LinkButtonIconProps) {
+function LinkButtonIcon({ text, icon, href, className,onClick }: LinkButtonIconProps) {
   return (
     <Link
       href={href}
-      className={`flex flex-row items-center bg-secondary text-slate-100 uppercase px-5 py-3 rounded-3xl text-sm font-medium ${className}`}
+      className={`flex flex-row items-center px-5 py-3 rounded-3xl text-sm font-medium ${className}`}
+      onClick={onClick}
     >
       <span className="mr-2">{icon}</span>
       <span>{text}</span>

@@ -41,7 +41,7 @@ function TwoColGrid({
           <p className="font-normal text-black/[0.5] text-xl leading-relaxed mb-8 ">
             {content}
           </p>
-          <Link href={`/case-study/${caseStudyId}`}>
+          <Link href={`/case-studies/${caseStudyId}`}>
             <OutlinedButton size="medium">See case study</OutlinedButton>
           </Link>
         </article>

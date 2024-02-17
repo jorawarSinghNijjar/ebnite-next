@@ -8,7 +8,7 @@ const NavbarDashboard = () => {
   const [searchString, setSearchString] = useState("");
 
   return (
-    <div className="p-5 py-0 pl-0">
+    <div className="p-5 py-0 pl-0 fixed bg-white w-full max-h-[70px]">
       <ul className="flex flex-row items-center justify-between text-base">
         <li className="lg:min-w-[255px] pl-5 bg-dark">
         <Image
@@ -46,7 +46,7 @@ const NavbarDashboard = () => {
           </li>
           <li className="border-0 border-secondary px-8">
             <Image
-              src="/static/images/pages/case-study/2/client-avatar.png"
+              src="/static/images/pages/dashboard/user-photo.jfif"
               alt="client-pic"
               width={40}
               height={40}

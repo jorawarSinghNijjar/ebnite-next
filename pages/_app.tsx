@@ -39,6 +39,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               content="width=device-width, initial-scale=1.0"
             />
           </Head>
+
           <Component {...pageProps} />
         </>
       )}

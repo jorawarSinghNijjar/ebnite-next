@@ -1,14 +1,16 @@
 import FilledButton from "@/components/Buttons/FilledButton";
-import WorksCard from "@/components/card/WorksCard";
+import WorksCard from "@/components/Card/WorksCard";
 
-import Chip from "@/components/Chip/Chip";
 import Heading2 from "@/components/Headings/Heading2";
 import Heading3 from "@/components/Headings/Heading3";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/Layout/Footer";
+import Navbar from "@/components/Layout/Navbar";
 
 import SubHeading1 from "@/components/SubHeading/SubHeading2";
+import api from "@/lib/api";
+import { GetServerSideProps } from "next";
 import { ReactElement, useState } from "react";
+import { HashLoader } from "react-spinners";
 import { NextPageWithLayout } from "../_app";
 
 const chips = [
@@ -17,7 +19,11 @@ const chips = [
   { id: "3", label: "CRM", selected: false },
 ];
 
-const Work: NextPageWithLayout = () => {
+interface Props{
+  pageData: CaseStudy[];
+}
+
+const Work: NextPageWithLayout<Props> = ({pageData}:Props) => {
   const [chipGroup, setChipGroup] = useState(chips);
 
   const selectChip = (id: string) => {
@@ -52,8 +58,32 @@ const Work: NextPageWithLayout = () => {
           ))}
         </div> */}
         {/* grid-rows-[repeat(2,_530px)] */}
-        <div className="grid auto-rows-auto grid-cols-[1fr_80px_1fr] gap-8 pt-10">
-          <div className="col-span-3 lg:col-span-1">
+        <div className="grid auto-rows-auto grid-cols-1 md:grid-cols-2 gap-8 pt-10">
+          {pageData.length <= 0 ? (
+            <div className="w-full h-full flex flex-row justify-center items-center ">
+              <HashLoader color="#FFC26F" loading={true} size={100} />
+            </div>
+          ) : (
+            pageData.map(
+              ({ caseStudyId, heading, productImage, description }: CaseStudy, index:number) => {
+                return (
+                  <div className="" key={index}>
+                    <WorksCard
+                      caseStudyId={caseStudyId}
+                      width={580}
+                      height={530}
+                      title={heading}
+                      description={description}
+                      category="Website"
+                      href="/"
+                      imageSrc={productImage}
+                    />
+                  </div>
+                );
+              }
+            )
+          )}
+          {/* <div className="col-span-3 lg:col-span-1">
             <WorksCard
               width={580}
               height={530}
@@ -96,7 +126,7 @@ const Work: NextPageWithLayout = () => {
               href="/"
               imageSrc="/static/images/pages/home/works-4.png"
             />
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="px-20 mb-16 flex flex-col items-center">
@@ -124,4 +154,24 @@ Work.getLayout = (page: ReactElement) => {
       <Footer />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+
+  let pageData: CaseStudy[] | null = null;
+  // Api call to fetch case study data by caseStudyId
+  try {
+    const res = await api.get("http://localhost:8080/api/case-studies");
+    console.log(res.data);
+
+    pageData = res.data;
+  } catch (error) {
+    console.error(error);
+  }
+
+  return {
+    props: {
+      pageData,
+    },
+  };
 };

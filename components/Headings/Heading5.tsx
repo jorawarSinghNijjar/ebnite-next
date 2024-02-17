@@ -6,7 +6,7 @@ interface props{
 const Heading5 = ({children, className}:props) => {
     return (
         <h3
-        className={`text-3xl font-bold mb-3 ${className}`}
+        className={`text-2xl md:text-3xl font-bold mb-3 ${className}`}
       >
        {children}
       </h3>

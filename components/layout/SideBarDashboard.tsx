@@ -1,18 +1,19 @@
 import Image from "next/image";
-import Heading5 from "../Headings/Heading5";
-import SubHeading3 from "../SubHeading/SubHeading3";
-import { MdChevronRight, MdOutlineArticle } from "react-icons/md";
-import { FaChevronRight } from "react-icons/fa";
-import SideBarDropDownButton from "../SideBarDropDownButton";
-import { IoSettingsOutline } from "react-icons/io5";
 import { AiOutlineDollar } from "react-icons/ai";
+import { IoSettingsOutline } from "react-icons/io5";
+import { MdOutlineArticle } from "react-icons/md";
+import { TbBrandBlogger } from "react-icons/tb";
+import SideBarDropDownButton from "../SideBarDropDownButton";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const SideBarDashboard = () => {
+  const router = useRouter();
   return (
-    <div className="bg-dark hidden lg:flex lg:w-[255px] flex-col h-screen">
+    <div className="fixed mt-[70px] bg-dark hidden lg:flex max-w-[255px] lg:w-[255px] flex-col h-screen">
       <div className="text-lighter px-6 py-3 flex flex-col items-center">
         <Image
-          src="/static/images/pages/case-study/2/client-avatar.png"
+          src="/static/images/pages/dashboard/user-photo.jfif"
           alt="admin-pic"
           width={60}
           height={60}
@@ -25,7 +26,15 @@ const SideBarDashboard = () => {
       </div>
       <ul className="pt-6">
         <li>
-          <SideBarDropDownButton icon={<MdOutlineArticle />} text="Case Studies" />
+          <Link href="/admin/case-studies">
+            <SideBarDropDownButton
+              icon={<MdOutlineArticle />}
+              text="Case Studies"
+            />
+          </Link>
+        </li>
+        <li>
+          <SideBarDropDownButton icon={<TbBrandBlogger />} text="Blog" />
         </li>
         <li>
           <SideBarDropDownButton icon={<IoSettingsOutline />} text="Settings" />

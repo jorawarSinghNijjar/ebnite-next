@@ -2,7 +2,7 @@ import { HTMLInputTypeAttribute } from "react";
 
 type TextInputProps = {
   type: string;
-  placeholder: string;
+  placeholder?: string;
   name: string; // Add the 'name' prop
   className: string;
   value: string;

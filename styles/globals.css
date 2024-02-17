@@ -40,3 +40,7 @@ body {
 /* .top-inset-shadow-sm {
   box-shadow: inset 0px 25px 26px -27px rgb(248, 241, 236);
 } */
+
+.dashboard-view{
+  min-height: calc(100vh - 70px);
+}

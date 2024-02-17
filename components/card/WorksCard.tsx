@@ -1,8 +1,11 @@
 import Image from "next/image";
 import OutlinedButton from "../Buttons/OutlinedButton";
 import FilledButton from "./../Buttons/FilledButton";
+import LinkButtonIcon from "../Buttons/LinkButtonIcon";
+import Link from "next/link";
 
 interface WorksCardProps {
+  caseStudyId: string;
   imageSrc: string;
   title: string;
   description: string;
@@ -13,6 +16,7 @@ interface WorksCardProps {
 }
 
 function WorksCard({
+  caseStudyId,
   imageSrc,
   title,
   description,
@@ -23,7 +27,7 @@ function WorksCard({
 }: WorksCardProps) {
   return (
     <div className="relative lg:h-[530px] group flex flex-col mb-8 lg:block lg:mb-0">
-      <div className="hidden lg:flex flex-col justify-between pl-12 py-16 h-full lg:opacity-0 lg:scale-105 transition-all transition-300 lg:group-hover:opacity-100 lg:backdrop-blur-sm lg:group-hover:backdrop-blur-2xl lg:group-hover:bg-black/60 group-hover:scale-100">
+      <div className="hidden lg:flex flex-col justify-between pl-12 py-16 h-full lg:opacity-0 lg:scale-105 transition-all duration-1000 lg:group-hover:opacity-100 lg:backdrop-blur-sm lg:group-hover:backdrop-blur-2xl lg:group-hover:bg-black/60 group-hover:scale-100">
         <div className="flex flex-col gap-4">
           <OutlinedButton>{category}</OutlinedButton>
           <h3 className="text-4xl mb-4 font-extrabold text-slate-100">
@@ -32,18 +36,21 @@ function WorksCard({
           <h5 className="text-slate-300 text-xl font-light">{description}</h5>
         </div>
 
-        <FilledButton
-          size="medium"
-          className="uppercase w-max bg-tertiary text-dark"
+        <Link
+          href={`/case-studies/${caseStudyId}`}
+          onClick={() => console.log("link clicked")}
         >
-          View Case
-        </FilledButton>
+          <FilledButton
+            size="medium"
+            className="uppercase w-max bg-tertiary text-dark"
+          >
+            View Case
+          </FilledButton>
+        </Link>
       </div>
       <div className="lg:hidden flex-col items-start">
         <OutlinedButton>{category}</OutlinedButton>
-        <h3 className="text-4xl mt-4 font-extrabold text-primary ">
-          {title}
-        </h3>
+        <h3 className="text-4xl mt-4 font-extrabold text-primary ">{title}</h3>
         <h5 className="text-secondary text-xl mb-8 font-light">
           {description}
         </h5>
@@ -53,14 +60,20 @@ function WorksCard({
         alt="testimonial"
         width={width}
         height={height}
-        className="relative lg:absolute lg:top-0 lg:left-0 w-full lg:-z-10 lg:object-contain lg:h-full mb-4 lg:mb-0"
+        className="relative lg:absolute lg:top-0 lg:left-0 w-full lg:-z-10 lg:object-cover lg:h-full mb-4 lg:mb-0"
       />
-      <FilledButton
-        size="medium"
-        className={`w-full lg:hidden uppercase bg-tertiary text-dark`}
+
+      <Link
+        href={`/case-studies/${caseStudyId}`}
+        onClick={() => console.log("link clicked")}
       >
-        View Case
-      </FilledButton>
+        <FilledButton
+          size="medium"
+          className={`w-full lg:hidden uppercase bg-tertiary text-dark`}
+        >
+          View Case
+        </FilledButton>
+      </Link>
     </div>
   );
 }

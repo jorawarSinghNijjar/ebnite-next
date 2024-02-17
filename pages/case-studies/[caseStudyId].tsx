@@ -152,9 +152,6 @@ const CaseStudy: NextPageWithLayout = ({
           <Heading3 className="text-tertiary text-center">
             Want a project that matches these criteria?
           </Heading3>
-          <Heading3 className="text-tertiary text-center">
-            Want a project that matches these criteria?
-          </Heading3>
           <FilledButton
             size="medium"
             className="bg-secondary text-slate-100 uppercase"

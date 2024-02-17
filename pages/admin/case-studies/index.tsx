@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import AddCaseStudyComp from "@/components/DashboardComponents/CaseStudy/AddCaseStudyComp";
+import CaseStudyAdminComp from "@/components/DashboardComponents/CaseStudy";
 import NavbarDashboard from "@/components/Layout/NavbarDashboard";
 import SideBarDashboard from "@/components/Layout/SideBarDashboard";
 import { NextPageWithLayout } from "@/pages/_app";
 import { ReactElement } from "react";
 
-const AddCaseStudyPage: NextPageWithLayout = () => {
+const CaseStudyAdminPage:NextPageWithLayout = () => {
   return (
-    <section className="mt-[70px] ml-[255px] p-8">
-      <AddCaseStudyComp />
+    <section className="mt-[70px] lg:ml-[255px] p-8">
+      <CaseStudyAdminComp />
     </section>
-  );
-};
+  ); 
+}
 
-export default AddCaseStudyPage;
+export default CaseStudyAdminPage;
 
-AddCaseStudyPage.getLayout = (page: ReactElement) => {
+CaseStudyAdminPage.getLayout = (page: ReactElement) => {
   return (
     <>
       <div className="relative flex flex-col">
