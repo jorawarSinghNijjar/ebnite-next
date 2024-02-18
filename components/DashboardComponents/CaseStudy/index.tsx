@@ -22,13 +22,13 @@ const CaseStudyAdminComp = () => {
     }
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (caseStudyId: string) => {
     try {
-      console.log(id);
+      console.log(caseStudyId);
       const token = localStorage.getItem("token");
       console.log(token);
       const res = await api.delete(
-        `http://localhost:8080/api/admin/case-studies/${id}`,
+        `http://localhost:8080/api/admin/case-studies/${caseStudyId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -38,7 +38,7 @@ const CaseStudyAdminComp = () => {
 
       if (res.status === 200) {
         setCaseStudiesArr((prevState) =>
-          prevState.filter((cs) => cs.id !== id)
+          prevState.filter((cs:CaseStudy) => cs.caseStudyId !== caseStudyId)
         );
       }
       console.log(res);
@@ -74,10 +74,10 @@ const CaseStudyAdminComp = () => {
             </div>
           ) : (
             caseStudiesArr.map(
-              ({ id, heading, productImage, description }, index) => {
+              ({ caseStudyId, heading, productImage, description }, index) => {
                 return (
                   <CaseStudyAdminCard
-                    id={id}
+                  caseStudyId={caseStudyId}
                     key={index}
                     title={heading}
                     imageSrc={productImage}

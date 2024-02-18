@@ -10,7 +10,7 @@ import DashboardHome from "@/components/DashboardComponents/DashboardHome";
 const Dashboard: NextPageWithLayout = () => {
 
   return (
-    <section className="mt-[70px] ml-[255px] p-8">
+    <section className="mt-[70px] lg:ml-[255px] p-8">
       <DashboardHome />
     </section>
   );

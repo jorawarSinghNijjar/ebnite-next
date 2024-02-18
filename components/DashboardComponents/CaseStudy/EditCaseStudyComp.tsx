@@ -23,15 +23,11 @@ interface CaseStudyData {
   description: string;
 }
 
-const generateCaseStudyId = (title: string) => {
-  if (title.length < 1) {
-    throw new Error("Cannot generate caseStudyId because title is empty");
-  }
-  let number = Math.floor(Math.random() * 100);
-  return title.substring(0, 3).concat("-").concat(number.toString());
-};
+interface Props{
+    caseStudyId: string;
+}
 
-function AddCaseStudyComp() {
+function EditCaseStudyComp({caseStudyId}:Props) {
   const router = useRouter();
   const defaultCaseStudyData: CaseStudyData = {
     labels: [],
@@ -56,6 +52,23 @@ function AddCaseStudyComp() {
   const [label, setLabel] = useState("");
   const [labelArr, setLabelArr] = useState<string[]>([]);
 
+  const fetchCaseStudy = async () => {
+    try {
+      const res = await api.get(`http://localhost:8080/api/case-studies/${caseStudyId}`);
+
+      console.log(res.data);
+      setFormData(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCaseStudy();
+    setProductPreviewImage(formData.productImage);
+    setReviewerPreviewImage(formData.avatar);
+  },[])
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -72,7 +85,6 @@ function AddCaseStudyComp() {
       e.preventDefault();
       //   console.log(label);
       if (label.length < 1) return;
-      // setLabelArr((prevState) => [...prevState, label]);
       let updatedLabels = formData.labels;
       updatedLabels?.push(label);
       setFormData((prevState) => ({ ...prevState, labels:updatedLabels}));
@@ -86,7 +98,6 @@ function AddCaseStudyComp() {
     // setLabelArr((prevState) =>
     //   prevState.filter((label) => label !== labelText)
     // );
-
     let updatedLabels = formData.labels?.filter(label => label !== labelText);
     setFormData(prevState => ({...prevState,updatedLabels}));
   };
@@ -163,13 +174,13 @@ function AddCaseStudyComp() {
     }
 
     try {
-      const data = await api.post("admin/case-studies", caseStudy, {
+      const data = await api.put(`admin/case-studies/${caseStudyId}`,caseStudy, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       console.log(data);
-      swal("Saved successfully", "success").then(() =>
+      swal("Updates successfully", "success").then(() =>
         router.push("/admin/case-studies")
       );
     } catch (error) {
@@ -185,14 +196,8 @@ function AddCaseStudyComp() {
     // setFormData((prevState) => ({ ...prevState, labels: labelArr }));
 
     try {
-      const generatedCaseStudyId = generateCaseStudyId(formData.heading);
-      const caseStudy = {
-        ...formData,
-        caseStudyId: generatedCaseStudyId,
-      };
       console.log(formData);
-      console.log(caseStudy);
-      saveCaseStudy(caseStudy);
+      saveCaseStudy(formData);
     } catch (error) {
       if(error instanceof AxiosError){
         if(error.response?.status === 403){
@@ -206,12 +211,10 @@ function AddCaseStudyComp() {
     }
   };
 
-  useEffect(() => {}, []);
-
   return (
     <div>
       <Heading5 className="text-primary uppercase">
-        Add Case Study Form
+        Edit Case Study Form
       </Heading5>
       <div className="shadow-md bg-white py-10 px-8 rounded-lg">
         <form
@@ -384,4 +387,4 @@ function AddCaseStudyComp() {
   );
 }
 
-export default AddCaseStudyComp;
+export default EditCaseStudyComp;

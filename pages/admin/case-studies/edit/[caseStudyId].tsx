@@ -1,22 +1,25 @@
 "use client";
 
-import AddCaseStudyComp from "@/components/DashboardComponents/CaseStudy/AddCaseStudyComp";
+import EditCaseStudyComp from "@/components/DashboardComponents/CaseStudy/EditCaseStudyComp";
 import NavbarDashboard from "@/components/Layout/NavbarDashboard";
 import SideBarDashboard from "@/components/Layout/SideBarDashboard";
 import { NextPageWithLayout } from "@/pages/_app";
+import { useRouter } from "next/router";
 import { ReactElement } from "react";
 
-const AddCaseStudyPage: NextPageWithLayout = () => {
+const EditCaseStudy: NextPageWithLayout = () => {
+  const router = useRouter();
+  const { caseStudyId } = router.query;
   return (
     <section className="mt-[70px] lg:ml-[255px] p-8">
-      <AddCaseStudyComp />
+      <EditCaseStudyComp caseStudyId={caseStudyId}/>
     </section>
   );
 };
 
-export default AddCaseStudyPage;
+export default EditCaseStudy;
 
-AddCaseStudyPage.getLayout = (page: ReactElement) => {
+EditCaseStudy.getLayout = (page: ReactElement) => {
   return (
     <>
       <div className="relative flex flex-col">

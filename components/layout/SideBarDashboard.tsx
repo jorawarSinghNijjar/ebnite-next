@@ -6,6 +6,7 @@ import { TbBrandBlogger } from "react-icons/tb";
 import SideBarDropDownButton from "../SideBarDropDownButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { LuUserSquare2 } from "react-icons/lu";
 
 const SideBarDashboard = () => {
   const router = useRouter();
@@ -31,6 +32,11 @@ const SideBarDashboard = () => {
               icon={<MdOutlineArticle />}
               text="Case Studies"
             />
+          </Link>
+        </li>
+        <li>
+          <Link href="/admin/profile">
+            <SideBarDropDownButton icon={<LuUserSquare2 />} text="Profile" />
           </Link>
         </li>
         <li>

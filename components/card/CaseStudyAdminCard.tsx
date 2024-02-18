@@ -12,7 +12,7 @@ import FilledButtonIcon from "../Buttons/FilledButtonIcon";
 import { useRouter } from "next/router";
 
 interface props {
-  id: string;
+  caseStudyId: string;
   imageSrc: string;
   title: string;
   description?: string;
@@ -22,7 +22,7 @@ interface props {
 }
 
 const CaseStudyAdminCard = ({
-  id,
+  caseStudyId,
   imageSrc,
   title,
   description,
@@ -57,7 +57,7 @@ const CaseStudyAdminCard = ({
         </div>
       <div className="flex flex-col justify-end gap-2">
         <LinkButtonIcon
-          href="/edit"
+          href={`/admin/case-studies/edit/${caseStudyId}`}
           text="Edit"
           icon={<FaRegEdit />}
           className="bg-primary text-light"
@@ -66,7 +66,7 @@ const CaseStudyAdminCard = ({
           size="medium"
           icon={<MdDeleteOutline size={20}/>}
           className="bg-red-500 text-light"
-          onClick={() => handleDelete(id)}
+          onClick={() => handleDelete(caseStudyId)}
         >
           Delete
         </FilledButtonIcon>
