@@ -24,7 +24,7 @@ interface CaseStudyData {
 }
 
 interface Props{
-    caseStudyId: string;
+    caseStudyId: string | undefined | string[];
 }
 
 function EditCaseStudyComp({caseStudyId}:Props) {

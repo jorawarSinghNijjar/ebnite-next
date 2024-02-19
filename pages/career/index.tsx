@@ -1,12 +1,12 @@
 import AvailablePositions from "@/components/AvailablePositions";
-import ListCard from "@/components/card/ListCard";
+import ListCard from "@/components/Card/ListCard";
 
 import Heading4 from "@/components/Headings/Heading4";
 import Heading6 from "@/components/Headings/Heading6";
 import SelectInput from "@/components/Input/SelectInput";
 import TextInput from "@/components/Input/TextInput";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/Layout/Footer";
+import Navbar from "@/components/Layout/Navbar";
 
 import SubHeading2 from "@/components/SubHeading/SubHeading3";
 import { benefitsList } from "@/data/benefitsList";

@@ -10,8 +10,8 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
 import { useState } from "react";
 import { ReactElement } from "react";
-import Navbar from "@/components/layout/Navbar"; //talk to us page
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/Layout/Navbar"; //talk to us page
+import Footer from "@/components/Layout/Footer";
 import emailjs from "emailjs-com";
 import React, { ChangeEvent } from "react";
 require("dotenv").config();

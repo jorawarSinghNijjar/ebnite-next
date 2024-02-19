@@ -1,8 +1,7 @@
 import SingleAccordion from "@/components/Accordions/SingleAccordion";
 import FilledButton from "@/components/Buttons/FilledButton";
-import Card from "@/components/card/Card";
-import StatsCard from "@/components/card/StatsCard";
-import TwoColCard from "@/components/card/TwoColCard";
+import Card from "@/components/Card/Card";
+import StatsCard from "@/components/Card/StatsCard";
 
 import Heading2 from "@/components/Headings/Heading2";
 import Heading3 from "@/components/Headings/Heading3";
@@ -12,13 +11,13 @@ import SubHeading2 from "@/components/SubHeading/SubHeading3";
 import Image from "next/image";
 import { ReactElement } from "react";
 
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
-import TwoColCardV2 from "@/components/card/TwoColCardV2";
-import { servicesCard2List } from "./../../data/servicesCard2";
-import { faqServicesList } from "./../../data/faqServices";
-import { statsCardServicesList } from "./../../data/statsCardServices";
+import TwoColCardV2 from "@/components/Card/TwoColCardV2";
+import Footer from "@/components/Layout/Footer";
+import Navbar from "@/components/Layout/Navbar";
 import { whyChooseUsCardList } from "@/data/whyChoseUsCard";
+import { faqServicesList } from "./../../data/faqServices";
+import { servicesCard2List } from "./../../data/servicesCard2";
+import { statsCardServicesList } from "./../../data/statsCardServices";
 
 function Services() {
   return (

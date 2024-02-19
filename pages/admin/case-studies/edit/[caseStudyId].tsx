@@ -9,7 +9,7 @@ import { ReactElement } from "react";
 
 const EditCaseStudy: NextPageWithLayout = () => {
   const router = useRouter();
-  const { caseStudyId } = router.query;
+  const {caseStudyId}= router.query;
   return (
     <section className="mt-[70px] lg:ml-[255px] p-8">
       <EditCaseStudyComp caseStudyId={caseStudyId}/>

@@ -1,23 +1,21 @@
-import { useEffect, useState } from "react";
-import Avatar from "@/components/Avatar";
+import Article from "@/components/Article/Article";
 import FilledButton from "@/components/Buttons/FilledButton";
 import Heading3 from "@/components/Headings/Heading3";
 import Heading5 from "@/components/Headings/Heading5";
-import SubHeading2 from "@/components/SubHeading/SubHeading2";
-import Tag from "@/components/Tag";
 import Footer from "@/components/Layout/Footer";
 import Navbar from "@/components/Layout/Navbar";
+import Modal from "@/components/Modal/Modal";
+import Portal from "@/components/Portal/Portal";
+import SubHeading2 from "@/components/SubHeading/SubHeading2";
+import Tag from "@/components/Tag";
+import TalkToUsModal from "@/components/TalkToUsModal";
+import api from "@/lib/api";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { ReactElement } from "react";
-import { NextPageWithLayout } from "../_app";
-import Portal from "@/components/Portal/Portal";
-import Modal from "@/components/Modal/Modal";
-import TalkToUsModal from "@/components/TalkToUsModal";
-import Article from "@/components/Article/Article";
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ParsedUrlQuery } from "querystring";
-import api from "@/lib/api";
+import { ReactElement, useEffect, useState } from "react";
+import { NextPageWithLayout } from "../_app";
 
 interface Params extends ParsedUrlQuery {
   slug: string;
