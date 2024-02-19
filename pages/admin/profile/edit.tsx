@@ -1,22 +1,23 @@
 'use client';
 
-import AdminProfile from "@/components/DashboardComponents/Profile";
+
+import AdminProfileEditComp from "@/components/DashboardComponents/Profile/AdminProfileEditComp";
 import NavbarDashboard from "@/components/Layout/NavbarDashboard";
 import SideBarDashboard from "@/components/Layout/SideBarDashboard";
 import { NextPageWithLayout } from "@/pages/_app";
 import { ReactElement } from "react";
 
-const AdminProfilePage:NextPageWithLayout = () => {
+const AdminProfileEditPage:NextPageWithLayout = () => {
   return (
     <section className="mt-[70px] lg:ml-[255px] p-8">
-        <AdminProfile />
+        <AdminProfileEditComp />
     </section>
   ); 
 }
 
-export default AdminProfilePage;
+export default AdminProfileEditPage;
 
-AdminProfilePage.getLayout = (page: ReactElement) => {
+AdminProfileEditPage.getLayout = (page: ReactElement) => {
   return (
     <>
       <div className="relative flex flex-col">

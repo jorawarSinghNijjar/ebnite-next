@@ -14,16 +14,16 @@ const SideBarDashboard = () => {
     <div className="fixed mt-[70px] bg-dark hidden lg:flex max-w-[255px] lg:w-[255px] flex-col h-screen">
       <div className="text-lighter px-6 py-3 flex flex-col items-center">
         <Image
-          src="/static/images/pages/dashboard/user-photo.jfif"
+          src="/static/images/pages/dashboard/user-photo.png"
           alt="admin-pic"
-          width={60}
-          height={60}
-          className="align-middle object-cover h-[60px] w-[60px] rounded-full"
+          width={80}
+          height={80}
+          className="align-middle object-cover h-[80px] w-[80px] rounded-full"
         />
         <h6 className="text-xs uppercase font-bold text-lighter mt-6">
-          Gurjeet Singh
+          ADMIN
         </h6>
-        <div className="text-[10px] uppercase mt-2">General Manager</div>
+        <div className="text-[10px] uppercase mt-2">Manager</div>
       </div>
       <ul className="pt-6">
         <li>

@@ -61,7 +61,7 @@ const NavbarDashboard = () => {
           >
             <div
               className={`${
-                dropdownOpen ? "hidden" : "block"
+                !dropdownOpen ? "hidden" : "block"
               } absolute right-0 top-[50px] bg-white shadow-lg rounded-b-xl`}
             >
               <ul className="flex flex-col">
@@ -84,7 +84,7 @@ const NavbarDashboard = () => {
             </div>
             <div className="flex flex-row items-center gap-1">
               <Image
-                src="/static/images/pages/dashboard/user-photo.jfif"
+                src="/static/images/pages/dashboard/user-photo.png"
                 alt="client-pic"
                 width={40}
                 height={40}
