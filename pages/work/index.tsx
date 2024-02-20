@@ -161,7 +161,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let pageData: CaseStudy[] | null = null;
   // Api call to fetch case study data by caseStudyId
   try {
-    const res = await api.get("http://localhost:8080/api/case-studies");
+    const res = await api.get("case-studies");
     console.log(res.data);
 
     pageData = res.data;

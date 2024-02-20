@@ -8,7 +8,7 @@ interface props {
   heading: string;
   content: string;
   swapSides?: boolean;
-  caseStudyId?:string;
+  caseStudyId?: string;
 }
 
 function TwoColGrid({
@@ -17,28 +17,30 @@ function TwoColGrid({
   heading,
   content,
   swapSides,
-  caseStudyId
+  caseStudyId,
 }: props) {
   return (
-    <div className="grid gap-12 lg:grid-cols-2 mb-10 lg:mb-32">
+    <div className="mx-auto flex flex-col lg:flex-row text-center lg:text-left max-w-[600px] lg:max-w-full gap-12 lg:max-h-[500px] mb-12 lg:mb-32">
       <div
-        className={`flex items-center md:justify-start lg:justify-center max-w-full lg:max-w-1/2 ${
-          swapSides ? "lg:order-2" : "lg:order-1"
+        className={`flex flex-row justify-center items-center lg:min-w-[50%] ${
+          swapSides
+            ? "lg:order-last lg:justify-end"
+            : "lg:order-first lg:justify-start"
         }`}
       >
         <Image
           src={imageSrc}
           alt="testimonial"
-          width={700}
-          height={500}
-          className="rounded-2xl max-w-full max-h-[500px] object-cover shadow-2xl"
+          width={500}
+          height={300}
+          className="rounded-2xl max-w-full max-h-[300px] object-cover shadow-2xl"
         ></Image>
       </div>
       <div className={`lg:p-5 ${swapSides ? "order-1" : "order-2"}`}>
-        <article>
+        <article className="max-h-full">
           <h4 className="text-xl uppercase mb-4">{category}</h4>
           <h3 className="text-2xl mb-4 font-semibold">{heading}</h3>
-          <p className="font-normal text-black/[0.5] text-xl leading-relaxed mb-8 ">
+          <p className="font-normal text-black/[0.5] text-sm md:text-base lg:text-lg leading-relaxed mb-8 lg:max-h-[250px] overflow-hidden">
             {content}
           </p>
           <Link href={`/case-studies/${caseStudyId}`}>

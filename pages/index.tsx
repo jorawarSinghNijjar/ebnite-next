@@ -1,6 +1,6 @@
 import Heading2 from "@/components/Headings/Heading2";
 import SubHeading1 from "@/components/SubHeading/SubHeading2";
-import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
+// import TwoColGrid from "@/components/TwoColGrid/TwoColGrid";
 import { servicesCardList } from "@/data/servicesCard";
 import { talkToUsCardList } from "@/data/talkToUsCard";
 import Image from "next/image";
@@ -20,14 +20,43 @@ import { BsArrowReturnRight } from "react-icons/bs";
 import FilledButton from "./../components/Buttons/FilledButton";
 import { NextPageWithLayout } from "./_app";
 
-import emailjs from "emailjs-com";
 import Card from "@/components/Card/Card";
 import Card2 from "@/components/Card/Card2";
-import NavbarHome from "@/components/Layout/NavbarHome";
 import Footer from "@/components/Layout/Footer";
+import NavbarHome from "@/components/Layout/NavbarHome";
+import api from "@/lib/api";
+import emailjs from "emailjs-com";
+import { GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 require("dotenv").config();
 
-const Home: NextPageWithLayout = () => {
+const TwoColGrid = dynamic(() => import("@/components/TwoColGrid/TwoColGrid"), {
+  ssr: false,
+});
+
+const getRandomIndexesOutOfArrLength = (
+  requiredCount: number,
+  arrayLength: number
+) => {
+  let indexes = [];
+  let number = Math.floor(Math.random() * arrayLength);
+  while (true) {
+    let genNumber = Math.floor(Math.random() * arrayLength);
+    // Avoid duplicate indexes
+    if (genNumber !== number) {
+      number = indexes.push(genNumber);
+    }
+    number = genNumber;
+
+    if (indexes.length === requiredCount) return indexes;
+  }
+};
+
+interface Props {
+  caseStudies: CaseStudy[];
+}
+
+const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
   const [showStepsVideoModal, setShowStepsVideoModal] = useState(false);
   const { showBookCallModal, setShowBookCallModal } = useAppContext();
   const [formData, setFormData] = useState({
@@ -101,6 +130,27 @@ const Home: NextPageWithLayout = () => {
       alert("Error sending email. Please try again later.");
     }
   };
+
+  const renderCaseStudies = () => {
+    const indexes = getRandomIndexesOutOfArrLength(2, caseStudies.length);
+    console.log(indexes);
+    return caseStudies
+      .filter((caseStudy, index) => indexes.includes(index))
+      .map(({ caseStudyId, productImage, heading, description }, index) => {
+        return (
+          <TwoColGrid
+            key={index}
+            caseStudyId={caseStudyId}
+            category=""
+            content={description}
+            heading={heading}
+            imageSrc={productImage}
+            swapSides={index % 2 === 0}
+          />
+        );
+      });
+  };
+
   return (
     <>
       {/* Navigation */}
@@ -224,7 +274,29 @@ const Home: NextPageWithLayout = () => {
             company.
           </SubHeading1>
         </div>
-        <TwoColGrid
+
+        {renderCaseStudies()}
+        {/* {caseStudies?.map(
+          ({ caseStudyId, productImage, heading, description }, index, arr) => {
+            // getRandomIndexesOutOfArrLength(2,arr.length));
+            // const indexes = getRandomIndexesOutOfArrLength(2,arr.length));
+              return (
+                <TwoColGrid
+                  key={index}
+                  caseStudyId={caseStudyId}
+                  category=""
+                  content={description}
+                  heading={heading}
+                  imageSrc={productImage}
+                  // swapSides={index }
+                />
+
+              );
+            
+          }
+        )} */}
+
+        {/* <TwoColGrid
           caseStudyId="1"
           imageSrc="/static/images/pages/home/works-4.png"
           category="DASHBOARD"
@@ -238,7 +310,7 @@ const Home: NextPageWithLayout = () => {
           heading="Immobiliaria"
           content="Developed by our team, this innovative Property Management App revolutionizes Immobiliaria's operations. Seamlessly monitor properties, tenant communication, and financial tasks across devices. Robust encryption ensures data security. Our dedication to excellence is evident in this app, streamlining real estate management for heightened efficiency and client satisfaction."
           swapSides
-        />
+        /> */}
       </section>
 
       {/* ---------------------------------------------Let's talk ----------------------------------*/}
@@ -310,13 +382,13 @@ const Home: NextPageWithLayout = () => {
           <Heading2>Talk to us and get your project moving!</Heading2>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-between mt-16">
+        <div className="flex flex-col md:flex-row justify-between mt-16">
           <div className="w-full lg:w-1/2 font-medium text-black/[0.6] text-base leading-relaxed mb-8 ">
             <p className="text-base mb-8">
               This is exactly what will happen after you submit your form:
             </p>
             <div
-              className="relative overflow-hidden max-w-[300px] h-[200px] lg:max-w-[500px] lg:h-[300px] rounded-xl drop-shadow-2xl group mb-8"
+              className="relative overflow-hidden max-w-full h-[200px] lg:max-w-[500px] lg:h-[300px] rounded-xl drop-shadow-2xl group mb-8"
               onClick={() => setShowStepsVideoModal(true)}
             >
               <Image
@@ -373,7 +445,7 @@ const Home: NextPageWithLayout = () => {
               </li>
             </ul>
           </div>
-          <div className="w-full lg:w-1/2 lg:pl-8">
+          <div className="w-full lg:w-1/2 md:pl-8">
             <form onSubmit={handleFormSubmit} className="w-full">
               <TextInput
                 type="text"
@@ -458,4 +530,21 @@ Home.getLayout = (page: ReactElement) => {
       <Footer />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  let caseStudies: CaseStudy[] | null = null;
+  // Api call to fetch case study data by caseStudyId
+  try {
+    const res = await api.get("case-studies");
+    caseStudies = res.data;
+  } catch (error) {
+    console.error(error);
+  }
+
+  return {
+    props: {
+      caseStudies,
+    },
+  };
 };

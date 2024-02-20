@@ -193,7 +193,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // Api call to fetch case study data by caseStudyId
   try {
     const res = await api.get(
-      `http://localhost:8080/api/case-studies/${caseStudyId}`
+      `case-studies/${caseStudyId}`
     );
     // const pageData: PageData[] = await res.json()
     console.log(res.data);
