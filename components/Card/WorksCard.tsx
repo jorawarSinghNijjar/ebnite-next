@@ -27,13 +27,13 @@ function WorksCard({
 }: WorksCardProps) {
   return (
     <div className="relative lg:h-[530px] group flex flex-col mb-8 lg:block lg:mb-0">
-      <div className="hidden lg:flex flex-col justify-between pl-12 py-16 h-full lg:opacity-0 lg:scale-105 transition-all duration-1000 lg:group-hover:opacity-100 lg:backdrop-blur-sm lg:group-hover:backdrop-blur-2xl lg:group-hover:bg-black/60 group-hover:scale-100">
-        <div className="flex flex-col gap-4">
+      <div className="hidden lg:flex flex-col justify-between px-12 py-12 h-full lg:opacity-0 lg:scale-105 transition-all duration-1000 lg:group-hover:opacity-100 lg:backdrop-blur-sm lg:group-hover:backdrop-blur-2xl lg:group-hover:bg-black/60 group-hover:scale-100">
+        <div className="flex flex-col gap-4 lg:max-h-[360px]">
           <OutlinedButton>{category}</OutlinedButton>
-          <h3 className="text-4xl mb-4 font-extrabold text-slate-100">
+          <h3 className="text-3xl mb-4 font-extrabold text-slate-100">
             {title}
           </h3>
-          <h5 className="text-slate-300 text-xl font-light">{description}</h5>
+          <h5 className="text-slate-300 text-xl font-light overflow-hidden">{description}</h5>
         </div>
 
         <Link

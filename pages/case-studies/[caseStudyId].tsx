@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import { ReactElement, useEffect, useState } from "react";
 import { NextPageWithLayout } from "../_app";
+import Heading4 from "@/components/Headings/Heading4";
 
 interface Params extends ParsedUrlQuery {
   slug: string;
@@ -72,13 +73,13 @@ const CaseStudy: NextPageWithLayout = ({
     <>
       <section className="w-full">
         <div
-          className="w-full max-h-[500px] md:max-h-[650px] relative"
+          className="w-full min-h-[500px] md:max-h-[650px] relative"
           style={{
             backgroundImage:
               "linear-gradient(to right bottom, #412728, #583432, #70423a, #875240, #9d6346, #af734a, #c0854e, #cf9852, #deae57, #eac65d, #f3de66, #f9f871)",
           }}
         >
-          <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 xl:px-20 pt-40 lg:pt-60 relative z-10">
+          <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 xl:px-20 py-20 lg:pt-32 lg:pb-28 relative z-10">
             <div className="flex justify-between flex-col md:flex-row">
               <div className="max-w-full md:max-w-[40%]">
                 <div className="flex gap-2 flex-wrap mb-8 max-w-[300px]">
@@ -87,18 +88,19 @@ const CaseStudy: NextPageWithLayout = ({
                   ))}
                 </div>
 
-                <Heading3 className="text-white">{pageData.heading}</Heading3>
+                <Heading4 className="text-white">{pageData.heading}</Heading4>
                 <SubHeading2 className="text-white mb-2">
                   {pageData.subHeading}
                 </SubHeading2>
               </div>
-              <div className="w-[50%]">
+              <div className="max-h-full md:w-[50%]">
                 <Image
                   src={pageData.productImage}
                   alt="testimonial"
                   width={1000}
                   height={700}
-                  className="max-w-full max-h-[700px] object-cover  lg:-translate-y-20 lg:-translate-x-32"
+                  // className="max-w-full max-h-[700px] object-cover  lg:-translate-y-20 lg:-translate-x-32"
+                  className="max-w-full max-h-[700px] object-cover"
                 ></Image>
               </div>
             </div>
