@@ -1,3 +1,4 @@
+import AccountManagementSystemArticle from "./case-study/amsArticle"
 import { FitTrackProArticle1, FitTrackProArticle2 } from "./case-study/fitTrackProArticle"
 import { ImmobiliariaArticle1, ImmobiliariaArticle2 } from "./case-study/immobiliariaArticle"
 
@@ -11,8 +12,9 @@ const Article = ({articleId}:props) => {
         case "fitTrackPro2": return <FitTrackProArticle2 />
         case "immobiliaria1": return <ImmobiliariaArticle1 />
         case "immobiliaria2": return <ImmobiliariaArticle2 />
+        case "amsArticle1": return <AccountManagementSystemArticle />
 
-        default: return <h1>Article Id not found</h1>;
+        default: return null;
     } 
 }
 

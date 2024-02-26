@@ -75,11 +75,10 @@ const CaseStudy: NextPageWithLayout = ({
         <div
           className="w-full min-h-[500px] md:max-h-[650px] relative"
           style={{
-            backgroundImage:
-              "linear-gradient(to right bottom, #412728, #583432, #70423a, #875240, #9d6346, #af734a, #c0854e, #cf9852, #deae57, #eac65d, #f3de66, #f9f871)",
+            backgroundImage: "linear-gradient(to right, #485563, #29323c)",
           }}
         >
-          <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 xl:px-20 py-20 lg:pt-32 lg:pb-28 relative z-10">
+          <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 xl:px-20 py-20 lg:pt-40 lg:pb-28 relative z-10">
             <div className="flex justify-between flex-col md:flex-row">
               <div className="max-w-full md:max-w-[40%]">
                 <div className="flex gap-2 flex-wrap mb-8 max-w-[300px]">
@@ -100,53 +99,62 @@ const CaseStudy: NextPageWithLayout = ({
                   width={1000}
                   height={700}
                   // className="max-w-full max-h-[700px] object-cover  lg:-translate-y-20 lg:-translate-x-32"
-                  className="max-w-full max-h-[700px] object-cover"
+                  className="max-w-full max-h-[700px] object-cover rounded-2xl"
                 ></Image>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="px-6 lg:px-20 py-16 ">
-        <div className="xl:max-w-[1460px] xl:mx-auto">
-          <Article articleId={pageData.article1} />
-        </div>
-      </section>
-
-      <div className="relative w-full h-[350px] md:h-[250px]">
-        <Image
-          src="/static/images/pages/case-study/hero.jpg"
-          alt="services"
-          width={2560}
-          height={250}
-          className="absolute -z-20 w-screen h-[350px] md:h-[250px] object-cover"
-        />
-
-        <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 h-full flex justify-start items-center">
-          <Heading5 className="text-white">{pageData.testimonial}</Heading5>
-        </div>
-      </div>
-      <div className="flex justify-center -translate-y-12 ">
-        <div className="flex flex-col items-center">
-          <div className="mb-8">
-            <div>
-              <Image
-                src={pageData.avatar}
-                alt="client-pic"
-                width={120}
-                height={120}
-                className="align-middle h-[120px] w-[120px] rounded-full"
-              />
+      {pageData.article1.length > 0 && (
+        <section className="px-6 lg:px-20 py-16 ">
+          <div className="xl:max-w-[1460px] xl:mx-auto">
+            <Article articleId={pageData.article1} />
+          </div>
+        </section>
+      )}
+      {/* Testimonial */}
+      {pageData.testimonial.length > 0 && pageData.avatar.length > 0 ? (
+        <>
+          <div
+            className="relative w-full h-[350px] md:h-[250px]"
+            style={{
+              backgroundImage: "linear-gradient(to right, #485563, #29323c)",
+            }}
+          >
+            <div className="xl:max-w-[1460px] xl:mx-auto px-6 lg:px-20 h-full flex justify-start items-center">
+              <Heading5 className="text-white font-thin">
+                {pageData.testimonial}
+              </Heading5>
             </div>
           </div>
-          <p className="text-primary italic">{pageData.reviewer}</p>
-        </div>
-      </div>
-      <section className="px-6 lg:px-20 py-16 ">
-        <div className="xl:max-w-[1460px] xl:mx-auto">
-          <Article articleId={pageData.article2} />
-        </div>
-      </section>
+          <div className="flex justify-center -translate-y-12 ">
+            <div className="flex flex-col items-center">
+              <div className="mb-8">
+                <div>
+                  <Image
+                    src={pageData.avatar}
+                    alt="client-pic"
+                    width={120}
+                    height={120}
+                    className="object-center object-cover h-[120px] w-[120px] rounded-full"
+                  />
+                </div>
+              </div>
+              <p className="text-primary italic">{pageData.reviewer}</p>
+            </div>
+          </div>
+        </>
+      ) : null}
+
+      {pageData.article2.length > 0 && (
+        <section className="px-6 lg:px-20 py-16 ">
+          <div className="xl:max-w-[1460px] xl:mx-auto">
+            <Article articleId={pageData.article2} />
+          </div>
+        </section>
+      )}
+
       <div className="w-full relative">
         <div className="flex flex-col justify-center items-center gap-6 py-32">
           <Heading3 className="text-tertiary text-center">
@@ -194,9 +202,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   // Api call to fetch case study data by caseStudyId
   try {
-    const res = await api.get(
-      `case-studies/${caseStudyId}`
-    );
+    const res = await api.get(`case-studies/${caseStudyId}`);
     // const pageData: PageData[] = await res.json()
     console.log(res.data);
     pageData = res.data;

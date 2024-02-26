@@ -73,7 +73,7 @@ function AdminProfileEditComp() {
 
   const saveUserProfile = async (formData: UserProfile) => {
     const token = localStorage.getItem("token");
-    const res = await api.post("/profiles/me", formData, {
+    const res = await api.post("profiles/me", formData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

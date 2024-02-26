@@ -13,7 +13,7 @@ const CaseStudyAdminComp = () => {
 
   const fetchCaseStudies = async () => {
     try {
-      const res = await api.get("http://localhost:8080/api/case-studies");
+      const res = await api.get("case-studies");
 
       console.log(res.data);
       setCaseStudiesArr(res.data);
@@ -28,7 +28,7 @@ const CaseStudyAdminComp = () => {
       const token = localStorage.getItem("token");
       console.log(token);
       const res = await api.delete(
-        `http://localhost:8080/api/admin/case-studies/${caseStudyId}`,
+        `case-studies/${caseStudyId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

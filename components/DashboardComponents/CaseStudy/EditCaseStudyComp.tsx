@@ -54,7 +54,7 @@ function EditCaseStudyComp({caseStudyId}:Props) {
 
   const fetchCaseStudy = async () => {
     try {
-      const res = await api.get(`http://localhost:8080/api/case-studies/${caseStudyId}`);
+      const res = await api.get(`case-studies/${caseStudyId}`);
 
       console.log(res.data);
       setFormData(res.data);
