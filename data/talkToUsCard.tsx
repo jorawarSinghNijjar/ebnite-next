@@ -4,7 +4,7 @@ export const talkToUsCardList = [
       title: "Building MVP?",
       description:
         "Looking to build fast and reduce your time to market? Drop me a message. Together we can find the core set of features to gather user information and iteratively create the best possible product.",
-      buttonText: "Email Karl",
+      buttonText: "Email Jorawar",
     },
     {
       imageSrc: "/static/images/pages/home/employee-2.jpg",

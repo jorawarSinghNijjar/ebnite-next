@@ -15,10 +15,10 @@ interface CardProps {
 
 function Card({ imageSrc, title, description, buttonText, linkHref, className, textAlign, transition }: CardProps) {
   return (
-    <div className={`w-full px-12 py-10 shadow-xl bg-white rounded-2xl flex flex-col ${transition ? "transition ease-in-out hover:-translate-y-4 hover:scale-95 cursor-pointer": ""} ${className}`}>
+    <div className={`w-full px-12 py-10 lg:px-10 lg:py-8 shadow-xl bg-white rounded-2xl flex flex-col ${transition ? "transition ease-in-out hover:-translate-y-4 hover:scale-95 cursor-pointer": ""} ${className}`}>
       <Image src={imageSrc} alt={title} width={100} height={100}></Image>
-      <h4 className="text-2xl font-medium text-slate-950 mt-7 mb-3 ">{title}</h4>
-      <p className={`text-xl font-normal text-slate-500 ${textAlign ? "text-center" : "text-left"}`}>{description}</p>
+      <h4 className="text-xl font-medium text-slate-950 mt-7 mb-3 ">{title}</h4>
+      <p className={`text-lg font-normal text-slate-500 ${textAlign ? "text-center" : "text-left"}`}>{description}</p>
       {buttonText && (
         <Link href={linkHref || "/"} className="text-primary text-lg font-medium">
           {buttonText}

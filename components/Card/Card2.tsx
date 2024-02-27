@@ -18,7 +18,7 @@ function Card2({ imageSrc, title, description, buttonText }: props) {
       <div className="py-8 px-4">
         <h4 className="text-lg 2xl:text-2xl font-medium text-slate-950 mb-4">{title}</h4>
         <p className="font-normal text-black/[0.5] text-base leading-relaxed mb-8">{description}</p>
-        <OutlinedButton>{buttonText}</OutlinedButton>
+        <a href="mailto:jorawarsinghnijjar@gmail.com" className="border border-secondary py-2 px-4 rounded-full uppercase text-xs text-secondary font-medium hover:bg-secondary hover:text-slate-100 transition ease-in w-max">{buttonText}</a>
       </div>
     </div>
   );

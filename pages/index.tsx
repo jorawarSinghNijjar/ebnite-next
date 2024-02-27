@@ -207,8 +207,8 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
         <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16 2xl:mb-32">
           <Heading2>Services</Heading2>
           <SubHeading1>
-            We can help you bring your product to life - whether its a Minimum
-            Viable Product, UX/UI Services or help to scale your company.
+            We provide comprehensive services, covering all facets of your
+            project, ensuring support at every stage
           </SubHeading1>
         </div>
 
@@ -267,9 +267,8 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
         <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16 2xl:mb-32">
           <Heading2>Our Work</Heading2>
           <SubHeading1>
-            We can help you bring your product to life - whether it&#39;s a
-            Minimum Viable Product, UX/UI Services or help to scale your
-            company.
+            Since 2019, Ebnite helped many clients to reach their digital
+            goals. Here are some success stories.
           </SubHeading1>
         </div>
 

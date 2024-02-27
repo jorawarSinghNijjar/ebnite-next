@@ -57,7 +57,7 @@ function Services() {
         </div>
         <TwoColCardV2
           title="Software engineering"
-          description="Over 8 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
+          description="Over 5 years in the field, we’ve done it all. Extensive expertise and well-oiled processes allow us to develop the best products in a timely and cost-effective manner."
           buttonText="Learn More"
           imageSrc="/static/images/pages/services/two-col-card-1.png"
           className="mb-10 bg-lighter"
@@ -124,7 +124,7 @@ function Services() {
               solutions.
             </SubHeading2>
             <SubHeading2>
-              Since 2015, we have been inventing digital solutions, helping
+              Since 2019, we have been inventing digital solutions, helping
               startups and SMBs come out on top in their markets.
             </SubHeading2>
             <p className="font-normal text-2xl leading-relaxed mb-8 "></p>

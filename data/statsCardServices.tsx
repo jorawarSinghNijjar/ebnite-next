@@ -1,18 +1,18 @@
 export const statsCardServicesList = [
     {
-        numberData: "20+",
-        desc:"highly skilled professionals"
+        numberData: "4000+",
+        desc:"leads generated"
     },
     {
-        numberData: "50+",
+        numberData: "13+",
         desc:"projects delivered"
     },
     {
-        numberData: "8 years",
+        numberData: "5 years",
         desc:"on the market"
     },
     {
-        numberData: "95%",
+        numberData: "98%",
         desc:"client satisfaction rate"
     },
     

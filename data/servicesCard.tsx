@@ -1,26 +1,26 @@
 export const servicesCardList = [
     {
-      imageSrc: "/static/images/services-icon/product.svg",
-      title: "Product Scope",
+      imageSrc: "/static/images/services-icon/custom-web-dev.svg",
+      title: "Custom Website Application Development",
       description:
-        "A Structured 7-day Process to align your product vision with your business goals",
+        "Create custom apps for ERP, E-Commerce, Training, CRM, & more",
     },
     {
       imageSrc: "/static/images/services-icon/ux.svg",
-      title: "UX/UI",
+      title: "Website Design",
       description:
         "Design an engaging product that is easy-to-use, attractive and functional",
     },
     {
-      imageSrc: "/static/images/services-icon/launch.svg",
-      title: "MVP",
+      imageSrc: "/static/images/services-icon/maintenance.svg",
+      title: "Maintenance & Support",
       description:
-        "Go to market quickly with a high-quality Minimum Viable Product",
+        "Includes long time testing, updates, security, DB maintenance, & long-term assistance",
     },
     {
       imageSrc: "/static/images/services-icon/team.svg",
       title: "Dedicated Teams",
       description:
-        "Build your product with a dedicated team of developers",
+        "Create your product with a dedicated team of developers",
     },
   ];
