@@ -229,14 +229,14 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
 
       {/* ---------------------------------------------Testimonials ----------------------------------*/}
       <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2">
           <div className="flex items-center justify-center max-w-full lg:max-w-1/2">
             <Image
-              src="/static/images/client-testimonial.jpg"
+              src="/static/images/client-testimonial.jpeg"
               alt="testimonial"
               width={700}
               height={300}
-              className="rounded-2xl max-w-full drop-shadow-2xl"
+              className="max-w-full max-h-[400px] object-cover drop-shadow-2xl rounded-2xl "
             ></Image>
           </div>
           <div className="p-0">
@@ -248,16 +248,14 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
               height={48}
             />
             <p className="font-normal text-2xl leading-relaxed mb-8 ">
-              We are very happy to work with Ebnite. The collaboration goes far
-              beyond a standard IT service: with Ebnite we have a sparring
-              partner that challenges us in our product decisions and is truly
-              passionate about the results developed. The level of
-              professionalism and dedication is exceptional in this industry and
-              we are eager to strengthen our collaboration in the future.
+              We&apos;re thrilled with Ebnite&apos;s work on the AMS project.
+              Their dedication to our goals and professionalism set a new
+              standard. Quality work, seamless user flow, and captivating
+              designs have exceeded our expectations.
             </p>
             <p className="text-xl text-secondary mb-8">
-              <span className="font-semibold">Carmine Tullio</span> – Univeris,
-              CEO
+              <span className="font-semibold">Jaspreet Singh</span> – Flour Mill
+              , Owner
             </p>
             {/* <p className="text-5xl font-thin">COMPANY LOGO</p> */}
           </div>
