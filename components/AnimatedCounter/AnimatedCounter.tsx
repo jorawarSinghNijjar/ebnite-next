@@ -45,8 +45,8 @@ const AnimatedCounter: React.FC<props> = ({
   //   console.log("interval: ",intervalDuration)
   //   console.log(isVisible);
   return (
-    <div ref={ref}>
-      <span className={`${classes}`}>
+    <div ref={ref} className={`${classes}`}>
+      <span >
         {Math.round(current)}
         {`${suffix && current >= end ? suffix : ""}`}
       </span>
