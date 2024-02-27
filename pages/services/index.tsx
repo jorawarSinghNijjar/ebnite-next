@@ -18,6 +18,7 @@ import { whyChooseUsCardList } from "@/data/whyChoseUsCard";
 import { faqServicesList } from "./../../data/faqServices";
 import { servicesCard2List } from "./../../data/servicesCard2";
 import { statsCardServicesList } from "./../../data/statsCardServices";
+import AnimatedCounter from "@/components/AnimatedCounter/AnimatedCounter";
 
 function Services() {
   return (
@@ -142,10 +143,14 @@ function Services() {
       </section>
       <section className="px-6 lg:px-20 mb-10 lg:mb-16">
         <div className="flex flex-col gap-4 lg:flex-row justify-between">
-          {statsCardServicesList.map(({ numberData, desc }, index) => (
-            <StatsCard key={index} numberData={numberData} desc={desc} />
+          {statsCardServicesList.map(({ numberData, desc, suffix }, index) => (
+            <StatsCard key={index} numberData={numberData} desc={desc} suffix={suffix} />
           ))}
         </div>
+
+        {/* <div>
+            <AnimatedCounter start={0} end={1000} duration={3000}></AnimatedCounter>
+        </div> */}
       </section>
       <section className="px-6 lg:px-20 mb-10 lg:mb-16">
         <Heading3>Why choose Ebnite Technologies</Heading3>
