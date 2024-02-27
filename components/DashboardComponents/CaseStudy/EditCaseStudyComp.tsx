@@ -43,6 +43,7 @@ function EditCaseStudyComp({caseStudyId}:Props) {
   };
 
   const [formData, setFormData] = useState(defaultCaseStudyData);
+  const [multipartFiles, setMultipartFiles] = useState<{[key: string]: File}>({});
   const [productPreviewImage, setProductPreviewImage] = useState<
     string | undefined | null
   >(null);
@@ -58,6 +59,7 @@ function EditCaseStudyComp({caseStudyId}:Props) {
 
       console.log(res.data);
       setFormData(res.data);
+      
     } catch (error) {
       console.error(error);
     }
@@ -67,6 +69,7 @@ function EditCaseStudyComp({caseStudyId}:Props) {
     fetchCaseStudy();
     setProductPreviewImage(formData.productImage);
     setReviewerPreviewImage(formData.avatar);
+    // setMultipartFiles(prevState => ({...prevState, productImage:formData.productImage}));
   },[])
 
   const handleChange = (
@@ -119,10 +122,7 @@ function EditCaseStudyComp({caseStudyId}:Props) {
 
         if (!resFile || resFile.length < 1)
           throw new Error("Product Image is empty");
-        setFormData((prevData) => ({
-          ...prevData,
-          productImage: resFile,
-        }));
+          setMultipartFiles((prevData) => ({...prevData, productImage: file}));
       });
 
       productFileReader.readAsDataURL(file);
@@ -152,10 +152,7 @@ function EditCaseStudyComp({caseStudyId}:Props) {
 
         if (!resFile || resFile.length < 1)
           throw new Error("Reviewer Image is empty");
-        setFormData((prevData) => ({
-          ...prevData,
-          avatar: resFile,
-        }));
+          setMultipartFiles((prevData) => ({...prevData, avatar: file}));
       });
 
       avatarFileReader.readAsDataURL(file);
@@ -173,10 +170,19 @@ function EditCaseStudyComp({caseStudyId}:Props) {
       router.push("/admin/signin");
     }
 
+    const formData = new FormData();
+    formData.append("caseStudy",JSON.stringify(caseStudy));
+    formData.append("productImage", multipartFiles.productImage);
+    formData.append("avatar", multipartFiles.avatar)
+
+    console.log(caseStudy)
+    console.log(multipartFiles)
+
     try {
-      const data = await api.put(`admin/case-studies/${caseStudyId}`,caseStudy, {
+      const data = await api.put(`admin/case-studies/${caseStudyId}`,formData, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data"
         },
       });
       console.log(data);

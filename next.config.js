@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains: ['picsum.photos']
+    domains: ['picsum.photos','ebnite-storage.s3.us-east-2.amazonaws.com']
   }
 }
 

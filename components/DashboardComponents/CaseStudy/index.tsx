@@ -28,7 +28,7 @@ const CaseStudyAdminComp = () => {
       const token = localStorage.getItem("token");
       console.log(token);
       const res = await api.delete(
-        `case-studies/${caseStudyId}`,
+        `admin/case-studies/${caseStudyId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

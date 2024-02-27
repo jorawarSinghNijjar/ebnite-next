@@ -47,6 +47,7 @@ function AddCaseStudyComp() {
   };
 
   const [formData, setFormData] = useState(defaultCaseStudyData);
+  const [multipartFiles, setMultipartFiles] = useState<{[key: string]: File}>({});
   const [productPreviewImage, setProductPreviewImage] = useState<
     string | undefined | null
   >(null);
@@ -108,10 +109,7 @@ function AddCaseStudyComp() {
 
         if (!resFile || resFile.length < 1)
           throw new Error("Product Image is empty");
-        setFormData((prevData) => ({
-          ...prevData,
-          productImage: resFile,
-        }));
+          setMultipartFiles((prevData) => ({...prevData, productImage: file}));
       });
 
       productFileReader.readAsDataURL(file);
@@ -141,10 +139,7 @@ function AddCaseStudyComp() {
 
         if (!resFile || resFile.length < 1)
           throw new Error("Reviewer Image is empty");
-        setFormData((prevData) => ({
-          ...prevData,
-          avatar: resFile,
-        }));
+          setMultipartFiles((prevData) => ({...prevData, avatar: file}));
       });
 
       avatarFileReader.readAsDataURL(file);
@@ -162,10 +157,19 @@ function AddCaseStudyComp() {
       router.push("/admin/signin");
     }
 
+    const formData = new FormData();
+    formData.append("caseStudy",JSON.stringify(caseStudy));
+    formData.append("productImage", multipartFiles.productImage);
+    formData.append("avatar", multipartFiles.avatar)
+
+    console.log(caseStudy)
+    console.log(multipartFiles)
+    
     try {
-      const data = await api.post("admin/case-studies", caseStudy, {
+      const data = await api.post("admin/case-studies", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data"
         },
       });
       console.log(data);
@@ -190,8 +194,8 @@ function AddCaseStudyComp() {
         ...formData,
         caseStudyId: generatedCaseStudyId,
       };
-      console.log(formData);
-      console.log(caseStudy);
+      // console.log(formData);
+      // console.log(caseStudy);
       saveCaseStudy(caseStudy);
     } catch (error) {
       if(error instanceof AxiosError){
