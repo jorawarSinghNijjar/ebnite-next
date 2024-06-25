@@ -13,6 +13,8 @@ import { ReactElement, useState } from "react";
 import { HashLoader } from "react-spinners";
 import { NextPageWithLayout } from "../_app";
 
+import { caseStudiesList } from "@/data/caseStudies/caseStudiesList";
+
 const chips = [
   { id: "1", label: "All", selected: true },
   { id: "2", label: "Website", selected: false },
@@ -59,12 +61,12 @@ const Work: NextPageWithLayout<Props> = ({pageData}:Props) => {
         </div> */}
         {/* grid-rows-[repeat(2,_530px)] */}
         <div className="grid auto-rows-auto grid-cols-1 md:grid-cols-2 gap-8 pt-10">
-          {pageData.length <= 0 ? (
+          {pageData && pageData.length <= 0 ? (
             <div className="w-full h-full flex flex-row justify-center items-center ">
               <HashLoader color="#FFC26F" loading={true} size={100} />
             </div>
           ) : (
-            pageData.map(
+            pageData?.map(
               ({ caseStudyId, heading, productImage, description }: CaseStudy, index:number) => {
                 return (
                   <div className="" key={index}>
@@ -167,6 +169,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     pageData = res.data;
   } catch (error) {
     console.error(error);
+
+    return {
+      props: {
+        pageData: caseStudiesList
+      },
+    };
   }
 
   return {

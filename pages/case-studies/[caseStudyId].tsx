@@ -17,6 +17,8 @@ import { ParsedUrlQuery } from "querystring";
 import { ReactElement, useEffect, useState } from "react";
 import { NextPageWithLayout } from "../_app";
 import Heading4 from "@/components/Headings/Heading4";
+import { caseStudiesList } from "@/data/caseStudies/caseStudiesList";
+
 
 interface Params extends ParsedUrlQuery {
   slug: string;
@@ -33,6 +35,11 @@ interface PageData {
   testimonial: string;
   avatar: string;
   reviewer: string;
+}
+
+
+const findCaseStudyById = (caseStudyId: any) => {
+  return caseStudiesList.find(el => el.caseStudyId === caseStudyId);
 }
 
 const CaseStudy: NextPageWithLayout = ({
@@ -210,6 +217,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // const pageData = 1;
   } catch (error) {
     console.error(error);
+
+    return {
+      props: {
+        pageData: findCaseStudyById(caseStudyId)
+      },
+    };
   }
 
   return {
