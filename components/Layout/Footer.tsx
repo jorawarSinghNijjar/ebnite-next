@@ -27,9 +27,9 @@ const Footer = () => {
           <div className="flex flex-col gap-y-10 items-start lg:items-end">
             <div className="w-full md:w-3/4 flex flex-col gap-y-10 items-start lg:items-end">
               <Location
-                address="#1014 -4789 YONGE ST
+                address="#1014 - 4789 YONGE ST
                 Toronto, Ontario M2N0G3"
-                // phone="+1 438-979-4762"
+                phone="+1 431-276-9801"
                 email="info.dev.ebnite@gmail.com"
                 imageSrc="/static/images/pages/footer/toronto.png"
               />  
