@@ -13,6 +13,8 @@ import { ReactElement, useState } from "react";
 import { HashLoader } from "react-spinners";
 import { NextPageWithLayout } from "../_app";
 
+import { caseStudiesList } from "@/data/caseStudies/caseStudiesList";
+
 const chips = [
   { id: "1", label: "All", selected: true },
   { id: "2", label: "Website", selected: false },
@@ -38,7 +40,7 @@ const Work: NextPageWithLayout<Props> = ({pageData}:Props) => {
 
   return (
     <>
-      <section className="px-6 lg:px-20 mb-16">
+      <section className="px-6 lg:px-20 mb-36">
         <div className="w-full text-left lg:w-3/4">
           <Heading2>Explore Our Work</Heading2>
           <SubHeading1>
@@ -58,13 +60,13 @@ const Work: NextPageWithLayout<Props> = ({pageData}:Props) => {
           ))}
         </div> */}
         {/* grid-rows-[repeat(2,_530px)] */}
-        <div className="grid auto-rows-auto grid-cols-1 md:grid-cols-2 gap-8 pt-10">
-          {pageData.length <= 0 ? (
+        <div className="grid auto-rows-auto grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-28 pt-10">
+          {pageData && pageData.length <= 0 ? (
             <div className="w-full h-full flex flex-row justify-center items-center ">
               <HashLoader color="#FFC26F" loading={true} size={100} />
             </div>
           ) : (
-            pageData.map(
+            pageData?.map(
               ({ caseStudyId, heading, productImage, description }: CaseStudy, index:number) => {
                 return (
                   <div className="" key={index}>
@@ -150,7 +152,7 @@ Work.getLayout = (page: ReactElement) => {
       <div className="relative">
         <Navbar />
       </div>
-      <main className="mt-32 xl:max-w-[1460px] xl:mx-auto">{page}</main>
+      <main className="mt-44 xl:max-w-[1460px] xl:mx-auto">{page}</main>
       <Footer />
     </>
   );
@@ -167,6 +169,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     pageData = res.data;
   } catch (error) {
     console.error(error);
+
+    return {
+      props: {
+        pageData: caseStudiesList
+      },
+    };
   }
 
   return {

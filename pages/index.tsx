@@ -28,6 +28,7 @@ import api from "@/lib/api";
 import emailjs from "emailjs-com";
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
+import { caseStudiesList } from "@/data/caseStudies/caseStudiesList";
 require("dotenv").config();
 
 const TwoColGrid = dynamic(() => import("@/components/TwoColGrid/TwoColGrid"), {
@@ -132,6 +133,9 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
   };
 
   const renderCaseStudies = () => {
+    if (!caseStudies) {
+      return null;
+    }
     const indexes = getRandomIndexesOutOfArrLength(2, caseStudies.length);
     console.log(indexes);
     return caseStudies
@@ -263,17 +267,18 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
       </section>
 
       {/* ---------------------------------------------Our Work ----------------------------------*/}
-      <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
-        <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16 2xl:mb-32">
-          <Heading2>Our Work</Heading2>
-          <SubHeading1>
-            Since 2019, Ebnite helped many clients to reach their digital
-            goals. Here are some success stories.
-          </SubHeading1>
-        </div>
+      {caseStudies ? (
+        <section className="relative pt-10 lg:pt-32 px-6 lg:px-20">
+          <div className="w-full lg:w-3/4 mx-auto text-center lg:mb-16 2xl:mb-32">
+            <Heading2>Our Work</Heading2>
+            <SubHeading1>
+              Since 2019, Ebnite helped many clients to reach their digital
+              goals. Here are some success stories.
+            </SubHeading1>
+          </div>
 
-        {renderCaseStudies()}
-        {/* {caseStudies?.map(
+          {renderCaseStudies()}
+          {/* {caseStudies?.map(
           ({ caseStudyId, productImage, heading, description }, index, arr) => {
             // getRandomIndexesOutOfArrLength(2,arr.length));
             // const indexes = getRandomIndexesOutOfArrLength(2,arr.length));
@@ -293,7 +298,7 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
           }
         )} */}
 
-        {/* <TwoColGrid
+          {/* <TwoColGrid
           caseStudyId="1"
           imageSrc="/static/images/pages/home/works-4.png"
           category="DASHBOARD"
@@ -308,19 +313,21 @@ const Home: NextPageWithLayout<Props> = ({ caseStudies }: Props) => {
           content="Developed by our team, this innovative Property Management App revolutionizes Immobiliaria's operations. Seamlessly monitor properties, tenant communication, and financial tasks across devices. Robust encryption ensures data security. Our dedication to excellence is evident in this app, streamlining real estate management for heightened efficiency and client satisfaction."
           swapSides
         /> */}
-      </section>
+        </section>
+      ) : null}
 
       {/* ---------------------------------------------Let's talk ----------------------------------*/}
       <section className="relative pt-10 lg:pt-16 px-6 lg:px-20">
         <div className="w-full flex flex-row gap-12 flex-wrap justify-center lg:gap-8 lg:flex-nowrap lg:flex-row lg:justify-between">
           {talkToUsCardList.map(
-            ({ imageSrc, title, description, buttonText }, index) => (
+            ({ imageSrc, title, description, buttonText, email }, index) => (
               <Card2
                 key={index}
                 imageSrc={imageSrc}
                 title={title}
                 description={description}
                 buttonText={buttonText}
+                email={email}
               />
             )
           )}
@@ -537,6 +544,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     caseStudies = res.data;
   } catch (error) {
     console.error(error);
+
+    return {
+      props: {
+        caseStudies: caseStudiesList
+      },
+    };
   }
 
   return {

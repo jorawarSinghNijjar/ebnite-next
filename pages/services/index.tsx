@@ -180,7 +180,7 @@ Services.getLayout = (page: ReactElement) => {
       <div className="relative">
         <Navbar />
       </div>
-      <main className="mt-32 xl:max-w-[1460px] xl:mx-auto">{page}</main>
+      <main className="mt-44 xl:max-w-[1460px] xl:mx-auto">{page}</main>
       <Footer />
     </>
   );
