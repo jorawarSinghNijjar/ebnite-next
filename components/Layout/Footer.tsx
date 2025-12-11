@@ -30,7 +30,7 @@ const Footer = () => {
                 address="#1014 - 4789 YONGE ST
                 Toronto, Ontario M2N0G3"
                 phone="+1 431-276-9801"
-                email="info.dev.ebnite@gmail.com"
+                email="info@ebnite.com"
                 imageSrc="/static/images/pages/footer/toronto.png"
               />  
             </div>
